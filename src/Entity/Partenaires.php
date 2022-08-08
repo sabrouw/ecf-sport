@@ -28,6 +28,10 @@ class Partenaires
     #[ORM\Column(length: 255)]
     private ?string $adresse_postale = null;
 
+    #[ORM\ManyToOne(inversedBy: 'id_partenaires')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Structures $structures = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +93,18 @@ class Partenaires
     public function setAdressePostale(string $adresse_postale): self
     {
         $this->adresse_postale = $adresse_postale;
+
+        return $this;
+    }
+
+    public function getStructures(): ?Structures
+    {
+        return $this->structures;
+    }
+
+    public function setStructures(?Structures $structures): self
+    {
+        $this->structures = $structures;
 
         return $this;
     }
