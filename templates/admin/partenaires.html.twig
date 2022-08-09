@@ -1,0 +1,24 @@
+{% extends 'base.html.twig'%}
+
+
+
+    {% block title %}<title>Interface de gestion de partenaires</title>{% endblock title %}
+    
+    {% block main %} 
+    <header>
+    <h1>Administrer les partenaires</h1>
+    </header>
+    {% for partenaire in partenaires %}
+    <article>
+    <h2>Nom: {{ partenaires.name }}</h2>  
+    <h3>Id: {{ partenaires.id }}</h3>
+        <H4> Login: {{ partenaires.login }}</h4>
+       
+        <button type="submit" name"modifier_partenaires">Modifier partenaire</button>
+        <button type="submit" name"activer_partenaires">Activier partenaire</button>
+        <button type="submit" name"voir_partenaires">Voir partenaire</button>
+        
+
+    {% endfor %}
+    
+    {% endblock main %}

@@ -27,13 +27,13 @@ class Structures
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\OneToMany(mappedBy: 'structures', targetEntity: Partenaires::class)]
+    /*#[ORM\OneToMany(mappedBy: 'structures', targetEntity: Partenaires::class)]
     private Collection $id_partenaires;
 
     public function __construct()
     {
         $this->id_partenaires = new ArrayCollection();
-    }
+    }*/
 
     public function getId(): ?int
     {
