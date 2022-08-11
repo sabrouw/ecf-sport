@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +25,7 @@
 
     {% block title %}<title>Interface de gestion de partenaires</title>{% endblock title %}
     
-    {% block main %} 
+    {% block body %} 
     <header>
     <h1>Administrer les partenaires</h1>
     </header>
@@ -37,10 +37,7 @@
        
         <button type="submit" name"modifier_partenaires">Modifier partenaire</button>
         <button type="submit" name"activer_partenaires">Activier partenaire</button>
-        <button type="submit" name"voir_partenaires">Voir le partenaire sur le site</button>
-        
-        
-
-    {% endfor %}
+        <button type="submit" name"voir_partenaires">Voir le partenaire sur le site</button>     
     
-    {% endblock main %}
+        {% endfor %}
+   {% endblock body %}
