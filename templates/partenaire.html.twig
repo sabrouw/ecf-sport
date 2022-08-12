@@ -1,7 +1,7 @@
  {% extends 'base.html.twig' %}
  
  {% block body %}
- {% for partenaire in partenaire %}
+ 
     
     <h2>Nom: {{ partenaire.name }}</h2>  
     <h3>Id: {{ partenaire.id }}</h3>
@@ -9,8 +9,8 @@
        
         <button type="submit" name"modifier_partenaire">Modifier partenaire</button>
         <button type="submit" name"activer_partenaire">Activier partenaire</button>
-        <button type="submit" name"voir_partenaire">Voir le partenaire sur le site</button>     
+            
     
     
-    {% endfor %}
+    
     {% endblock body %}

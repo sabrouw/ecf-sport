@@ -8,6 +8,12 @@
     {% block title %}<title>Document</title>{% endblock title %}
 </head>
 <body>
+<header>
+<form action="{{path ('résultat_recherche')}}">
+<input type="text" name="search">
+<input type="submit">
+</form>
+</header>
     {% block header %} {% endblock header %}
     {% block body %} {% endblock body %}
     {% block main %} {% endblock main %}
