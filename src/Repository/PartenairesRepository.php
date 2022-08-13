@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\Partenaires;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Routing\Annotation\Route;
+
 
 /**
  * @extends ServiceEntityRepository<Partenaires>
@@ -20,6 +22,19 @@ class PartenairesRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Partenaires::class);
     }
+
+    #[Route ('/resultat',name:'resultat')]
+    public function searchPartenaire($search): array
+    {
+    $qb = $this->createQueryBuilder(alias:'partenaires');
+    
+    $query = $qb->select(select:'partenaires')
+    //evite les injections sql par un hacker
+    ->where('partenaires.name LIKE :search')
+    ->setParameter(key:'search',value:'%'.$search.'%')
+    ->getQuery();
+    return $query ->getResult();
+}
 
     public function add(Partenaires $entity, bool $flush = false): void
     {

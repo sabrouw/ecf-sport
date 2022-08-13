@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class PartenaireController extends AbstractController
 {#[Route('/partenaires', name: 'partenaires')]
 //requete sql pour récupérer tous les articles
@@ -27,7 +28,15 @@ class PartenaireController extends AbstractController
         ]);
     }
 
-    public function searchPartenaire(Request $request)
-    {$search = $request->query->get('résultat_recherche');
+    //
+    #[Route('/resultat', name:'resultat')]
+    public function searchPartenaire(Request $request, PartenairesRepository $partenairesRepository)
+    {
+    $search = $request->query->get('search');
+    $partenaire = $partenairesRepository -> searchPartenaire($search);
+    
+        return $this->render('resultatpartenaire.html.twig', [
+            'partenaires' => $partenaire
+        ]);
  }
 }
