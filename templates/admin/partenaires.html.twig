@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interface admin</title>
-</head>
-<body>
-
+{% extends 'admin/base.html.twig' %}
+  {% block title %}<title>Interface de gestion de partenaires</title>{% endblock title %}
+ {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
+ 
+ {% block header %}
  <header class="header">
         <nav class="menu">
             <ul class="menu-items">
@@ -15,29 +10,31 @@
             </ul>
         </nav>
     </header>     
-    <div> <a href=""> Creer un partenaire </a></div>
-</body>
-</html>
-
-
-
-
-
-    {% block title %}<title>Interface de gestion de partenaires</title>{% endblock title %}
+{% endblock header %}
+    {% block body %}
     
-    {% block body %} 
-    <header>
+    <div> <a href=""> Creer un partenaire </a></div>
+
+
+
+
+
+
+   
+    
+     
+    
     <h1>Administrer les partenaires</h1>
-    </header>
+    
     {% for partenaires in partenaires %}
-    <article>
+    
     <h2>Nom: {{ partenaires.name }}</h2>  
     <h3>Id: {{ partenaires.id }}</h3>
         <H4> Login: {{ partenaires.login }}</h4>
        
         <button type="submit" name"modifier_partenaires">Modifier partenaire</button>
         <button type="submit" name"activer_partenaires">Activier partenaire</button>
-        <button type="submit" name"voir_partenaires">Voir le partenaire sur le site</button>     
+        <button type="submit" name"voir_partenaires"><a href="{{ path ('partenaire', {'id': partenaires.id}) }}" > Voir le partenaire sur le site </a></button>     
     
         {% endfor %}
    {% endblock body %}

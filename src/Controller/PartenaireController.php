@@ -32,6 +32,7 @@ class PartenaireController extends AbstractController
     #[Route('/resultat', name:'resultat')]
     public function searchPartenaire(Request $request, PartenairesRepository $partenairesRepository)
     {
+        //get ('name:input et dans l'url')
     $search = $request->query->get('search');
     $partenaire = $partenairesRepository -> searchPartenaire($search);
     

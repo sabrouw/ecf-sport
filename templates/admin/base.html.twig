@@ -1,4 +1,97 @@
-//on met un header stylé et on met {% extends "admin/base.html.twig" %} dans partenaire
-    {% block header %} {% endblock header %}
-    {% block body %} {% endblock body %}
-    {% block main %} {% endblock main %}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"/>
+   {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
+    {% block title %}<title>Admin Tableau de bord</title>{% endblock %}
+  </head>
+  
+  <body id="body">
+  <header>
+<h1> ESPACE ADMINISTRATION </h1>
+<header classe="header">
+
+  
+<nav class="nav">
+  
+<ul class="menu-items">
+<li><a href="{{ path ('home') }}">Acceuil</a></li>
+<li><a href="{{ path ('login') }}">Admin</a></li>
+
+</ul>
+</nav>
+<form class="d-flex" action="{{path ('resultat')}}">
+        <input class="form-control me-sm-2" type="text" placeholder="Rechercher un partenaire" name="search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>
+       </form>
+
+</header>
+{% block header %} {% endblock header %}
+
+{% block body %} {% endblock body %}
+    
+        
+{% block form %} {% endblock form %}
+        
+        
+            
+            
+{% block main %} {% endblock main %}
+      <main></main>
+          
+
+        
+{% block login %} {% endblock login %}
+          
+         
+             
+
+            
+              
+
+            
+                
+          
+                 
+
+            
+              
+
+              
+
+                
+
+                
+
+                
+            
+<!--debut sidebar-->
+     
+        
+           
+
+       
+          
+          
+          
+            
+          
+          
+          
+      
+    
+
+    
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="{{ asset ('assets/javascript/app.js') }}"></script>
+  </body>
+</html>
+ 
