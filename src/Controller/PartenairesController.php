@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PartenairesController extends AbstractController
 {#[Route("/partenaires", name:"partenaires")]
     public function partenaires (PartenairesRepository $partenairesRepository)
-    {//Repository permet de faire des requetes sql en bdd avec findAll()
+    { //Repository permet de faire des requetes sql en bdd avec findAll()
        $partenaires = $partenairesRepository->findAll();
        //envoie mon contenu de ma bdd dans la variable $partenaires 
        //on affiche $partenaires dans fichier twig

@@ -10,9 +10,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PartenaireController extends AbstractController
 {#[Route('/partenaires', name: 'partenaires')]
+    
 //requete sql pour récupérer tous les articles
     public function partenaires(PartenairesRepository $partenairesRepository)
-    {
+    {  
         $partenaires = $partenairesRepository->findAll();
         return $this->render('partenaires.html.twig', [
             'partenaires' => $partenaires,

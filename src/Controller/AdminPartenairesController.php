@@ -37,6 +37,9 @@ class AdminPartenairesController extends AbstractController
     #[Route('/admin/partenaires/{id}/delete', name:'admin_partenaires_delete')]
     public function deletePartenaire($id, PartenairesRepository $partenairesRepository, EntityManagerInterface $entityManagerInterface){
     $partenaire = $partenairesRepository->find($id);
+    $entityManagerInterface -> remove($partenaire);
+    $entityManagerInterface -> flush();
+    return $this -> redirectToRoute('admin_partenaires');
    
 }
 //permet à l'administrateur de creer une entité

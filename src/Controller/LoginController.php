@@ -12,7 +12,7 @@ class LoginController extends AbstractController
     #[Route("/login", name: "login")]
     
     public function index(AuthenticationUtils $authenticationUtils): Response
-    {         
+    {   
         $error = $authenticationUtils->getLastAuthenticationError();   
         $lastUsername = $authenticationUtils->getLastUsername();
         return $this->render('login.html.twig', [

@@ -35,6 +35,6 @@
         <button type="submit" name"modifier_partenaires">Modifier partenaire</button>
         <button type="submit" name"activer_partenaires">Activier partenaire</button>
         <button type="submit" name"voir_partenaires"><a href="{{ path ('partenaire', {'id': partenaires.id}) }}" > Voir le partenaire sur le site </a></button>     
-    
+        <button type="submit" name"supprimer_partenaires"><a href="{{ path ('admin_partenaires_delete') }}" > Supprimer </a></button>
         {% endfor %}
    {% endblock body %}
