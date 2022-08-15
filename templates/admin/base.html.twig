@@ -12,6 +12,7 @@
   </head>
   
   <body id="body">
+  {% block header %} 
   <header>
 <h1> ESPACE ADMINISTRATION </h1>
 <header classe="header">
@@ -21,8 +22,9 @@
   
 <ul class="menu-items">
 <li><a href="{{ path ('admin_home') }}">Acceuil</a></li>
-<li><a href="{{ path ('login') }}">Admin</a></li>
-
+<li><a href="{{ path ('admin_partenaires') }}">Gestion des partenaires</a></li>
+<li><a href="{{ path ('admin_structures') }}">Gestion des structures</a></li>
+<li><a href="{{ path ('logout') }}">Déconnection</a></li>
 </ul>
 </nav>
 <form class="d-flex" action="{{path ('resultat')}}">
@@ -30,8 +32,9 @@
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>
        </form>
 
+
 </header>
-{% block header %} {% endblock header %}
+{% endblock %}
 
 {% block body %} {% endblock body %}
     
