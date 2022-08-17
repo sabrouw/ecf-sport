@@ -1,55 +1,53 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-      crossorigin="anonymous"/>
-   {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
+{% extends 'home.html.twig' %}
+   {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock  %}
     {% block title %}<title>Admin Tableau de bord</title>{% endblock %}
-  </head>
   
-  <body id="body">
-  {% block header %} 
-  <header>
-<h1> ESPACE ADMINISTRATION </h1>
-<header classe="header">
-
   
-<nav class="nav">
+{% block header %}{% endblock %}
+{% block menu %}
+    <header class"admin_header">
+      <h1> ESPACE ADMINISTRATION </h1>
+    
   
-<ul class="menu-items">
-<li><a href="{{ path ('admin_home') }}">Acceuil</a></li>
-<li><a href="{{ path ('admin_partenaires') }}">Gestion des partenaires</a></li>
-<li><a href="{{ path ('admin_structures') }}">Gestion des structures</a></li>
-<li><a href="{{ path ('logout') }}">Déconnection</a></li>
-</ul>
+  <nav class="nav">
+      <ul class="menu-items">
+        <li><a href="{{ path ('home') }}">Connection</a></li>
+        <li><a href="{{ path ('admin_partenaires') }}">Gestion des partenaires</a></li>
+        <li><a href="{{ path ('admin_structures') }}">Gestion des structures</a></li>
+        <li><a href="{{ path ('logout') }}">Déconnection</a></li>
+      </ul>
 </nav>
-<form class="d-flex" action="{{path ('resultat')}}">
-        <input class="form-control me-sm-2" type="text" placeholder="Rechercher un partenaire" name="search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>
-       </form>
-
-
 </header>
-{% endblock %}
+{% endblock  %}
 
-{% block body %} {% endblock body %}
+ 
+
+{% block body %}
+<h1>Bienvenue admin </h1>
+{% endblock body %}
     
         
-{% block form %} {% endblock form %}
-        
-        
-            
-            
-{% block main %} {% endblock main %}
-      <main></main>
-          
+{% block form %}
+{#% for message in app.flashes ('success') %#}
+        <div> {{ message }}</div>
+        {% endfor %}
+{% endblock form %}
 
-        
-{% block login %} {% endblock login %}
+{% block login %} 
+<h1 class="login-h1"> Merci de vous authentifier </h1>
+   <form class="form-login" action="{{ path ('login') }}" method="post">
+        <label for="username">Email:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="_password"/>
+
+        {# If you want to control the URL the user is redirected to on success
+        <input type="hidden" name="_target_path" value="/account"/> #}
+
+        <button type="submit">login</button>
+    </form>
+{% endblock login %}
           
          
              
@@ -73,7 +71,7 @@
 
                 
             
-<!--debut sidebar-->
+
      
         
            
@@ -93,8 +91,4 @@
     
     
 
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="{{ asset ('assets/javascript/app.js') }}"></script>
-  </body>
-</html>
- 
+    

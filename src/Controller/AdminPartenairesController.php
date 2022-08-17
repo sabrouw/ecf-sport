@@ -29,7 +29,8 @@ class AdminPartenairesController extends AbstractController
     public function partenaire ($id, PartenairesRepository $partenairesRepository)
     {//recupere l'article par l'id dans l'url
         $partenaire = $partenairesRepository->find($id);
-        return $this->render('partenaire.html.twig', [
+        $this -> addFlash(type:'success', message:'Résultat de votre recherche');
+        return $this->render('partenaires/partenaire.html.twig', [
             'partenaire' => $partenaire
         ]);
     }
@@ -39,6 +40,7 @@ class AdminPartenairesController extends AbstractController
     $partenaire = $partenairesRepository->find($id);
     $entityManagerInterface -> remove($partenaire);
     $entityManagerInterface -> flush();
+    $this -> addFlash(type:'success', message:'Le partenaire a bien été supprimé');
     return $this -> redirectToRoute('admin_partenaires');
    
 }
@@ -54,7 +56,7 @@ class AdminPartenairesController extends AbstractController
             $entityManagerInterface->persist($partenaire);
             $entityManagerInterface->flush();
         }
-
+        $this -> addFlash(type:'success', message:'Le partenaire a bien été ajouté');
         return $this->render('admin/partenaires_insert.html.twig', [
             'partenaireForm' => $partenaireForm ->createView()
         ]);

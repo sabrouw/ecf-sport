@@ -14,7 +14,7 @@ class PartenairesController extends AbstractController
        //envoie mon contenu de ma bdd dans la variable $partenaires 
        //on affiche $partenaires dans fichier twig
 
-       return $this->render("partenaires.html.twig", [
+       return $this->render("partenaires/partenaires.html.twig", [
         'partenaires' => $partenaires]);
     }
   

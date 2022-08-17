@@ -15,7 +15,7 @@ class PartenaireController extends AbstractController
     public function partenaires(PartenairesRepository $partenairesRepository)
     {  
         $partenaires = $partenairesRepository->findAll();
-        return $this->render('partenaires.html.twig', [
+        return $this->render('partenaires/partenaires.html.twig', [
             'partenaires' => $partenaires,
         ]);
     }
@@ -24,7 +24,7 @@ class PartenaireController extends AbstractController
     public function partenaire($id, PartenairesRepository $partenairesRepository)
     {
         $partenaire = $partenairesRepository->find($id);
-        return $this->render('partenaire.html.twig', [
+        return $this->render('partenaires/partenaire.html.twig', [
             "partenaire" => $partenaire,
         ]);
     }
@@ -37,7 +37,7 @@ class PartenaireController extends AbstractController
     $search = $request->query->get('search');
     $partenaire = $partenairesRepository -> searchPartenaire($search);
     
-        return $this->render('resultatpartenaire.html.twig', [
+        return $this->render('partenaires/resultatpartenaire.html.twig', [
             'partenaires' => $partenaire
         ]);
  }

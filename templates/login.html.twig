@@ -1,11 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'home.html.twig' %}
+{% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
 {% block title %}<title>login</title>{% endblock title %}
 {% block body %}
 {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
+    
 
 
 {% block login %} 

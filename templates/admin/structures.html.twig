@@ -1,0 +1,29 @@
+{% extends 'home.html.twig' %}
+
+{% block header %}
+ <header class="header">
+        
+                <h2> Bonjour {{app.user.email}}</h2>
+           
+    </header>     
+{% endblock header %}
+    {% block body %}
+    
+    <div> <a href=""> Creer une structure </a></div>
+
+     
+    
+    <h1>Administrer les structures</h1>
+    
+    {% for structures in structures %}
+    
+    <h2>Nom: {{ structures.name }}</h2>  
+    <h3>Id: {{ structures.id }}</h3>
+        <H4> Login: {{ structures.login }}</h4>
+       
+        <button type="submit" name"modifier_structure">Modifier structure</button>
+        <button type="submit" name"activer_structure">Activier structure</button>
+        <button type="submit" name"voir_structure"><a href="{{ path ('structure', {'id': structures.id}) }}" > Voir la structure sur le site </a></button>     
+        <button type="submit" name"supprimer_structure"><a href="{{ path ('admin_structures_delete', {'id': structures.id} ) }} " > Supprimer </a></button>
+        {% endfor %}
+   {% endblock body %}

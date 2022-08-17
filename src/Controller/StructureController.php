@@ -2,17 +2,19 @@
 
 namespace App\Controller;
 
+use App\Repository\StructuresRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class StructureController extends AbstractController
 {
-    #[Route('/structure', name: 'app_structure')]
-    public function index(): Response
+    #[Route('/structure', name: 'structure')]
+    public function structure($id, StructuresRepository $structuresRepository)
     {
-        return $this->render('structure/index.html.twig', [
-            'controller_name' => 'StructureController',
+        $structure = $structuresRepository->find($id);
+        return $this->render('structures/structures.html.twig', [
+            "structure" => $structure,
         ]);
     }
 }

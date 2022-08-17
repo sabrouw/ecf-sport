@@ -1,0 +1,19 @@
+{% extends 'home.html.twig' %}
+{% block title %}<title>structures</title>{% endblock title %}
+   {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
+
+
+   {% block body %}
+ {% for structures in structures %}
+    
+    <h2>Nom: {{ structures.name }}</h2>  
+    <h3>Id: {{ structures.id }}</h3>
+        
+       
+        <button type="submit" name"modifier_structure">Modifier structure</button>
+        <button type="submit" name"activer_structure">Activier structure</button>
+        <button type="submit" name"voir_structure"><a href="{{ path ('structure', {'id': structures.id}) }}" > Voir la structure sur le site </a> </button>     
+    
+    
+    {% endfor %}
+    {% endblock body %}

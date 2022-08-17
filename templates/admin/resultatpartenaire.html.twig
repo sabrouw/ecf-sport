@@ -13,7 +13,7 @@
        
         <button type="submit" name"modifier_partenaire">Modifier partenaire</button>
         <button type="submit" name"activer_partenaire">Activier partenaire</button>
-        <button type="submit" name"voir_partenaire"><a href="{{ path ('partenaire', {'id': partenaire.id}) }}" > Voir le partenaire sur le site </a> </button>     
+        <button type="submit" name"voir_partenaire"><a href="{{ path ('partenaire','structure' {'id': partenaire.id, structure.id}) }}" > Voir sur le site </a> </button>     
     
         {% endfor %}
         

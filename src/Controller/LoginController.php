@@ -15,6 +15,7 @@ class LoginController extends AbstractController
     {   
         $error = $authenticationUtils->getLastAuthenticationError();   
         $lastUsername = $authenticationUtils->getLastUsername();
+        $this -> addFlash(type:'success', message:'Vous etes connecté');
         return $this->render('login.html.twig', [
             'last_username' => $lastUsername,
             'error'         => $error,
@@ -24,6 +25,7 @@ class LoginController extends AbstractController
     #[Route("/logout", name:"logout")]
     public function logout():Response
     {
+        $this -> addFlash(type:'success', message:'Vous etes déconnecté');
         return $this -> redirectToRoute('home');
     }
 }

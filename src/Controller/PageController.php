@@ -20,7 +20,7 @@ class PageController extends AbstractController
     #[Route('/admin/home', name: 'admin_home')]
     public function adminHome(): Response
     {
-        return $this->render('admin/home.html.twig', [
+        return $this->render('admin/base.html.twig', [
             'controller_name' => 'PageController',
         ]);
     }
