@@ -1,19 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
-
-
 *,
-
 ::before,
-
 ::after {
-
   box-sizing: border-box;
-
   margin: 0;
-
   padding: 0;
 
 }
@@ -21,11 +13,7 @@
 
 
 body {
-
-  
-
   font-family: Raleway, Helvetica, sans-serif;
-
   position: relative;
 
 }
@@ -35,13 +23,9 @@ body {
 /* New Stacking Context with Fixed */
 
 .side-nav {
-
   position: fixed;
-
   height: 100vh;
-
   left: 0;
-
   top: 0;
 
 }
@@ -51,11 +35,8 @@ body {
 /* To hide the sub-nav */
 
 .wrapper {
-
   background: #333;
-
   height: 100vh;
-
   width: 75px;
 
 }
@@ -63,29 +44,19 @@ body {
 
 
 .three-dots-container {
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   height: 60px;
 
 }
 
 .dot {
-
   flex-shrink: 0;
-
   margin: 10px 3px;
-
   width: 10px;
-
   height: 10px;
-
   border-radius: 50%;
-
   background: #000;
 
 }
@@ -99,154 +70,158 @@ body {
 
 
 .nav-bloc {
-
   padding: 20px 0;
-
   display: flex;
-
   justify-content: center;
-
   cursor: pointer;
-
   border-bottom: 1px solid #f2f2f21e;
 
 }
 
 .nav-bloc:hover {
-
   background: rgb(24, 24, 24);
 
 }
 
 .nav-bloc:hover .sub-nav {
-
   transform: translateX(75px);
 
 }
 
 .nav-bloc svg {
-
   width: 25px;
-
   fill: #f2f2f2;
-
   transition:  0.2s ease-in-out ;
 
 }
 
 .nav-bloc:hover  svg {
-
   fill: #50bddf;
 
 }
 
 .sub-nav {
-
   padding: 0px;
-
   width: 200px;
-
   height: 100vh;
-
   position: absolute;
-
   top: 0;
-
   left: 0;
-
   background: #333;
-
   z-index: -1;
-
   color: white;
-
   /* Hidden at the left side */
-
   transform: translateX(-100%);
-
   transition: transform 0.2s ease-in-out;
-
   border-right: 2px solid #000;
-
   border-left: 2px solid #000;
 
 }
 
 .sub-nav h2 {
-
   font-family: open sans, sans-serif;
-
   height: 60px;
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   background: #222;
 
 }
 
 .sub-nav ul {
-
   list-style-type: none;
 
 }
 
 .sub-nav li {
-
   padding: 15px 20px;
 
 }
 
 .sub-nav li:hover {
-
   background: rgba(160, 160, 160, 0.555);
 
 }
 
 .sub-nav li a {
-
    color: #f2f2f2;
-
    text-decoration: none;
 
 }
 
-
-
-form{}
-
+/*titre page d'acceuil*/
 .main-content {
-  margin-top: 10%;
-  padding-left: 30%;
-  color: black;
-
+  margin-top: 5%;
+    color: black;
 }
 
 .main-content h1 {
-
   font-family: Open Sans, sans-serif;
-
   text-align: center;
-
   margin: 30px 0;
-
   font-size: 40px;
 
 }
 
 
-
 .main-content p {
-
   max-width: 780px;
-
   margin: 0 auto;
-
   padding: 0 30px;
-
   line-height: 1.7;
+}
 
-};
+
+h1{
+  margin-top: 3%;
+  margin-left: 40%;
+  justify-content: center;
+}
+
+#form_login{
+  margin-left: 15%;
+  margin-top: 10%;
+  padding-right: 5%;
+  padding: 5%;
+
+}
+
+#admin-menu{
+  margin-left: 15%;
+  margin-top: 10%;
+  padding-right: 5%;
+  padding: 5%;
+}
+
+#title_admin{
+  margin-left: 40%;
+  margin-top: 3%;
+}
+
+#bonjour{
+  margin-bottom: 3%;
+}
+#titre_admin_partenaires{
+  margin-left: 40%;
+  margin-top: 5%;
+
+}
+#zone_partenaires{
+  margin-left: 10%;
+}
+#creer_partenaire{
+margin-left: 10%;
+}
+
+#form_insert_partenaire{
+  margin-left: 10%;
+}
+#titre_form_insert_partenaire{
+  margin-top: 3%;
+  margin-left: 40%;
+  margin-bottom: 5%;
+}
+.menu-items{
+  margin-left: 10%;
+}
+

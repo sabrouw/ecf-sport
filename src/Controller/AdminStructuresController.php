@@ -3,12 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Structures;
-use App\Repository\StructuresRepository;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Form\StructuresType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\StructuresRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class AdminStructuresController extends AbstractController
 {
@@ -18,7 +19,7 @@ class AdminStructuresController extends AbstractController
             //envoie mon contenu de ma bdd dans la variable $strucures 
             //on affiche $partenaires dans fichier twig
      
-            return $this->render("structures.html.twig", [
+            return $this->render("admin/structures.html.twig", [
              'structures' => $structures]);
          }
           //partie controller de la creation du moteur de recherche
@@ -26,7 +27,7 @@ class AdminStructuresController extends AbstractController
 public function structure ($id,StructuresRepository $structuresRepository)
 {//recupere l'article par l'id dans l'url
     $structure= $structuresRepository->find($id);
-    return $this->render('structure.html.twig', [
+    return $this->render('admin/structure.html.twig', [
         'strucutre' => $structure
     ]);
 }
@@ -53,8 +54,8 @@ public function insertStructure(Request $request, EntityManagerInterface $entity
         $entityManagerInterface->flush();
     }
     $this -> addFlash(type:'success', message:'La structure a bien été ajouté');
-    return $this->render('admin/structures_insert.html.twig', [
-        'partenaireForm' => $structureForm ->createView()
+    return $this->render('admin/structure_insert.html.twig', [
+        'structureForm' => $structureForm ->createView()
     ]);
    
 }

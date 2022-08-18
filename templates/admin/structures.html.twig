@@ -1,19 +1,18 @@
 {% extends 'home.html.twig' %}
+ {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock  %}
+    {% block title %}<title>Admin Tableau de bord</title>{% endblock %}
 
 {% block header %}
- <header class="header">
-        
-                <h2> Bonjour {{app.user.email}}</h2>
-           
-    </header>     
-{% endblock header %}
-    {% block body %}
-    
-    <div> <a href=""> Creer une structure </a></div>
 
-     
+ <header class="header">
+        <h1>Administrer les structures</h1>  
+</header>     
+{% endblock header %}
+
+{% block body %}
+    <h2> Bonjour {{app.user.email}}</h2>
+    <div> <a href="{{ path ("admin_insert_structure") }}"> Creer une structure </a></div>
     
-    <h1>Administrer les structures</h1>
     
     {% for structures in structures %}
     

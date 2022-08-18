@@ -86,10 +86,16 @@
           <div class="sub-nav">
             <h2>Admin</h2>
             <ul>
+            <li>
+            <a href="{{ path ('home') }}">Acceuil</a>
+            </li>
               <li>
                 <a href="{{ path ('login') }}">Connection</a>
               </li>
-          
+            <li>
+            <a href="{{ path ('logout') }}">Déconnection</a>
+            </li>
+             
             </ul>
           </div>
         </div>
@@ -180,14 +186,18 @@
 
 
 
-    {% block login %}
-<main class="main-content">
-      <h1>Bienvenue</h1>
-      <p> </p>
-
     </main>
   </header>
+
+    {% block body %}
+<main class="main-content">
+      <h1 id="home_bienvenue">Bienvenue</h1>
+      <p> Bienvenue sur notre application de gestion de franchises, Vous aurez la possibilité de créér modifier et supprimé des franchises ainsi que gerer leurs structures.
+      Merci de lire attentivement le fichier pdf qui vous a été fourni dans l'email d'inscription. Dans le cas ou la solution ne s'y trouverait pas merci de nous contacter avec le formulaire que vous trouverez dans le menu.
+      Pour commencer, merci de vous authentifier.
+      </p>
   {% endblock %}
+  {% block depart %}{% endblock depart %}
       
   
  
@@ -195,9 +205,9 @@
 
 <!--message de succes formulaire-->
 {% block form %}{% endblock %}
-  {% for message in app.flashes ('success') %} 
+  {#% for message in app.flashes ('success') %} 
     <div> {{ message }}</div>
-  {% endfor %}
+  {% endfor %#}
 
         
 
@@ -236,7 +246,7 @@
 
                 
             
-<!--debut sidebar-->
+
      
         
            

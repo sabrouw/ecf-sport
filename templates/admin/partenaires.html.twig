@@ -3,29 +3,30 @@
  {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
  
  {% block header %}
- <header class="header">
+ <header id="header">
         
-                <h2> Bonjour {{app.user.email}}</h2>
+                <h1 id="titre_admin_partenaires">Administrer les partenaires</h1>
            
     </header>     
 {% endblock header %}
     {% block body %}
     
-    <div> <a href=""> Creer un partenaire </a></div>
+    <button id="creer_partenaire" ><a href="{{ path ("admin_insert_partenaire") }}"> Creer un partenaire </a></button>
 
-     
+      
     
-    <h1>Administrer les partenaires</h1>
-    
+    <div id="zone_partenaires">
     {% for partenaires in partenaires %}
     
-    <h2>Nom: {{ partenaires.name }}</h2>  
-    <h3>Id: {{ partenaires.id }}</h3>
-        <H4> Login: {{ partenaires.login }}</h4>
+    <h2 id="titre_partenaire">Nom: {{ partenaires.name }}</h2>  
+    <h3 id="id_partenaire">Id: {{ partenaires.id }}</h3>
+        <H4 id="login_partenaire"> Login: {{ partenaires.login }}</h4>
        
-        <button type="submit" name"modifier_partenaires">Modifier partenaire</button>
-        <button type="submit" name"activer_partenaires">Activier partenaire</button>
-        <button type="submit" name"voir_partenaires"><a href="{{ path ('partenaire', {'id': partenaires.id}) }}" > Voir le partenaire sur le site </a></button>     
-        <button type="submit" name"supprimer_partenaires"><a href="{{ path ('admin_partenaires_delete', {'id': partenaires.id} ) }} " > Supprimer </a></button>
+        {#<button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update")}}"> Modifier partenaire</a></button>#}
+        <button type="submit" name"activer_partenaires" id="activer_partenaires">Activier partenaire</button>
+        <button type="submit" name"voir_partenaires" id="voir_partenaires"><a href="{{ path ('partenaire', {'id': partenaires.id}) }}" > Voir le partenaire sur le site </a></button>     
+        <button type="submit" name"supprimer_partenaires"id="supprimer_partenaires"><a href="{{ path ('admin_partenaires_delete', {'id': partenaires.id} ) }} " > Supprimer </a></button>
         {% endfor %}
+
+</div>
    {% endblock body %}

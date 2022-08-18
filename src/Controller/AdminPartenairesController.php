@@ -62,4 +62,20 @@ class AdminPartenairesController extends AbstractController
         ]);
        
     }
+#[Route("/admin/partenaire/{id}/update", name:"admin_partenaire_update")]
+    public function updatePartenaire($id, PartenairesRepository $partenairesRepository, EntityManagerInterface $entityManagerInterface, Request $request){
+        $partenaire = $partenairesRepository->find($id);
+        $partenaireForm = $this->createForm(PartenairesType::class, $partenaire);
+        $partenaireForm->handleRequest($request);
+//si mon formulaire est soumis (post)et valide alors j'envoie les données en bdd (flush)
+        if ($partenaireForm->isSubmitted()&&$partenaireForm->isValid()){
+            $entityManagerInterface->persist($partenaire);
+            $entityManagerInterface->flush();
+        }
+        $this -> addFlash(type:'success', message:'Le partenaire a bien été mis à jour');
+        return $this->render('admin/partenaire_update.html.twig', [
+            'partenaireForm' => $partenaireForm ->createView()
+        ]);
+
+    }
 }

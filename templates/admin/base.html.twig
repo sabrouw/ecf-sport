@@ -6,36 +6,40 @@
 {% block header %}{% endblock %}
 {% block menu %}
     <header class"admin_header">
-      <h1> ESPACE ADMINISTRATION </h1>
+      <h1 class="title_admin"> ESPACE ADMINISTRATION </h1>
     
   
-  <nav class="nav">
-      <ul class="menu-items">
-        <li><a href="{{ path ('home') }}">Connection</a></li>
-        <li><a href="{{ path ('admin_partenaires') }}">Gestion des partenaires</a></li>
-        <li><a href="{{ path ('admin_structures') }}">Gestion des structures</a></li>
-        <li><a href="{{ path ('logout') }}">Déconnection</a></li>
-      </ul>
-</nav>
+  
 </header>
 {% endblock  %}
 
  
 
 {% block body %}
-<h1>Bienvenue admin </h1>
+<div class="admin-menu"><h2 id="admin_bienvenue"><h1 id="bonjour"> Bonjour {{app.user.email}} </h2>
+      <ul class="menu-items">
+        
+        <li><a href="{{ path ('admin_partenaires') }}">Gestion des partenaires</a></li>
+        <li><a href="{{ path ('admin_structures') }}">Gestion des structures</a></li>
+        
+      </ul>
+</div>
 {% endblock body %}
-    
+
+
+    {% block depart %} 
+    <a href="{{ path ("login") }}" id="depart"> lien </a>
+    {% endblock depart %} 
         
 {% block form %}
-{#% for message in app.flashes ('success') %#}
+{#% for message in app.flashes ('success') %}
         <div> {{ message }}</div>
-        {% endfor %}
+        {% endfor %#}
 {% endblock form %}
 
 {% block login %} 
-<h1 class="login-h1"> Merci de vous authentifier </h1>
-   <form class="form-login" action="{{ path ('login') }}" method="post">
+<h1 id="login-h1"> Merci de vous authentifier </h1>
+   <form id="form-login" action="{{ path ('login') }}" method="post">
         <label for="username">Email:</label>
         <input type="text" id="username" name="_username" value="{{ last_username }}"/>
 
@@ -48,6 +52,8 @@
         <button type="submit">login</button>
     </form>
 {% endblock login %}
+
+
           
          
              
