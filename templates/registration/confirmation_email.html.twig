@@ -1,7 +1,8 @@
 {% extends 'home.html.twig' %}
-   {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
-    {% block title %}<title>Tableau de bord</title>{% endblock %}
-
+  {% block title %}<title>page de confirmation d'envoi d'email</title>{% endblock title %}
+ {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
+ 
+ {% block body %}
 <h1>Hi! Please confirm your email!</h1>
 
 <p>
@@ -13,3 +14,5 @@
 <p>
     Cheers!
 </p>
+
+ {% endblock body %}
