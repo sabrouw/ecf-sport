@@ -6,7 +6,11 @@ services:
     image: Mariadb:10.8.3
 
     environment:
-      - MYSQL_ROOT_PASSWORD
+        MYSQL_ROOT_PASSWORD: root
+
+    ports:
+      - '3306'
+
 
       # You should definitely change the password in production
       
