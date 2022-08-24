@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Entity;
-
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\PartenairesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -9,11 +8,11 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 
-
+#[ApiResource (collectionOperations: ['get'], itemOperations: ['get'])]
 #[ORM\Entity(repositoryClass: PartenairesRepository::class)]
 
 
-class Partenaires extends User
+class Partenaires
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -21,32 +20,27 @@ class Partenaires extends User
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    
-    private ?string $name = null;
+        private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    
-    private ?string $login = null;
+        private ?string $login = null;
 
     #[ORM\Column(length: 255)]
     private ?string $email_gerant = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Password = null;
+        private ?string $Password = null;
 
     #[ORM\Column(length: 255)]
-    
-    private ?string $adresse_postale = null;
+        private ?string $adresse_postale = null;
 
     #[ORM\OneToMany(mappedBy: 'partenaires', targetEntity: Structures::class, orphanRemoval: true)]
-    
-    private Collection $structures_assoce;
+        private Collection $structures_assoce;
 
     #[ORM\OneToMany(mappedBy: 'ass_partenaires', targetEntity: Structures::class)]
-    
-    private Collection $structures_association;
+        private Collection $structures_association;
 
-    public function __construct()
+        public function __construct()
     {
         $this->structures_assoce = new ArrayCollection();
         $this->structures_association = new ArrayCollection();
@@ -95,7 +89,11 @@ class Partenaires extends User
         return $this;
     }
 
-    
+    public function getPassword():?string
+    {
+        return $this->Password;
+    }
+
     public function setPassword(string $Password): self
     {
         $this->Password = $Password;
