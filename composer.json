@@ -103,7 +103,9 @@
             "@auto-scripts"
         ],
         "compile":[
-            "php bin/console doctrine:migrations:migrate --write-sql"
+            "php bin/console doctrine:migrations:version 20220808175726 --add"
+            
+
 
         ]
     },
