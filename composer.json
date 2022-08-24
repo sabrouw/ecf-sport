@@ -97,17 +97,17 @@
         },
         "post-install-cmd": [
             "@auto-scripts",
-            "php bin/console doctrine:schema:update --force"
+            "php bin/console doctrine:schema:update --force",
+            "php bin/console doctrine:migrations:mirate"
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ],
-        "compile":[
-            "php bin/console doctrine:migrations:version 20220808175726 --add"
+        ]
+        
             
 
 
-        ]
+        
     },
     "conflict": {
         "symfony/symfony": "*"
