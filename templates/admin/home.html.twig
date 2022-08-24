@@ -1,0 +1,44 @@
+{% extends 'admin/base.html.twig' %}
+   {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock  %}
+    {% block title %}<title>Admin Tableau de bord</title>{% endblock %}
+  
+  
+{% block header %}{% endblock header %}
+{% block menu %}
+    
+{% endblock menu %}
+
+ 
+
+{% block body %}
+<div class="admin-menu"><h2 id="admin_bienvenue"><h1 id="bonjour"> Bonjour {{app.user.email}} </h2>
+      <ul class="menu-items">
+        <li><a href="{{ path ('admin_partenaires') }}">Gestion des partenaires</a></li>
+        <li><a href="{{ path ('admin_structures') }}">Gestion des structures</a></li>
+      </ul>
+</div>
+
+
+{% endblock body %}
+
+
+
+
+{% block login %} 
+<h1 id="login-h1"> Merci de vous authentifier </h1>
+   <form id="form-login" action="{{ path ('login') }}" method="post">
+        <label for="username">Email:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="_password"/>
+
+        {# If you want to control the URL the user is redirected to on success#}
+        <input type="hidden" name="_target_path" value="/account"/> 
+
+        <button type="submit">login</button>
+    </form>
+{% endblock login %}
+
+
+          

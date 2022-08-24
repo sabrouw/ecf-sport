@@ -1,20 +1,20 @@
-{% extends 'home.html.twig' %}
+{% extends 'admin/base.html.twig' %}
    {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock  %}
-    {% block title %}<title>Admin Tableau de bord</title>{% endblock %}
+    {% block title %}<title>Résultat de recherche partenaires</title>{% endblock %}
  
  {% block body %}
     
-       {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
+      
         
       {% for partenaire in partenaires %}
-    {% block title %}<title>resultat recherche</title>{% endblock title %}
+    
     <h2>Nom: {{ partenaire.name }}</h2>  
     <h3>Id: {{ partenaire.id }}</h3>
         
        
         <button type="submit" name"modifier_partenaire">Modifier partenaire</button>
         <button type="submit" name"activer_partenaire">Activier partenaire</button>
-        <button type="submit" name"voir_partenaire"><a href="{{ path ('partenaire','structure' {'id': partenaire.id, structure.id}) }}" > Voir sur le site </a> </button>     
+        <button type="submit" name"voir_partenaire"><a href="{{ path ('partenaire', {'id': partenaire.id}) }}" > Voir sur le site </a> </button>     
     
         {% endfor %}
         

@@ -37,7 +37,7 @@ class PartenaireController extends AbstractController
     $search = $request->query->get('search');
     $partenaire = $partenairesRepository -> searchPartenaire($search);
     
-        return $this->render('partenaires/resultatpartenaire.html.twig', [
+        return $this->render('admin/resultatpartenaire.html.twig', [
             'partenaires' => $partenaire
         ]);
  }

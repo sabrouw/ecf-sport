@@ -14,7 +14,9 @@
         <button type="submit" name"modifier_partenaire">Modifier partenaire</button>
         <button type="submit" name"activer_partenaire">Activier partenaire</button>
         <button type="submit" name"voir_partenaire"><a href="{{ path ('partenaire', {'id': partenaires.id}) }}" > Voir le partenaire sur le site </a> </button>     
-    
+         <ul>
+         <li> {{ permissions.name }} </li>
+         </ul>
     
     {% endfor %}
     {% endblock body %}

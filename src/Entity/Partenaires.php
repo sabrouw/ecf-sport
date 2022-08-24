@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PartenairesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PartenairesRepository::class)]
@@ -27,6 +29,18 @@ class Partenaires
 
     #[ORM\Column(length: 255)]
     private ?string $adresse_postale = null;
+
+    #[ORM\OneToMany(mappedBy: 'partenaires', targetEntity: structures::class, orphanRemoval: true)]
+    private Collection $structures_assoce;
+
+    #[ORM\OneToMany(mappedBy: 'ass_partenaires', targetEntity: structures::class)]
+    private Collection $structures_association;
+
+    public function __construct()
+    {
+        $this->structures_assoce = new ArrayCollection();
+        $this->structures_association = new ArrayCollection();
+    }
 
    
 
@@ -94,6 +108,40 @@ class Partenaires
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, structures>
+     */
+    public function getStructuresAssociation(): Collection
+    {
+        return $this->structures_association;
+    }
+
+    public function addStructuresAssociation(structures $structuresAssociation): self
+    {
+        if (!$this->structures_association->contains($structuresAssociation)) {
+            $this->structures_association->add($structuresAssociation);
+            $structuresAssociation->setAssPartenaires($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStructuresAssociation(structures $structuresAssociation): self
+    {
+        if ($this->structures_association->removeElement($structuresAssociation)) {
+            // set the owning side to null (unless already changed)
+            if ($structuresAssociation->getAssPartenaires() === $this) {
+                $structuresAssociation->setAssPartenaires(null);
+            }
+        }
+
+        return $this;
+    }
+
+    
+
+    
 
     
 

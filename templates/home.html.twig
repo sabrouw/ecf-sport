@@ -15,7 +15,7 @@
   {% block header %}{% endblock %}
      
 
-{% block menu %}{% endblock %}
+{% block menu %}{% endblock menu %}
          
     <!--<nav class="nav">
     <header class="header">
@@ -190,7 +190,7 @@
 
 
 
-    </main>
+    
   </header>
 
     {% block body %}
@@ -200,8 +200,11 @@
       Merci de lire attentivement le fichier pdf qui vous a été fourni dans l'email d'inscription. Dans le cas ou la solution ne s'y trouverait pas merci de nous contacter avec le formulaire que vous trouverez dans le menu.
       Pour commencer, merci de vous authentifier.
       </p>
-  {% endblock %}
-  {% block depart %}{% endblock depart %}
+  </main>
+  {% endblock body %}
+  {% block search %}{% endblock search %}
+  {% block retour %}{% endblock retour %}
+  
       
   
  

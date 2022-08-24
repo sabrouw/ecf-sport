@@ -1,0 +1,31 @@
+{% extends 'admin/base.html.twig' %}
+  {% block title %}<title>Interface de gestion des permissions par défaut</title>{% endblock title %}
+ {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
+ 
+ {% block header %}
+ <header id="header">
+        
+                <h1 id="titre_admin_partenaires">Administrer les partenaires</h1>
+           
+    </header>     
+{% endblock header %}
+    {% block body %}
+    
+    
+
+      
+    
+    <div id="zone_permissions">
+    {% for permissions in permissions %}
+    
+    <h2 id="titre_permissions">Nom: {{ permissions.name }}</h2>  
+    <h4 id="decription_permissions">Id: {{ permissions.description }}</h4>
+        <H5 id="activite_permissions"> Login: {{ permissions.activité }}</h5>
+       
+        {#<button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update")}}"> Modifier partenaire</a></button>#}
+        
+        
+        {% endfor %}
+
+</div>
+   {% endblock body %}

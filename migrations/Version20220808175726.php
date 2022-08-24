@@ -32,6 +32,6 @@ final class Version20220808175726 extends AbstractMigration
         $this->addSql('ALTER TABLE partenaires DROP FOREIGN KEY FK_D230102E9D3ED38D');
         $this->addSql('DROP TABLE structures');
         $this->addSql('DROP INDEX IDX_D230102E9D3ED38D ON partenaires');
-        $this->addSql('ALTER TABLE partenaires DROP structures_id');
+        /*$this->addSql('ALTER TABLE partenaires DROP structures_id');*/
     }
 }

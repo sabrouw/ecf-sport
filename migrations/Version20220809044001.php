@@ -23,15 +23,11 @@ final class Version20220809044001 extends AbstractMigration
         $this->addSql('CREATE TABLE structures (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, login VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, description VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE partenaires DROP FOREIGN KEY FK_D230102E9D3ED38D');
         $this->addSql('DROP INDEX IDX_D230102E9D3ED38D ON partenaires');
-        $this->addSql('ALTER TABLE partenaires DROP structures_id');
+        
     }
 
     public function down(Schema $schema): void
     {
-        // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('DROP TABLE structures');
-        $this->addSql('ALTER TABLE partenaires ADD structures_id INT NOT NULL');
-        $this->addSql('ALTER TABLE partenaires ADD CONSTRAINT FK_D230102E9D3ED38D FOREIGN KEY (structures_id) REFERENCES structures (id)');
-        $this->addSql('CREATE INDEX IDX_D230102E9D3ED38D ON partenaires (structures_id)');
+      
     }
 }
