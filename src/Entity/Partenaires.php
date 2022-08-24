@@ -95,10 +95,10 @@ class Partenaires extends User
         return $this;
     }
 
-    public function getPassword(): ?string
+    /*public function getPassword(): ?string
     {
         return $this->Password;
-    }
+    }*/
 
     public function setPassword(string $Password): self
     {
