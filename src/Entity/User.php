@@ -14,9 +14,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[ApiResource (collectionOperations: ['get'], itemOperations: ['get'])]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
-#[ORM\InheritanceType("JOINED")]
-#[ORM\DiscriminatorColumn(name: "type", type: "string")]
-/*#[ORM\DiscriminatorMap(["partenaires": "Partenaires", "structures": "Structures"])]*/
+
+
 
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
