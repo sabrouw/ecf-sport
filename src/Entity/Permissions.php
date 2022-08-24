@@ -4,7 +4,10 @@ namespace App\Entity;
 
 use App\Repository\PermissionsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
+
+#[ApiResource (collectionOperations: ['get'], itemOperations: ['get'])]
 #[ORM\Entity(repositoryClass: PermissionsRepository::class)]
 class Permissions
 {

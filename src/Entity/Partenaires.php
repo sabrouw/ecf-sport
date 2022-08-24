@@ -1,14 +1,18 @@
 <?php
 
 namespace App\Entity;
-
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\PartenairesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+
+#[ApiResource (collectionOperations: ['get'], itemOperations: ['get'])]
 #[ORM\Entity(repositoryClass: PartenairesRepository::class)]
-class Partenaires
+
+
+class Partenaires extends User
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -16,24 +20,30 @@ class Partenaires
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
+    
     private ?string $login = null;
 
     #[ORM\Column(length: 255)]
     private ?string $email_gerant = null;
 
     #[ORM\Column(length: 255)]
+    
     private ?string $Password = null;
 
     #[ORM\Column(length: 255)]
+    
     private ?string $adresse_postale = null;
 
-    #[ORM\OneToMany(mappedBy: 'partenaires', targetEntity: structures::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'partenaires', targetEntity: Structures::class, orphanRemoval: true)]
+    
     private Collection $structures_assoce;
 
-    #[ORM\OneToMany(mappedBy: 'ass_partenaires', targetEntity: structures::class)]
+    #[ORM\OneToMany(mappedBy: 'ass_partenaires', targetEntity: Structures::class)]
+    
     private Collection $structures_association;
 
     public function __construct()
