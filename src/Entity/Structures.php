@@ -46,6 +46,12 @@ class Structures extends User
     #[ORM\Column(nullable: true)]
     private array $roles = [];
 
+    #[ORM\ManyToOne(inversedBy: 'ass_structures')]
+    private ?Partenaires $partenaires = null;
+
+    #[ORM\ManyToOne(inversedBy: 'structures')]
+    private ?partenaires $ass_partenaires = null;
+
     
 
     
@@ -154,6 +160,30 @@ class Structures extends User
     public function setRoles(?array $roles): self
     {
         $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function getPartenaires(): ?Partenaires
+    {
+        return $this->partenaires;
+    }
+
+    public function setPartenaires(?Partenaires $partenaires): self
+    {
+        $this->partenaires = $partenaires;
+
+        return $this;
+    }
+
+    public function getAssPartenaires(): ?partenaires
+    {
+        return $this->ass_partenaires;
+    }
+
+    public function setAssPartenaires(?partenaires $ass_partenaires): self
+    {
+        $this->ass_partenaires = $ass_partenaires;
 
         return $this;
     }
