@@ -3,8 +3,6 @@
 namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\PartenairesRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -26,7 +24,7 @@ class Partenaires
         private ?string $login = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $email_gerant = null;
+    private ?string $email= null;
 
     #[ORM\Column(length: 255)]
         private ?string $Password = null;
@@ -34,23 +32,8 @@ class Partenaires
     #[ORM\Column(length: 255)]
         private ?string $adresse_postale = null;
 
-    #[ORM\OneToMany(mappedBy: 'partenaires', targetEntity: Structures::class, orphanRemoval: true)]
-        private Collection $structures_assoce;
-
-    #[ORM\OneToMany(mappedBy: 'ass_partenaires', targetEntity: Structures::class)]
-        private Collection $structures_association;
-
-    #[ORM\OneToMany(mappedBy: 'ass_structures', targetEntity: Structures::class)]
-    private Collection $structures;
-
-        public function __construct()
-    {
-        $this->structures_assoce = new ArrayCollection();
-        $this->structures_association = new ArrayCollection();
-        $this->structures = new ArrayCollection();
-    }
-
-   
+    #[ORM\Column(nullable: true)]
+        private array $roles = [];
 
     public function getId(): ?int
     {
@@ -81,14 +64,14 @@ class Partenaires
         return $this;
     }
 
-    public function getEmailGerant(): ?string
+    public function getEmail(): ?string
     {
-        return $this->email_gerant;
+        return $this->email;
     }
 
-    public function setEmailGerant(string $email_gerant): self
+    public function setEmail(string $email): self
     {
-        $this->email_gerant = $email_gerant;
+        $this->email = $email;
 
         return $this;
     }
@@ -117,65 +100,32 @@ class Partenaires
         return $this;
     }
 
-    /**
-     * @return Collection<int, structures>
-     */
-    public function getStructuresAssociation(): Collection
-    {
-        return $this->structures_association;
-    }
-
-    public function addStructuresAssociation(structures $structuresAssociation): self
-    {
-        if (!$this->structures_association->contains($structuresAssociation)) {
-            $this->structures_association->add($structuresAssociation);
-            $structuresAssociation->setAssPartenaires($this);
-        }
-
-        return $this;
-    }
-
-    public function removeStructuresAssociation(structures $structuresAssociation): self
-    {
-        if ($this->structures_association->removeElement($structuresAssociation)) {
-            // set the owning side to null (unless already changed)
-            if ($structuresAssociation->getAssPartenaires() === $this) {
-                $structuresAssociation->setAssPartenaires(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
-     * @return Collection<int, Structures>
+     * @see UserInterface
      */
-    public function getStructures(): Collection
+    public function getRoles(): array
     {
-        return $this->structures;
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
     }
 
-    public function addStructure(Structures $structure): self
+    public function setRoles(?array $roles): self
     {
-        if (!$this->structures->contains($structure)) {
-            $this->structures->add($structure);
-            $structure->setAssStructures($this);
-        }
+        $this->roles = $roles;
 
         return $this;
     }
 
-    public function removeStructure(Structures $structure): self
-    {
-        if ($this->structures->removeElement($structure)) {
-            // set the owning side to null (unless already changed)
-            if ($structure->getAssStructures() === $this) {
-                $structure->setAssStructures(null);
-            }
-        }
+   
 
-        return $this;
-    }
+    
+    
+
+   
 
     
 

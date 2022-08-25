@@ -41,14 +41,12 @@ class Structures extends User
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\ManyToOne(inversedBy: 'structures_association')]
-    private ?Partenaires $ass_partenaires = null;
+    
 
     #[ORM\Column(nullable: true)]
     private array $roles = [];
 
-    #[ORM\ManyToOne(inversedBy: 'structures')]
-    private ?Partenaires $ass_structures = null;
+    
 
     
 
@@ -137,17 +135,9 @@ class Structures extends User
         return $this;
     }
 
-    public function getAssPartenaires(): ?Partenaires
-    {
-        return $this->ass_partenaires;
-    }
+    
 
-    public function setAssPartenaires(?Partenaires $ass_partenaires): self
-    {
-        $this->ass_partenaires = $ass_partenaires;
-
-        return $this;
-    }
+   
 
      /**
      * @see UserInterface
@@ -168,17 +158,7 @@ class Structures extends User
         return $this;
     }
 
-    public function getAssStructures(): ?Partenaires
-    {
-        return $this->ass_structures;
-    }
-
-    public function setAssStructures(?Partenaires $ass_structures): self
-    {
-        $this->ass_structures = $ass_structures;
-
-        return $this;
-    }
+    
 
     
 }
