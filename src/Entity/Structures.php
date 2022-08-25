@@ -47,6 +47,9 @@ class Structures extends User
     #[ORM\Column(nullable: true)]
     private array $roles = [];
 
+    #[ORM\ManyToOne(inversedBy: 'structures')]
+    private ?Partenaires $ass_structures = null;
+
     
 
     public function getId(): ?int
@@ -161,6 +164,18 @@ class Structures extends User
     public function setRoles(?array $roles): self
     {
         $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function getAssStructures(): ?Partenaires
+    {
+        return $this->ass_structures;
+    }
+
+    public function setAssStructures(?Partenaires $ass_structures): self
+    {
+        $this->ass_structures = $ass_structures;
 
         return $this;
     }

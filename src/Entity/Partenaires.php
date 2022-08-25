@@ -40,10 +40,14 @@ class Partenaires
     #[ORM\OneToMany(mappedBy: 'ass_partenaires', targetEntity: Structures::class)]
         private Collection $structures_association;
 
+    #[ORM\OneToMany(mappedBy: 'ass_structures', targetEntity: Structures::class)]
+    private Collection $structures;
+
         public function __construct()
     {
         $this->structures_assoce = new ArrayCollection();
         $this->structures_association = new ArrayCollection();
+        $this->structures = new ArrayCollection();
     }
 
    
@@ -137,6 +141,36 @@ class Partenaires
             // set the owning side to null (unless already changed)
             if ($structuresAssociation->getAssPartenaires() === $this) {
                 $structuresAssociation->setAssPartenaires(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Structures>
+     */
+    public function getStructures(): Collection
+    {
+        return $this->structures;
+    }
+
+    public function addStructure(Structures $structure): self
+    {
+        if (!$this->structures->contains($structure)) {
+            $this->structures->add($structure);
+            $structure->setAssStructures($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStructure(Structures $structure): self
+    {
+        if ($this->structures->removeElement($structure)) {
+            // set the owning side to null (unless already changed)
+            if ($structure->getAssStructures() === $this) {
+                $structure->setAssStructures(null);
             }
         }
 
