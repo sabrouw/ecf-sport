@@ -1,18 +1,16 @@
 <?php
 
 namespace App\Entity;
-
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\StructuresRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+
+
 
 
 #[ApiResource (collectionOperations: ['get'], itemOperations: ['get'])]
 #[ORM\Entity(repositoryClass: StructuresRepository::class)]
-#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+
 
 
 
@@ -26,34 +24,19 @@ class Structures extends User
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $login = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $email = null;
-
-     /**
-     * @var string The hashed password
-     */
-    #[ORM\Column(length: 255)]
-    private ?string $password = null;
-
+         
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
-
-    
-
-    #[ORM\Column(nullable: true)]
-    private array $roles = [];
+ 
 
     #[ORM\ManyToOne(inversedBy: 'ass_structures')]
     private ?Partenaires $partenaires = null;
 
     #[ORM\ManyToOne(inversedBy: 'structures')]
-    private ?partenaires $ass_partenaires = null;
+    private ?Partenaires $ass_partenaires = null;
 
-    
-
+    #[ORM\OneToOne(mappedBy: 'structures', cascade: ['persist', 'remove'])]
+    private ?User $yes = null;
     
 
     public function getId(): ?int
@@ -73,62 +56,7 @@ class Structures extends User
         return $this;
     }
 
-    public function getLogin(): ?string
-    {
-        return $this->login;
-    }
-
-    public function setLogin(string $login): self
-    {
-        $this->login = $login;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-    /**
-     * A visual identifier that represents this user.
-     *
-     * @see UserInterface
-     */
-    public function getUserIdentifier(): string
-    {
-        return (string) $this->email;
-    }
     
-
-    /**
-     * @see PasswordAuthenticatedUserInterface
-     */
-    public function getPassword(): string
-    {
-        return $this->password;
-    }
-    /**
-     * @see UserInterface
-     */
-    public function eraseCredentials()
-    {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
-    }
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
     public function getDescription(): ?string
     {
         return $this->description;
@@ -140,29 +68,7 @@ class Structures extends User
 
         return $this;
     }
-
-    
-
-   
-
-     /**
-     * @see UserInterface
-     */
-    public function getRoles(): array
-    {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
-
-        return array_unique($roles);
-    }
-
-    public function setRoles(?array $roles): self
-    {
-        $this->roles = $roles;
-
-        return $this;
-    }
+  
 
     public function getPartenaires(): ?Partenaires
     {
@@ -176,14 +82,36 @@ class Structures extends User
         return $this;
     }
 
-    public function getAssPartenaires(): ?partenaires
+    public function getAssPartenaires(): ?Partenaires
     {
         return $this->ass_partenaires;
     }
 
-    public function setAssPartenaires(?partenaires $ass_partenaires): self
+    public function setAssPartenaires(?Partenaires $ass_partenaires): self
     {
         $this->ass_partenaires = $ass_partenaires;
+
+        return $this;
+    }
+
+    public function getYes(): ?User
+    {
+        return $this->yes;
+    }
+
+    public function setYes(?User $yes): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($yes === null && $this->yes !== null) {
+            $this->yes->setStructures(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($yes !== null && $yes->getStructures() !== $this) {
+            $yes->setStructures($this);
+        }
+
+        $this->yes = $yes;
 
         return $this;
     }
