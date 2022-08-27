@@ -1,6 +1,6 @@
 {% extends 'home.html.twig' %}
 
-{% block body %}
+{% block contact %}
 
     <form action="{{ path('contact') }}" method="post">
         <label for="firstName">Prénom</label>
@@ -14,4 +14,4 @@
         <input type="submit">
     </form>
 
-{% endblock %}
+{% endblock contact%}

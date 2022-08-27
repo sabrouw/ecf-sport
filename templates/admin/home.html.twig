@@ -12,58 +12,6 @@
 
 {% block acceuil %}
 <div class="admin-menu"><h2  id="bonjour"> Bonjour {{app.user.email}} </h2></div>
-<div class="main__cards">
-            <div class="card">
-              <i
-                class="fa fa-user-o fa-2x text-lightblue"
-                aria-hidden="true"
-              ></i>
-              <div class="card_inner">
-                <p class="text-primary-p"></p>
-                <span class="font-bold text-title">578</span>
-              </div>
-            </div>
-
-            <div class="card">
-              <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
-              <div class="card_inner">
-                <p class="text-primary-p">/p>
-                <span class="font-bold text-title">
-                <a href="{{ path ('admin_partenaires') }}">Gestion des partenaires</a>
-                </span>
-              </div>
-            </div>
-
-            <div class="card">
-              <i
-                class="fa fa-video-camera fa-2x text-yellow"
-                aria-hidden="true"
-              ></i>
-              <div class="card_inner">
-                <p class="text-primary-p"></p>
-                <span class="font-bold text-title">
-                <li><a href="{{ path ('admin_structures') }}">Gestion des structures</a>
-                /span>
-              </div>
-            </div>
-
-            <div class="card">
-              <i
-                class="fa fa-thumbs-up fa-2x text-green"
-                aria-hidden="true"
-              ></i>
-              <div class="card_inner">
-                <p class="text-primary-p"></p>
-                <span class="font-bold text-title">645</span>
-              </div>
-            </div>
-          </div>
-
-      <ul class="menu-items">
-        <li></li>
-        </li>
-      </ul>
-</div>
 {% endblock acceuil %}
 
 
@@ -79,11 +27,44 @@
         <input type="password" id="password" name="_password"/>
 
         {# If you want to control the URL the user is redirected to on success#}
-        <input type="hidden" name="_target_path" value="/admin/home"/> 
+        <input type="visibile" name="_target_path" value="/admin/home"/> 
 
         <button type="submit">login</button>
     </form>
 {% endblock login %}
+
+{% block partenaires %}
+<div id="zone_partenaires">
+    {% for partenaires in partenaires %}
+    
+    <h2 id="titre_partenaire">Nom: {{ partenaires.name }}</h2>  
+    <h3 id="id_partenaire">Id: {{ partenaires.id }}</h3>
+        
+       
+        {#<button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update")}}"> Modifier partenaire</a></button>#}
+        <button type="submit" name"activer_partenaires" id="activer_partenaires">Activier partenaire</button>
+        <button type="submit" name"voir_partenaires" id="voir_partenaires"><a href="{{ path ('partenaire', {'id': partenaires.id}) }}" > Voir le partenaire sur le site </a></button>     
+        <button type="submit" name"supprimer_partenaires"id="supprimer_partenaires"><a href="{{ path ('admin_partenaires_delete', {'id': partenaires.id} ) }} " > Supprimer </a></button>
+        {% endfor %}
+
+</div>
+{% endblock partenaires %}
+
+{% block permissions %}   
+    <div id="zone_permissions">
+    {% for permissions in permissions %}
+    
+    <h1 id="titre_permissions">Nom: {{ permissions.name }}</h1>  
+    
+        <H2 id="activite_permissions"> Activité: {{ permissions.activité }}</h2>
+       
+        {#<button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update")}}"> Modifier partenaire</a></button>#}
+        
+        
+        {% endfor %}
+
+</div>
+{% endblock permissions %}
 
 
 

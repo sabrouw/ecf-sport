@@ -13,7 +13,7 @@ class PermissionsController extends AbstractController
     #[Route('/permissions', name: 'permissions')]
     public function index(PermissionsRepository $permissionsRepository ): Response
     { $permissions = $permissionsRepository->findAll();
-        return $this->render('admin/permissions.html.twig', [
+        return $this->render('permissions.html.twig', [
             'permissions' => $permissions,
         ]);
     }

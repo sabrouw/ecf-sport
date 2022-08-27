@@ -1,4 +1,4 @@
-{% extends 'admin/base.html.twig' %}
+{% extends 'base.html.twig' %}
   {% block title %}<title>Interface de gestion des permissions par défaut</title>{% endblock title %}
  {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
  
@@ -9,18 +9,16 @@
            
     </header>     
 {% endblock header %}
-    {% block body %}
-    
     
 
       
-    
+ {% block permissions %}   
     <div id="zone_permissions">
     {% for permissions in permissions %}
     
-    <h2 id="titre_permissions">Nom: {{ permissions.name }}</h2>  
-    <h4 id="decription_permissions">Id: {{ permissions.description }}</h4>
-        <H5 id="activite_permissions"> Login: {{ permissions.activité }}</h5>
+    <h1 id="titre_permissions">Nom: {{ permissions.name }}</h1>  
+    
+        <H2 id="activite_permissions"> Activité: {{ permissions.activité }}</h2>
        
         {#<button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update")}}"> Modifier partenaire</a></button>#}
         
@@ -28,4 +26,5 @@
         {% endfor %}
 
 </div>
-   {% endblock body %}
+{% endblock permissions %}
+   

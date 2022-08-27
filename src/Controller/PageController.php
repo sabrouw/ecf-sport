@@ -23,15 +23,29 @@ class PageController extends AbstractController
         ]);
     }
 /*page d'acceuil administrateur*/
+    #[Route('/partenaires/home', name: 'partenaires_home')]
+    public function partenairesHome(): Response
+    {
+        return $this->render('partenaires/home.html.twig', [
+            'controller_name' => 'PageController',
+        ]);
+    }
     #[Route('/admin/home', name: 'admin_home')]
     public function adminHome(): Response
-    {
+    {    
+        
         return $this->render('admin/home.html.twig', [
             'controller_name' => 'PageController',
         ]);
     }
-
-
+    #[Route('/home_connecte', name: 'home_connecte')]
+    public function homeConnecte(): Response
+    {    
+        
+        return $this->render('home_connecte.html.twig', [
+            'controller_name' => 'PageController',
+        ]);
+    }
 /*on recupere les données du formulaire en post avec request des champs ci-dessous*/
     #[Route('/contact', name:'contact')]
     public function contact (Request $request, MailerInterface $mailerInterface):Response

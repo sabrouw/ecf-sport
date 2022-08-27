@@ -12,6 +12,7 @@ security:
             entity:
                 class: App\Entity\User
                 property: email
+
         
     firewalls:
         dev:
@@ -24,6 +25,8 @@ security:
             #route login
                 login_path: login
                 check_path: login
+                default_target_path: home_connecte
+                
                 
                 
 

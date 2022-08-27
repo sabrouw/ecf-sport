@@ -20,7 +20,9 @@
   </head>
 
   <body id="body">
-  <header>
+  {#<h1  id="bonjour"> Bonjour {{app.user.email}} </h1>#}
+  
+
     <div class="container">
       <nav class="navbar">
         <div class="nav_icon" onclick="toggleSidebar()">
@@ -51,8 +53,8 @@
           <div class="main__title">
             <img src="assets/hello.svg" alt="" />
             <div class="main__greeting">
-              <h1>{{app.user.email}}</h1>
-              <p>Bienvenue sur votre espace administration</p>
+        {% block bienvenue %}{% endblock bienvenue %}
+              <p>Bienvenue</p>
             </div>
           </div>
 
@@ -60,6 +62,8 @@
 
           <!-- MAIN CARDS STARTS HERE -->
           <!--carte avec structures et partenaires-->
+          {% block partenaires %}{% endblock partenaires %}
+          
 {% block acceuil %}
           <div class="main__cards">
             <div class="card">
@@ -69,15 +73,16 @@
               ></i>
               <div class="card_inner">
                 <p class="text-primary-p"></p>
-                <span class="font-bold text-title">578</span>
+                <span class="font-bold text-title"></span>
               </div>
             </div>
 
             <div class="card">
+            
               <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
               <div class="card_inner">
-                <p class="text-primary-p">/p>
-                <span class="font-bold text-title">2467</span>
+                <p class="text-primary-p">blabla</p>
+                <span class="font-bold text-title"></span>
               </div>
             </div>
 
@@ -88,69 +93,49 @@
               ></i>
               <div class="card_inner">
                 <p class="text-primary-p"></p>
-                <span class="font-bold text-title">340</span>
+                <span class="font-bold text-title"></span>
               </div>
             </div>
 
-            <div class="card">
-              <i
-                class="fa fa-thumbs-up fa-2x text-green"
-                aria-hidden="true"
-              ></i>
+            <!--mini carte a droite--><div class="card">
+              
+              
               <div class="card_inner">
                 <p class="text-primary-p"></p>
-                <span class="font-bold text-title">645</span>
+                <span class="font-bold text-title"></span>
               </div>
             </div>
           </div>
          {% endblock acceuil %}
           <!-- MAIN CARDS ENDS HERE -->
-{% block login %} {% endblock login %}
+
+
           <!-- CHARTS STARTS HERE -->
           <div class="charts">
             <div class="charts__left">
               <div class="charts__left__title">
                 <div>
-                  <h1>Votre localisation</h1>
-                  <p>Lyon, France </p>
+                {% block body %}{% endblock body %}
+                  {% block login %}{% endblock login %}
+{% block register %}{% endblock register %}
+{% block contact %}{% endblock contact %}
                 </div>
-                <i class="fa fa-usd" aria-hidden="true"></i>
+                
               </div>
-              <div id="apex1"></div>
+              
             </div>
 
             <div class="charts__right">
               <div class="charts__right__title">
                 <div>
-                  <h1>Stats Reports</h1>
-                  <p>Cupertino, California, USA</p>
+                {% block permissions %}{% endblock permissions %}
+                  <h1></h1>
+                  <p></p>
                 </div>
-                <i class="fa fa-usd" aria-hidden="true"></i>
+                
               </div>
 
-              <div class="charts__right__cards">
-                <div class="card1">
-                  <h1>Income</h1>
-                  <p>$75,300</p>
-                </div>
-
-                <div class="card2">
-                  <h1>Sales</h1>
-                  <p>$124,200</p>
-                </div>
-
-                <div class="card3">
-                  <h1>Users</h1>
-                  <p>3900</p>
-                </div>
-
-                <div class="card4">
-                  <h1>Orders</h1>
-                  <p>1881</p>
-                </div>
-              </div>
-            </div>
-          </div>
+              
           <!-- CHARTS ENDS HERE -->
         </div>
       </main>
@@ -194,18 +179,18 @@
           </div>-->
           <div class="sidebar__link">
            <i class="fa fa-envelope"></i>
-            <a href="#">Contact</a>
+            <a href="{{ path ('contact')}}">Contact</a>
           </div>
           
           <div class="sidebar__link">
             <i class="fa fa-pencil-square"></i>
-            <a href="{{ path ('app_register')}}">Inscription</a>
+            <a href="{{ path ('register')}}">Inscription</a>
           </div>
-          <div class="sidebar__link">
+          <!--<div class="sidebar__link">
             <i class="fa fa-sign-out"></i>
             <a href="#">Connection</a>
           </div>
-          <!--<div class="sidebar__link">
+          <div class="sidebar__link">
             <i class="fa fa-calendar-check-o"></i>
             <a href="#">Special Days</a>
           </div>
@@ -224,12 +209,12 @@
           </div>-->
           <div class="sidebar__logout">
             <i class="fa fa-power-off"></i>
-            <a href="#">Log out</a>
+            <a href="{{ path ('logout')}}">Log out</a>
           </div>
         </div>
       </div>
     </div>
-</header>
+
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
