@@ -10,16 +10,61 @@
 
  
 
-{% block body %}
-<div class="admin-menu"><h2 id="admin_bienvenue"><h1 id="bonjour"> Bonjour {{app.user.email}} </h2>
+{% block acceuil %}
+<div class="admin-menu"><h2  id="bonjour"> Bonjour {{app.user.email}} </h2></div>
+<div class="main__cards">
+            <div class="card">
+              <i
+                class="fa fa-user-o fa-2x text-lightblue"
+                aria-hidden="true"
+              ></i>
+              <div class="card_inner">
+                <p class="text-primary-p"></p>
+                <span class="font-bold text-title">578</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
+              <div class="card_inner">
+                <p class="text-primary-p">/p>
+                <span class="font-bold text-title">
+                <a href="{{ path ('admin_partenaires') }}">Gestion des partenaires</a>
+                </span>
+              </div>
+            </div>
+
+            <div class="card">
+              <i
+                class="fa fa-video-camera fa-2x text-yellow"
+                aria-hidden="true"
+              ></i>
+              <div class="card_inner">
+                <p class="text-primary-p"></p>
+                <span class="font-bold text-title">
+                <li><a href="{{ path ('admin_structures') }}">Gestion des structures</a>
+                /span>
+              </div>
+            </div>
+
+            <div class="card">
+              <i
+                class="fa fa-thumbs-up fa-2x text-green"
+                aria-hidden="true"
+              ></i>
+              <div class="card_inner">
+                <p class="text-primary-p"></p>
+                <span class="font-bold text-title">645</span>
+              </div>
+            </div>
+          </div>
+
       <ul class="menu-items">
-        <li><a href="{{ path ('admin_partenaires') }}">Gestion des partenaires</a></li>
-        <li><a href="{{ path ('admin_structures') }}">Gestion des structures</a></li>
+        <li></li>
+        </li>
       </ul>
 </div>
-
-
-{% endblock body %}
+{% endblock acceuil %}
 
 
 

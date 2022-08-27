@@ -30,6 +30,8 @@ class PageController extends AbstractController
             'controller_name' => 'PageController',
         ]);
     }
+
+
 /*on recupere les données du formulaire en post avec request des champs ci-dessous*/
     #[Route('/contact', name:'contact')]
     public function contact (Request $request, MailerInterface $mailerInterface):Response
