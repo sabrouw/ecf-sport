@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: PartenairesRepository::class)]
 
 
-class Partenaires extends User
+class Partenaires
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -23,8 +23,7 @@ class Partenaires extends User
     #[ORM\Column(length: 255)]
         private ?string $adresse_postale = null;
 
-    #[ORM\OneToOne(mappedBy: 'Partenaires', cascade: ['persist', 'remove'])]
-    private ?User $user = null;
+    
 
     public function getId(): ?int
     {
@@ -56,28 +55,8 @@ class Partenaires extends User
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        // unset the owning side of the relation if necessary
-        if ($user === null && $this->user !== null) {
-            $this->user->setPartenaires(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($user !== null && $user->getPartenaires() !== $this) {
-            $user->setPartenaires($this);
-        }
-
-        $this->user = $user;
-
-        return $this;
-    }
-
+    
+    
     
     }
 

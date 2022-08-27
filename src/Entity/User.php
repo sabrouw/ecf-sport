@@ -8,12 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use App\Entity\Partenaires;
-use App\Entity\Structures;
-
-
-
-
 
 
 
@@ -45,11 +39,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
-    #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
-    private ?Partenaires $partenaires = null;
-
-    #[ORM\OneToOne(inversedBy: 'yes', cascade: ['persist', 'remove'])]
-    private ?Structures $structures = null;
+    
 
     
 
@@ -135,29 +125,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getPartenaires(): ?Partenaires
-    {
-        return $this->partenaires;
-    }
-
-    public function setPartenaires(?Partenaires $partenaires): self
-    {
-        $this->partenaires = $partenaires;
-
-        return $this;
-    }
-
-    public function getStructures(): ?Structures
-    {
-        return $this->structures;
-    }
-
-    public function setStructures(?Structures $structures): self
-    {
-        $this->structures = $structures;
-
-        return $this;
-    }
-
+    
     
 }
