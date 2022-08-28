@@ -13,10 +13,10 @@ class StructuresType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('login')
             ->add('email')
             ->add('password')
             ->add('description')
+            ->add('submit', SubmitType::class)
         ;
     }
 

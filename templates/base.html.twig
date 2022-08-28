@@ -33,9 +33,7 @@
           <a href="#">Comprendre la franchise</a>
         </div>
         <div class="navbar__right">
-           <form class="d-flex" action="{{ path ('resultat') }}">
-        <input class="form-control me-sm-2" type="text" placeholder="Rechercher" name="search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>
+          
     </form>
             
           
@@ -49,7 +47,6 @@
           <div class="main__title">
             <img src="assets/hello.svg" alt="" />
             <div class="main__greeting">
-            {% block header %}{% endblock header %}
         {% block bienvenue %}{% endblock bienvenue %}
               <p>Bienvenue</p>
             </div>
@@ -65,29 +62,33 @@
 <!-- Block de mini carte en haut-->
           <div class="main__cards">
             <div class="card">
-              
-              
+              <i
+                class="fa fa-user-o fa-2x text-lightblue"
+                aria-hidden="true"
+              ></i>
               <div class="card_inner">
-                <p class="text-primary-p">
-<!--bouton qui envoie la liste des partenaires-->
-{% block buttonpartenaires %}{% endblock buttonpartenaires %}</p>
-                <span class="font-bold text-title"></span>
-              </div>
-            </div>
-<!--bouton qui envoie la liste des structures-->
-            <div class="card">
-              <div class="card_inner">
-                {% block buttonstructures %}{% endblock buttonstructures %}
+                <p class="text-primary-p">{% block buttonpartenaires %}{% endblock buttonpartenaires %}</p>
                 <span class="font-bold text-title"></span>
               </div>
             </div>
 
-           <!--button permissions--> 
-           
-           <div class="card">
-                <div class="card_inner">
-               
-                <span class="font-bold text-title"> {% block buttonpermissions %}{% endblock buttonpermissions %}</span>
+            <div class="card">
+            
+              <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
+              <div class="card_inner">
+                <p class="text-primary-p">blabla</p>
+                <span class="font-bold text-title"></span>
+              </div>
+            </div>
+
+            <div class="card">
+              <i
+                class="fa fa-video-camera fa-2x text-yellow"
+                aria-hidden="true"
+              ></i>
+              <div class="card_inner">
+                <p class="text-primary-p"></p>
+                <span class="font-bold text-title"></span>
               </div>
             </div>
 
@@ -104,12 +105,17 @@
           
 
 
-<!-- grande carte de gauche -->
+<!-- grande carte de droite -->
           <div class="charts">
             <div class="charts__left">
               <div class="charts__left__title">
-                <div><p>OK</P>
- {% block body %}{% endblock body %}               
+                <div>
+               
+                
+               
+                {% block login %}{% endblock login %}
+                {% block register %}{% endblock register %}
+                {% block contact %}{% endblock contact %}
                 </div>
                 
               </div>
@@ -125,10 +131,6 @@
                 </div>
                 
               </div>
-
-              
-          <!-- CHARTS ENDS HERE -->
-        </div>
       </main>
      
 <!--début sidebar -->
@@ -154,20 +156,26 @@
           <h2></h2>
           <div class="sidebar__link">
             <i class="fa fa-user-secret" aria-hidden="true"></i>
-            <a href="{{ path ('admin_home') }}">Acceuil</a>
+            <a href="{{ path ('admin_login') }}">Espace Admin</a>
           </div>
           <div class="sidebar__link">
             <i class="fa fa-handshake-o"></i>
-            <a href="{{ path ('admin_partenaires') }}">Gestion des partenaires</a>
+            <a href="{{ path ('login') }}">Espace partenaire</a>
           </div>
           <div class="sidebar__link">
             <i class="fa fa-bicycle"></i>
-            <a href="{{ path ('admin_structures') }}">Gestion des structures</a>
+            <a href="{{ path ('login') }}">Les Salles de sport</a>
           </div>
-            
+                    <div class="sidebar__link">
+           <i class="fa fa-envelope"></i>
+            <a href="{{ path ('contact')}}">Contact</a>
+          </div>
           
-          
-         
+          <div class="sidebar__link">
+            <i class="fa fa-pencil-square"></i>
+            <a href="{{ path ('register')}}">Inscription</a>
+          </div>
+    
           <div class="sidebar__logout">
             <i class="fa fa-power-off"></i>
             <a href="{{ path ('logout')}}">Log out</a>
@@ -179,8 +187,6 @@
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
-
-          
 
   </body>
 </html>
@@ -243,4 +249,11 @@
             
               
 
-  
+              
+
+                
+
+                
+
+                
+ 

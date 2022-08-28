@@ -12,11 +12,25 @@ security:
             entity:
                 class: App\Entity\User
                 property: email
+
         
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+
+        
+        admin:
+            lazy: true
+            provider: app_user_provider
+            form_login:
+            #route login
+                login_path: admin_login
+                check_path: admin_login
+                default_target_path: admin_home
+            
+                
+
         main:
             lazy: true
             provider: app_user_provider
@@ -24,9 +38,9 @@ security:
             #route login
                 login_path: login
                 check_path: login
-                default_target_path: admin_home
-                
-
+                default_target_path: home_connecte
+                    
+                                             
             logout: 
                 path: logout
 
@@ -42,7 +56,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
          - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER } 
+         - { path: ^/profile, roles: ROLE_USER } 
         # the 'path' value can be any valid regular expression
         # (this one will match URLs like /api/post/7298 and /api/comment/528491)
          - { path: ^/api/(post|comment)/\d+$, roles: ROLE_USER }

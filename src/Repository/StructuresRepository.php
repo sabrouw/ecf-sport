@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Structures;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @extends ServiceEntityRepository<Structures>
@@ -15,7 +16,20 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Structures[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class StructuresRepository extends ServiceEntityRepository
-{
+{#[Route('/search',name:'resultat')]
+    public function searchStructure($search): array
+    {
+    $qb = $this->createQueryBuilder(alias:'structures');
+    
+    $query = $qb->select(select:'structures')
+    //evite les injections sql par un hacker
+    ->where('structures.name LIKE :search')
+    ->setParameter(key:'search',value:'%'.$search.'%')
+    ->getQuery();
+    return $query ->getResult();
+}
+
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Structures::class);

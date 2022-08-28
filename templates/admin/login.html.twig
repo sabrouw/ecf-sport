@@ -1,4 +1,4 @@
-{% extends 'home.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
 {% block title %}<title>login</title>{% endblock title %}
 {% block body %}
@@ -13,7 +13,7 @@
 <h1 class="login-h1"> Merci de vous authentifier </h1>
   
 
-   <form class="form_label" id="form_login" action="{{ path ('login') }}" method="post">
+   <form class="form_label" id="form_login" action="{{ path ('admin_login') }}" method="post">
    <div class="mb-3" id="zone_username">
         <label for="username"id="label_username">Email:</label>
         <input type="text" id="username" name="_username" value="{{ last_username }}"/>
@@ -23,7 +23,7 @@
         <input type="password" id="password" name="_password"/>
     </div>
         {# If you want to control the URL the user is redirected to on success#}
-        <input type="hidden" name="_target_path" value="/admin/home"/>
+        <input type="hidden" name="_target_path" value="admin_home"/>
 
         <button type="submit">login</button>
     </form>

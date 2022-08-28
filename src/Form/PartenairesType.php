@@ -15,8 +15,7 @@ class PartenairesType extends AbstractType
         //ajoute des champs a mon formulaire d'ajout d'entité
         $builder
             ->add('name')
-            ->add('login')
-            ->add('email_gerant')
+            ->add('email')
             ->add('Password')
             ->add('adresse_postale')
             ->add('submit', SubmitType::class)

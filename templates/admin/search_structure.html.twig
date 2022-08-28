@@ -3,9 +3,9 @@
     {% block title %}<title>Admin Tableau de bord</title>{% endblock %}
 
 
-{% block search %}
-<form class="d-flex" action="{{path ('resultat')}}">
+{% block body %}
+<form class="d-flex" action="{{ path ('resultat_structure') }}">
         <input class="form-control me-sm-2" type="text" placeholder="Rechercher une structure" name="search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>
        </form>
-{% endblock search %}
+{% endblock body %}
