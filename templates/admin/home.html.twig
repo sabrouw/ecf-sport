@@ -1,27 +1,29 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
    {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock  %}
     {% block title %}<title>Admin Tableau de bord</title>{% endblock %}
   
   
-{% block header %}{% endblock header %}
-{% block menu %}
-    
-{% endblock menu %}
 
  
-
+{#message d'acceuil quand connecté#}
 {% block acceuil %}
+{% block header %}{% endblock header %}
+<h1> ADMIN HOME</h1>
 <div class="admin-menu"><h2  id="bonjour"> Bonjour {{app.user.email}} </h2></div>
 {% endblock acceuil %}
 
+
+{#formulaire de recherche de structures#}
 {% block searchstructures %}
 <div class="navbar__right"> 
 <form class="d-flex" action="{{path ('resultat')}}">
-        <input class="form-control me-sm-2" type="text" placeholder="Rechercher une structure" name="search">
+        <input class="form-control me-sm-2" type="text" placeholder="Rechercher" name="search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>
        </form>
 </div>
 {% endblock searchstructures %}
+
+{#formulaire de recherche de partenaires#}
 {% block searchpartenaires %}
 <div class="navbar__right">  
     <form class="d-flex" action="{{ path ('resultat') }}">
@@ -33,9 +35,10 @@
     </div>
 {% endblock searchpartenaires %}
 
+{#formulaire d'authentification admin#}
 {% block login %} 
 <h1 id="login-h1"> Merci de vous authentifier </h1>
-   <form id="form-login" action="{{ path ('login') }}" method="post">
+   <form id="form-login" action="{{ path ('admin_login') }}" method="post">
         <label for="username">Email:</label>
         <input type="text" id="username" name="_username" value="{{ last_username }}"/>
 
@@ -49,6 +52,16 @@
     </form>
 {% endblock login %}
 
+{#button pour avoir la listes des partenaires#}
+{% block buttonpartenaires %}
+<button type="btn"><a href="{{ path ('admin_partenaires') }}">Liste de partenaires</a></button>
+{% endblock buttonpartenaires %}
+{#button pour avoir la listes des structures#}
+{% block buttonstructures %}
+<button type="btn"><a href="{{ path ('admin_structures') }}">Liste de structure</a></button>
+{% endblock buttonstructures %}
+
+{#liste de partenaires de bdd#}
 {% block partenaires %}
 <div id="zone_partenaires">
     {% for partenaires in partenaires %}
@@ -66,6 +79,7 @@
 </div>
 {% endblock partenaires %}
 
+{#liste de permissions de bdd#}
 {% block permissions %}   
     <div id="zone_permissions">
     {% for permissions in permissions %}
@@ -73,10 +87,8 @@
     <h1 id="titre_permissions">Nom: {{ permissions.name }}</h1>  
     
         <H2 id="activite_permissions"> Activité: {{ permissions.activité }}</h2>
-       
-        {#<button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update")}}"> Modifier partenaire</a></button>#}
-        
-        
+               {#<button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update")}}"> Modifier partenaire</a></button>#}
+               
         {% endfor %}
 
 </div>

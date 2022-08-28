@@ -59,4 +59,20 @@ public function insertStructure(Request $request, EntityManagerInterface $entity
     ]);
    
 }
+#[Route("/admin/structure/{id}/update", name:"admin_structure_update")]
+    public function updateStructure($id, StructuresRepository $structuresRepository, EntityManagerInterface $entityManagerInterface, Request $request){
+        $structure = $structuresRepository->find($id);
+        $structureForm = $this->createForm(StructuresType::class, $structure);
+        $structureForm->handleRequest($request);
+//si mon formulaire est soumis (post)et valide alors j'envoie les données en bdd (flush)
+        if ($structureForm->isSubmitted()&&$structureForm->isValid()){
+            $entityManagerInterface->persist($structure);
+            $entityManagerInterface->flush();
+        }
+        $this -> addFlash(type:'success', message:'La structure a bien été mis à jour');
+        return $this->render('admin/structure_update.html.twig', [
+            'structureForm' => $structureForm ->createView()
+        ]);
+
+    }
 }

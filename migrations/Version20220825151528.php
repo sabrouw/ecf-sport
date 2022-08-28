@@ -25,7 +25,7 @@ final class Version20220825151528 extends AbstractMigration
         
         $this->addSql('ALTER TABLE user ADD partenaires_id INT DEFAULT NULL');
         $this->addSql('ALTER TABLE user ADD CONSTRAINT FK_8D93D64938898CF5 FOREIGN KEY (partenaires_id) REFERENCES partenaires (id)');
-        $this->addSql('CREATE UNIQUE INDEX UNIQ_8D93D64938898CF5 ON user (partenaires_id)');
+        //$this->addSql('CREATE UNIQUE INDEX UNIQ_8D93D64938898CF5 ON user (partenaires_id)');
     }
 
     public function down(Schema $schema): void
@@ -34,8 +34,9 @@ final class Version20220825151528 extends AbstractMigration
         $this->addSql('ALTER TABLE structures ADD partenaires_id INT DEFAULT NULL');
         $this->addSql('ALTER TABLE structures ADD CONSTRAINT FK_5BBEC55A38898CF5 FOREIGN KEY (partenaires_id) REFERENCES partenaires (id)');
 
-        $this->addSql('ALTER TABLE user DROP FOREIGN KEY FK_8D93D64938898CF5');
-        $this->addSql('DROP INDEX UNIQ_8D93D64938898CF5 ON user');
+        //$this->addSql('ALTER TABLE user DROP FOREIGN KEY FK_8D93D64938898CF5');
+        //$this->addSql('DROP INDEX UNIQ_8D93D64938898CF5 ON user');
         
     }
 }
+

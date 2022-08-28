@@ -22,7 +22,19 @@ class LoginController extends AbstractController
             'error'         => $error,
         ]);
     }
-
+    #[Route('/admin/login', name: 'admin_login')]
+    
+    public function adminLogin(AuthenticationUtils $authenticationUtils): Response
+    {   
+        $error = $authenticationUtils->getLastAuthenticationError();   
+        $lastUsername = $authenticationUtils->getLastUsername();
+        
+        $this -> addFlash(type:'success', message:'Vous etes connecté');
+        return $this->render('admin/login.html.twig', [
+            'last_username' => $lastUsername,
+            'error'         => $error,
+        ]);
+    }
     #[Route('/logout', name:'logout')]
     public function logout():Response
     {

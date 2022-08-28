@@ -8,7 +8,7 @@
         <h1>Administrer les structures</h1>  
 </header>     
 {% endblock header %}
-
+ {% block buttonstructures %}{% endblock buttonstructures %}
 {% block body %}
     <h2> Bonjour {{app.user.email}}</h2>
     <div> <a href="{{ path ("admin_insert_structure") }}"> Creer une structure </a></div>
@@ -20,9 +20,20 @@
     <h3>Id: {{ structures.id }}</h3>
         
        
-        <button type="submit" name"modifier_structure">Modifier structure</button>
-        <button type="submit" name"activer_structure">Activier structure</button>
-        <button type="submit" name"voir_structure"><a href="{{ path ('structure', {'id': structures.id}) }}" > Voir la structure sur le site </a></button>     
-        <button type="submit" name"supprimer_structure"><a href="{{ path ('admin_structures_delete', {'id': structures.id} ) }} " > Supprimer </a></button>
+       <button type="submit" name"modifier_structures" id="modifier_structure"><a href="{{ path ("admin_structure_update", {'id': structures.id})}}"> Modifier la structure</a></button>
+        <button type="submit" name"activer_structure">
+        Activier la structure
+        </button>
+        <button type="submit" name"voir_structure">
+        <a href="{{ path ('structure', {'id': structures.id}) }}" >
+         Voir la structure sur le site 
+         </a>
+         </button>     
+        <button type="submit" name"supprimer_structure">
+        <a href="{{ path ('admin_structures_delete', {'id': structures.id} ) }} " > 
+        Supprimer 
+        </a>
+        </button>
+        
         {% endfor %}
    {% endblock body %}

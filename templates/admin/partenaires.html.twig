@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
   {% block title %}<title>Interface de gestion de partenaires</title>{% endblock title %}
  {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
  
@@ -9,7 +9,7 @@
            
     </header>     
 {% endblock header %}
-    {% block body %}
+{% block body %}
     
     <button id="creer_partenaire" ><a href="{{ path ("admin_insert_partenaire") }}"> Creer un partenaire </a></button>
 
@@ -22,9 +22,9 @@
     <h3 id="id_partenaire">Id: {{ partenaires.id }}</h3>
         
        
-        {#<button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update")}}"> Modifier partenaire</a></button>#}
+        <button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update", {'id': partenaires.id})}}"> Modifier partenaire</a></button>
         <button type="submit" name"activer_partenaires" id="activer_partenaires">Activier partenaire</button>
-        <button type="submit" name"voir_partenaires" id="voir_partenaires"><a href="{{ path ('partenaire', {'id': partenaires.id}) }}" > Voir le partenaire sur le site </a></button>     
+        <button type="submit" name"voir_partenaires" id="voir_partenaires"><a href="{{ path ('admin_partenaires', {'id': partenaires.id}) }}" > Voir le partenaire </a></button>     
         <button type="submit" name"supprimer_partenaires"id="supprimer_partenaires"><a href="{{ path ('admin_partenaires_delete', {'id': partenaires.id} ) }} " > Supprimer </a></button>
         {% endfor %}
 
