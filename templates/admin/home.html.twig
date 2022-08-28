@@ -14,8 +14,24 @@
 <div class="admin-menu"><h2  id="bonjour"> Bonjour {{app.user.email}} </h2></div>
 {% endblock acceuil %}
 
-
-
+{% block searchstructures %}
+<div class="navbar__right"> 
+<form class="d-flex" action="{{path ('resultat')}}">
+        <input class="form-control me-sm-2" type="text" placeholder="Rechercher une structure" name="search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>
+       </form>
+</div>
+{% endblock searchstructures %}
+{% block searchpartenaires %}
+<div class="navbar__right">  
+    <form class="d-flex" action="{{ path ('resultat') }}">
+        <input class="form-control me-sm-2" type="text" placeholder="Rechercher un partenaire" name="search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+           Rechercher</i>
+          </button>
+    </form>
+    </div>
+{% endblock searchpartenaires %}
 
 {% block login %} 
 <h1 id="login-h1"> Merci de vous authentifier </h1>

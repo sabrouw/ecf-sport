@@ -20,7 +20,7 @@
   </head>
 
   <body id="body">
-  {#<h1  id="bonjour"> Bonjour {{app.user.email}} </h1>#}
+ 
   
 
     <div class="container">
@@ -30,26 +30,29 @@
         </div>
         <div class="navbar__left">
           <a href="#">Devenir franchisé</a>
-          <a href="#">Video de présentation</a>
+          <a href="#">Comprendre la franchise</a>
         </div>
         <div class="navbar__right">
-          <a href="#">
-            <i class="fa fa-search" aria-hidden="true"></i>
+           <form class="d-flex" action="{{ path ('resultat') }}">
+        <input class="form-control me-sm-2" type="text" placeholder="Rechercher" name="search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>
+    </form>
+            
           </a>
           <a href="#">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
           </a>
           <a href="#">
             <img width="30" src="assets/avatar.svg" alt="" />
-            <!-- <i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
           </a>
         </div>
       </nav>
 <!--contenu-->
   <main>
         <div class="main__container">
-<!-- MAIN TITLE STARTS HERE -->
 
+<!-- Message de bienvenue personnalisé -->    
           <div class="main__title">
             <img src="assets/hello.svg" alt="" />
             <div class="main__greeting">
@@ -58,13 +61,14 @@
             </div>
           </div>
 
-          <!-- MAIN TITLE ENDS HERE -->
 
-          <!-- MAIN CARDS STARTS HERE -->
-          <!--carte avec structures et partenaires-->
-          {% block partenaires %}{% endblock partenaires %}
           
-{% block acceuil %}
+
+          
+
+      
+{% block acceuil %}{% endblock acceuil %}
+<!-- Block de mini carte en haut-->
           <div class="main__cards">
             <div class="card">
               <i
@@ -97,34 +101,38 @@
               </div>
             </div>
 
-            <!--mini carte a droite--><div class="card">
-              
-              
+            
+            <div class="card">
+                           
               <div class="card_inner">
                 <p class="text-primary-p"></p>
                 <span class="font-bold text-title"></span>
               </div>
             </div>
           </div>
-         {% endblock acceuil %}
-          <!-- MAIN CARDS ENDS HERE -->
+         
+          
 
 
-          <!-- CHARTS STARTS HERE -->
+<!-- grande carte de droite -->
           <div class="charts">
             <div class="charts__left">
               <div class="charts__left__title">
                 <div>
-                {% block body %}{% endblock body %}
-                  {% block login %}{% endblock login %}
-{% block register %}{% endblock register %}
-{% block contact %}{% endblock contact %}
+                {% block resultatstructure %}{% endblock resultatstructure %}
+                {% block resultatpartenaire %}{% endblock resultatpartenaire %}
+                {% block searchpartenaires %}{% endblock searchpartenaires %}
+                {% block searchstructures %}{% endblock searchstructures %}
+                {% block partenaires %}{% endblock partenaires %}
+                {% block login %}{% endblock login %}
+                {% block register %}{% endblock register %}
+                {% block contact %}{% endblock contact %}
                 </div>
                 
               </div>
               
             </div>
-
+<!--grande carte a droite-->
             <div class="charts__right">
               <div class="charts__right__title">
                 <div>

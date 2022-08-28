@@ -1,12 +1,11 @@
-{% extends 'admin/base.html.twig' %}
+{% extends 'base.html.twig' %}
    {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock  %}
     {% block title %}<title>Résultat de recherche structure</title>{% endblock %}
  
- {% block body %}
+ 
     
-      
-        
-      {% for structure in structures %}
+  {% block resultatstructure %}       
+      {% for structure in structure %}
     
     <h2>Nom: {{ structure.name }}</h2>  
     <h3>Id: {{ structure.id }}</h3>
@@ -17,5 +16,5 @@
         <button type="submit" name"voir_partenaire"><a href="{{ path ('structure', {'id': structure.id}) }}" > Voir sur le site </a> </button>     
     
         {% endfor %}
-        
-    {% endblock body %}
+        {% endblock resultatstructure %}  
+   
