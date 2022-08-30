@@ -23,7 +23,7 @@ class Partenaires
     #[ORM\Column(length: 255)]
         private ?string $adresse_postale = null;
 
-    #[ORM\Column(length: 180, unique: true)]
+    #[ORM\Column(length: 180, unique: false)]
     private ?string $email = null;
     public function getEmail(): ?string
     {
@@ -41,6 +41,8 @@ class Partenaires
      */
     #[ORM\Column]
     private ?string $password = null;
+
+    
 
     /**
      * A visual identifier that represents this user.
@@ -105,6 +107,10 @@ class Partenaires
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
+   
+
+   
 
     
     

@@ -56,8 +56,10 @@ class Structures
         // $this->plainPassword = null;
     }
 
-    #[ORM\Column(length: 180, unique: true)]
+    #[ORM\Column(length: 180, unique: false)]
     private ?string $email = null;
+
+    
         
     public function getEmail(): ?string
     {
@@ -100,6 +102,10 @@ class Structures
 
         return $this;
     }
+
+    
+
+   
   
 
     

@@ -22,7 +22,7 @@ class LoginController extends AbstractController
             'error'         => $error,
         ]);
     }
-    #[Route('/admin/login', name: 'admin_login')]
+    #[Route('/admin/login', name: "admin_login")]
     
     public function adminLogin(AuthenticationUtils $authenticationUtils): Response
     {   
@@ -35,6 +35,13 @@ class LoginController extends AbstractController
             'error'         => $error,
         ]);
     }
+    #[Route('/admin/logout', name:'admin_logout')]
+    public function admin_logout():Response
+    {
+        $this -> addFlash(type:'success', message:'Vous etes déconnecté');
+        return $this -> redirectToRoute('home');
+    }
+
     #[Route('/logout', name:'logout')]
     public function logout():Response
     {
