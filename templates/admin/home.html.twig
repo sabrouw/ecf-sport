@@ -7,7 +7,6 @@
  
 {#message d'acceuil quand connecté#}
 {% block acceuil %}
-{% block header %}{% endblock header %}
 <h1> ADMIN HOME</h1>
 <div class="admin-menu"><h2  id="bonjour"> Bonjour {{app.user.email}} </h2></div>
 {% endblock acceuil %}
@@ -79,7 +78,7 @@
 </div>
 {% endblock partenaires %}
 
-{#liste de permissions de bdd#}
+{#liste de permissions de bdd
 {% block permissions %}   
     <div id="zone_permissions">
     {% for permissions in permissions %}
@@ -87,13 +86,13 @@
     <h1 id="titre_permissions">Nom: {{ permissions.name }}</h1>  
     
         <H2 id="activite_permissions"> Activité: {{ permissions.activité }}</h2>
-               {#<button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update")}}"> Modifier partenaire</a></button>#}
+               {#<button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update")}}"> Modifier partenaire</a></button>
                
         {% endfor %}
 
 </div>
 {% endblock permissions %}
 
-
+#}
 
           

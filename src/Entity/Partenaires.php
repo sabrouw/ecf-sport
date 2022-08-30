@@ -42,6 +42,9 @@ class Partenaires
     #[ORM\Column]
     private ?string $password = null;
 
+    #[ORM\ManyToOne(inversedBy: 'partenaires')]
+    private ?Categorie $categorie = null;
+
     
 
     /**
@@ -106,6 +109,18 @@ class Partenaires
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
+
+        return $this;
     }
 
    

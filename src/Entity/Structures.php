@@ -59,6 +59,9 @@ class Structures
     #[ORM\Column(length: 180, unique: false)]
     private ?string $email = null;
 
+    #[ORM\ManyToOne(inversedBy: 'structures')]
+    private ?Categorie $categorie = null;
+
     
         
     public function getEmail(): ?string
@@ -99,6 +102,18 @@ class Structures
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }

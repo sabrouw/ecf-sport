@@ -1,35 +1,67 @@
 {% extends 'admin/base.html.twig' %}
-  {% block title %}<title>Interface de gestion de partenaires</title>{% endblock title %}
- {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
- 
- {% block header %}
- <header id="header">
-        
-                <h1 id="titre_admin_partenaires">Administrer les partenaires</h1>
-           
-    </header>     
+{% block title %}
+	<title>
+		Interface de gestion de partenaires
+	</title>
+{% endblock title %}
+{% block css %}
+	<link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>
+{% endblock css %}
+
+
+{% block header %}
+	<header id="header">
+
+		<h1 id="titre_admin_partenaires">
+			Administrer les partenaires
+		</h1>
+
+	</header>
 {% endblock header %}
 {% block body %}
-    
-    <button id="creer_partenaire" ><a href="{{ path ("admin_insert_partenaire") }}"> Creer un partenaire </a></button>
 
-      
-    
-    <div id="zone_partenaires">
-    {% for partenaires in partenaires %}
-    
-    <h2 id="titre_partenaire">Nom: {{ partenaires.name }}</h2>  
-    <h3 id="id_partenaire">Id: {{ partenaires.id }}</h3>
-        
-       
-        <button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update", {'id': partenaires.id})}}"> Modifier partenaire</a></button>
-        <button type="submit" name"activer_partenaires" id="activer_partenaires">Activier partenaire</button>
-        <button type="submit" name"voir_partenaires" id="voir_partenaires"><a href="{{ path ('admin_partenaires', {'id': partenaires.id}) }}" > Voir le partenaire </a></button>     
-        <button type="submit" name"supprimer_partenaires"id="supprimer_partenaires"><a href="{{ path ('admin_partenaires_delete', {'id': partenaires.id} ) }} " > Supprimer </a></button>
-        {% endfor %}
 
-</div>
+	<button id="creer_partenaire">
+		<a href="{{ path ("admin_insert_partenaire") }}">
+			Creer un partenaire
+		</a>
+	</button>
 
-       
-    
-   {% endblock body %}
+
+	<div id="zone_partenaires">
+		{% for partenaires in partenaires %}
+
+			<h2 id="titre_partenaire">
+				Nom:
+				{{ partenaires.name }}
+			</h2>
+			<h3 id="id_partenaire">
+				Id:
+				{{ partenaires.id }}
+			</h3>
+
+
+			<button type="submit" name"modifier_partenaires" id="modifier_partenaires">
+				<a href="{{ path ("admin_partenaire_update", {'id': partenaires.id})}}">
+					Modifier partenaire
+				</a>
+			</button>
+			<button type="submit" name"activer_partenaires" id="activer_partenaires">
+				Activier partenaire
+			</button>
+			<button type="submit" name"voir_partenaires" id="voir_partenaires">
+				<a href="{{ path ('admin_partenaires', {'id': partenaires.id}) }}">
+					Voir le partenaire
+				</a>
+			</button>
+			<button type="submit" name"supprimer_partenaires" id="supprimer_partenaires">
+				<a href="{{ path ('admin_partenaires_delete', {'id': partenaires.id} ) }} ">
+					Supprimer
+				</a>
+			</button>
+		{% endfor %}
+
+	</div>
+
+
+{% endblock body %}

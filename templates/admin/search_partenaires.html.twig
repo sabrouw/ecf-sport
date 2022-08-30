@@ -3,7 +3,6 @@
     {% block title %}<title>Admin Tableau de bord</title>{% endblock %}
 
 {% block body %}
-{% block searchpartenaires %}
     <form class="d-flex" action="{{ path ('resultat') }}">
         <input class="form-control me-sm-2" type="text" placeholder="Rechercher un partenaire" name="search">
             <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>

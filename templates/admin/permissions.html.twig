@@ -9,10 +9,22 @@
            
     </header>     
 {% endblock header %}
+ {% block permissions %}    
+{{ form_start(permissionsType) }}
+<div id="container-register"class="col">
     
-
+    <div class="col" id="register_agree_terms">
+            {{ form_row(permissionsType.permissions) }}
+    </div>
+    
+    <div class="col" id="register-button">
+                <button type="submit" class="btn">Inscription</button>
+            {{ form_end(permissionsType) }}
+    </div>
+</div>
+{% endblock permissions %}
       
- {% block permissions %}   
+   
  {{ path (permissions) }}
     {#<div id="zone_permissions">
     {% for permissions in permissions %}
@@ -27,7 +39,7 @@
         {% endfor %}
 
 </div>#}
-{% endblock permissions %}
+
 {% block buttonpermissions %}
 <button type="button"><a href="{{ path ("permissions") }}">listes des permissions existantes</a></button>
    {% endblock buttonpermissions %}
