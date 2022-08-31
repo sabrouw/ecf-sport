@@ -1,43 +1,41 @@
-{% extends 'base.html.twig' %}
-  {% block title %}<title>Interface de gestion des permissions par défaut</title>{% endblock title %}
- {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
- 
- {% block header %}
- <header id="header">
-        
-                <h1 id="titre_admin_partenaires">Administrer les partenaires</h1>
-           
-    </header>     
+{% extends 'admin/base.html.twig' %}
+{% block title %}
+	<title>
+		Interface de gestion des permissions par défaut
+	</title>
+{% endblock title %}
+{% block css %}
+	<link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>
+{% endblock css %}
+
+{% block header %}
+	<header id="header">
+
+		<h1 id="titre_admin_partenaires">
+			Administrer les permissions
+		</h1>
+
+	</header>
 {% endblock header %}
 
+{#button pour avoir la listes des partenaires#}
+{% block buttonpartenaires %}
+	<button class="btn btn-dark" type="btn">
+		<a href="{{ path ('admin_partenaires') }}">
+			Partenaires
+		</a>
+	</button>
+{% endblock buttonpartenaires %}
+{#button pour avoir la listes des structures#}
+{% block buttonstructures %}
+	<button class="btn btn-dark" type="btn">
+		<a href="{{ path ('admin_structures') }}">
+			Structures
+		</a>
+	</button>
+{% endblock buttonstructures %}
 
 
-{% block formpermissions %}   
-
-
-{{ path (permissionsType)}}
-{#formulaires des permissions de la bdd
-  {{ form_start  (permissionsType) }} 
-<div id="container-permissionsr"class="col">
-    <div id="name_permissions"class="row">
-           {{ form_label (permissionsType.name) }}
-    </div>
-    
-    <div class="col" id="permissions_description">
-            {{ form_label (permissionsType.decription) }}
-    </div>
-    <div class="col" id="permissions_activite">
-            {{ form_label (permissionsType.activite) }}
-    </div>
-    {#<div class="col" id="permissions-button">
-                <button type="submit" class="btn">Valider permissions</button>
-           
-    </div>
-    {{ form_end (permissionsType) }}
-</div>
-  #}
-{% endblock formpermissions %}
-      
-   
- 
-
+{% block body %}
+	{{ form(permissionsform)}}
+	{% endblock body %}

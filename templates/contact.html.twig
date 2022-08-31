@@ -2,16 +2,16 @@
 
 {% block contact %}
 
-    <form action="{{ path('contact') }}" method="post">
-        <label for="firstName">Prénom</label>
-        <input type="text" name="firstName">
-        <label for="lastName">Nom</label>
-        <input type="text" name="lastName">
-        <label for="email">Email</label>
-        <input type="text" name="email">
-        <label for="message">Message</label>
-        <textarea name="message"></textarea>
-        <input type="submit">
+    <form class="form-control" action="{{ path('contact') }}" method="post">
+        <label class="form-label"for="firstName">Prénom</label>
+        <input class="form-control" type="text" name="firstName">
+        <label class="form-label" for="lastName">Nom</label>
+        <input class="form-control" type="text" name="lastName">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-control" type="text" name="email">
+        <label class="form-label" for="message">Message</label>
+        <textarea class="form-control" name="message"></textarea>
+        <input class="btn btn-primary"type="submit">
     </form>
 
 {% endblock contact%}

@@ -44,6 +44,26 @@ table {
 	border-spacing: 0;
 }
 
+:link,
+:visited,
+:active
+{
+text-decoration:   none;
+color:white;
+}
+h1{
+  font-size: 1.5rem;
+  text-align: center;
+  color:#000000;
+  font-weight: bold;
+}
+h2{
+  font-size: 1rem;
+  font-weight: bold;
+}
+h3{
+  font-size: 1rem;
+}
 
 /*  styling scrollbars  
 ::-webkit-scrollbar {
@@ -83,7 +103,7 @@ body {
 }
 
 .text-title {
-  color: #2e4a66;
+  color: black;
 }
 
 .text-lightblue {
@@ -123,10 +143,15 @@ body {
   padding: 0 30px 0 30px;
   border-bottom: 1px solid lightgray;
 }
+/*responsive*/
+.nav_icon {
+  display: none;
+}
 
-
-
-
+.nav_icon > i {
+  font-size: 26px;
+  color: #a5aaad;
+}
 
 .navbar__left > a {
   margin-right: 30px;
@@ -225,7 +250,7 @@ main {
 
 .charts {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 30px;
   margin-top: 50px;
 }
@@ -233,7 +258,7 @@ main {
 .charts__left {
   padding: 25px;
   border-radius: 5px;
-  background: #ffffff;
+  background-color: #3ea175;
   box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #ffffff;
 }
 
@@ -258,55 +283,11 @@ main {
 .charts__left__title > i {
   color: #ffffff;
   font-size: 20px;
-  background: #ffc100;
   border-radius: 200px 0px 200px 200px;
   -moz-border-radius: 200px 0px 200px 200px;
   -webkit-border-radius: 200px 0px 200px 200px;
   border: 0px solid #000000;
   padding: 15px;
-}
-
-.charts__right {
-  padding: 25px;
-  border-radius: 5px;
-  background: #ffffff;
-  box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #ffffff;
-}
-
-.charts__right__title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.charts__right__title > div > h1 {
-  font-size: 24px;
-  color: #2e4a66;
-  margin-bottom: 5px;
-}
-
-.charts__right__title > div > p {
-  font-size: 14px;
-  font-weight: 700;
-  color: #a5aaad;
-}
-
-.charts__right__title > i {
-  color: #ffffff;
-  font-size: 20px;
-  background: #39447a;
-  border-radius: 200px 0px 200px 200px;
-  -moz-border-radius: 200px 0px 200px 200px;
-  -webkit-border-radius: 200px 0px 200px 200px;
-  border: 0px solid #000000;
-  padding: 15px;
-}
-
-.charts__right__cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 30px;
 }
 
 .card1 {
@@ -345,7 +326,7 @@ main {
   font-size: 14px;
 }
 
-/*  SIDEBAR STARTS HERE  */
+/*  DEBUT SIDEBAR  */
 
 #sidebar {
   background: #020509;
@@ -487,3 +468,5 @@ main {
     display: none;
   }
 }
+
+

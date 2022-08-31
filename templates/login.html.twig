@@ -13,19 +13,19 @@
 <h1 class="login-h1"> Merci de vous authentifier </h1>
   
 
-   <form class="form_label" id="form_login" action="{{ path ('login') }}" method="post">
-   <div class="mb-3" id="zone_username">
-        <label for="username"id="label_username">Email:</label>
+   <form class="form_label form-control" id="form_login" action="{{ path ('login') }}" method="post">
+   <div class="mb-3 row g-3 align-items-center" id="zone_username">
+        <label class="text-bold" for="username"id="label_username">Email:</label>
         <input type="text" id="username" name="_username" value="{{ last_username }}"/>
     </div>
-    <div class="mb-3" id="zone_password">
+    <div class="mb-3 row g-3 align-items-center" id="zone_password">
         <label for="password" id="label_password" >Password:</label>
         <input type="password" id="password" name="_password"/>
     </div>
         {# If you want to control the URL the user is redirected to on success#}
         <input type="hidden" name="_target_path" value="/"/>
 
-        <button type="submit">login</button>
+        <button class="btn btn-dark" type="submit">Authentification</button>
     </form>
 {% endblock login %}
 
