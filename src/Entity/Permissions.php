@@ -5,6 +5,10 @@ namespace App\Entity;
 use App\Repository\PermissionsRepository;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Form\PermissionsType;
+
+
+
 
 
 #[ApiResource (collectionOperations: ['get'], itemOperations: ['get'])]
@@ -23,7 +27,7 @@ class Permissions
     private ?string $description = null;
 
     #[ORM\Column]
-    private ?bool $activité = null;
+    private ?bool $activite = null;
 
     public function getId(): ?int
     {
@@ -54,14 +58,14 @@ class Permissions
         return $this;
     }
 
-    public function isActivité(): ?bool
+    public function isActivite(): ?bool
     {
-        return $this->activité;
+        return $this->activite;
     }
 
-    public function setActivité(bool $activité): self
+    public function setActivite(bool $activite): self
     {
-        $this->activité = $activité;
+        $this->activite = $activite;
 
         return $this;
     }

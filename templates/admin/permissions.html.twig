@@ -9,37 +9,35 @@
            
     </header>     
 {% endblock header %}
- {% block permissions %}    
-{{ form_start(permissionsType) }}
-<div id="container-register"class="col">
-    
-    <div class="col" id="register_agree_terms">
-            {{ form_row(permissionsType.permissions) }}
+
+
+
+{% block formpermissions %}   
+
+
+{{ path (permissionsType)}}
+{#formulaires des permissions de la bdd
+  {{ form_start  (permissionsType) }} 
+<div id="container-permissionsr"class="col">
+    <div id="name_permissions"class="row">
+           {{ form_label (permissionsType.name) }}
     </div>
     
-    <div class="col" id="register-button">
-                <button type="submit" class="btn">Inscription</button>
-            {{ form_end(permissionsType) }}
+    <div class="col" id="permissions_description">
+            {{ form_label (permissionsType.decription) }}
     </div>
+    <div class="col" id="permissions_activite">
+            {{ form_label (permissionsType.activite) }}
+    </div>
+    {#<div class="col" id="permissions-button">
+                <button type="submit" class="btn">Valider permissions</button>
+           
+    </div>
+    {{ form_end (permissionsType) }}
 </div>
-{% endblock permissions %}
+  #}
+{% endblock formpermissions %}
       
    
- {{ path (permissions) }}
-    {#<div id="zone_permissions">
-    {% for permissions in permissions %}
-    
-    <h1 id="titre_permissions">Nom: {{ permissions.name }}</h1>  
-    
-        <H2 id="activite_permissions"> Activité: {{ permissions.activité }}</h2>
-       
-        {#<button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update")}}"> Modifier partenaire</a></button>
-        
-        
-        {% endfor %}
+ 
 
-</div>#}
-
-{% block buttonpermissions %}
-<button type="button"><a href="{{ path ("permissions") }}">listes des permissions existantes</a></button>
-   {% endblock buttonpermissions %}

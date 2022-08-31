@@ -55,6 +55,7 @@
 {% block buttonpartenaires %}
 <button type="btn"><a href="{{ path ('admin_partenaires') }}">Liste de partenaires</a></button>
 {% endblock buttonpartenaires %}
+
 {#button pour avoir la listes des structures#}
 {% block buttonstructures %}
 <button type="btn"><a href="{{ path ('admin_structures') }}">Liste de structure</a></button>
@@ -78,21 +79,9 @@
 </div>
 {% endblock partenaires %}
 
-{#liste de permissions de bdd
-{% block permissions %}   
-    <div id="zone_permissions">
-    {% for permissions in permissions %}
-    
-    <h1 id="titre_permissions">Nom: {{ permissions.name }}</h1>  
-    
-        <H2 id="activite_permissions"> Activité: {{ permissions.activité }}</h2>
-               {#<button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update")}}"> Modifier partenaire</a></button>
-               
-        {% endfor %}
+{#liste de permissions de bdd#}
 
-</div>
-{% endblock permissions %}
 
-#}
+
 
           

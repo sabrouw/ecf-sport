@@ -80,8 +80,8 @@
            <div class="card">
                 <div class="card_inner">
                
-                <span class="font-bold text-title"> 
-                {% block permissions %}{% endblock permissions %}</span>
+                <span class="text-title"> 
+                </span>
               </div>
             </div>
 
@@ -113,7 +113,7 @@
             <div class="charts__right">
               <div class="charts__right__title">
                 <div>
-                
+                {% block permissions %}{% endblock permissions %}
                   <h1></h1>
                   <p></p>
                 </div>

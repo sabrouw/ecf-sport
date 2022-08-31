@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Permissions;
 use App\Form\PermissionsType;
 use App\Repository\PermissionsRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,8 +23,10 @@ class PermissionsController extends AbstractController
             'permissions' => $permissions,
         ]);
     }
+
+ //creation du formulaires pour les permissions en bool   
     #[Route('/admin/permissions', name: 'admin_permissions')]
-    public function permissionsForm(Request $request ,PermissionsRepository $permissionsRepository): Response
+    public function permissionsForm(Request $request ,PermissionsRepository $permissionsRepository, EntityManagerInterface $entityManager): Response
     {
         $permissions = $permissionsRepository->findAll();
         $permissions = new Permissions();
@@ -31,5 +35,7 @@ class PermissionsController extends AbstractController
         return $this->render('admin/permissions.html.twig', [
             'permissions' => $permissions,
         ]);
+        $entityManager->persist($permissions);
+            $entityManager->flush();
     }
 }

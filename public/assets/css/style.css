@@ -43,7 +43,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-/*  styling scrollbars  */
+
+
+/*  styling scrollbars  
 ::-webkit-scrollbar {
   width: 5px;
   height: 6px;
@@ -60,13 +62,10 @@ table {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a5aaad;
-}
+  background: black;
+}*/
 
-* {
-  margin: 0;
-  padding: 0;
-}
+
 
 body {
   box-sizing: border-box;
@@ -95,9 +94,7 @@ body {
   color: #cc3d38;
 }
 
-.text-yellow {
-  color: #a98921;
-}
+
 
 .text-green {
   color: #3b9668;
@@ -127,14 +124,9 @@ body {
   border-bottom: 1px solid lightgray;
 }
 
-.nav_icon {
-  display: none;
-}
 
-.nav_icon > i {
-  font-size: 26px;
-  color: #a5aaad;
-}
+
+
 
 .navbar__left > a {
   margin-right: 30px;

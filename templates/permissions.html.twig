@@ -12,8 +12,8 @@
     
 
       
- {% block permissions %}   
- {{ path (permissions) }}
+ {% block defaultpermissions %}   
+ 
     {#<div id="zone_permissions">
     {% for permissions in permissions %}
     
@@ -27,7 +27,4 @@
         {% endfor %}
 
 </div>#}
-{% endblock permissions %}
-{% block buttonpermissions %}
-<button type="button"><a href="{{ path ("permissions") }}">listes des permissions existantes</a></button>
-   {% endblock buttonpermissions %}
+{% endblock defaultpermissions %}

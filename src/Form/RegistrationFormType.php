@@ -51,8 +51,11 @@ class RegistrationFormType extends AbstractType
                     'Structures' => true,
                     
                 ],
+                
             ])
+            
             ->add('submit', SubmitType::class);
+            
     }
 
     public function configureOptions(OptionsResolver $resolver): void
