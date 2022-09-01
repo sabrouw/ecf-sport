@@ -4,7 +4,7 @@
 
 
 
-{% block register %}
+{% block body %}
 <div class="my-custom-class-for-errors">
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
@@ -36,4 +36,4 @@
             {{ form_end(registrationForm) }}
     </div>
 </div>
-{% endblock register %}
+{% endblock body %}

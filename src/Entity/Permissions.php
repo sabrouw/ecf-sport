@@ -68,5 +68,7 @@ class Permissions
         $this->activite = $activite;
 
         return $this;
+    
     }
+    
 }

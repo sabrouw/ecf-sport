@@ -45,6 +45,10 @@ class Partenaires
     #[ORM\ManyToOne(inversedBy: 'partenaires')]
     private ?Categorie $categorie = null;
 
+    #[ORM\ManyToOne(inversedBy: 'partenaires')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?user $user = null;
+
     
 
     /**
@@ -119,6 +123,18 @@ class Partenaires
     public function setCategorie(?Categorie $categorie): self
     {
         $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getUser(): ?user
+    {
+        return $this->user;
+    }
+
+    public function setUser(?user $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

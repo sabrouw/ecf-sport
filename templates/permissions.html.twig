@@ -12,19 +12,19 @@
     
 
       
- {% block defaultpermissions %}   
+ {% block body %}   
  
-    {#<div id="zone_permissions">
+    <div id="zone_permissions">
     {% for permissions in permissions %}
     
     <h1 id="titre_permissions">Nom: {{ permissions.name }}</h1>  
     
-        <H2 id="activite_permissions"> Activité: {{ permissions.activité }}</h2>
+        <H2 id="activite_permissions"> Activité: {{ permissions.activite }}</h2>
        
-        {#<button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update")}}"> Modifier partenaire</a></button>
+        {#<button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update")}}"> Modifier partenaire</a></button>#}
         
         
         {% endfor %}
 
-</div>#}
-{% endblock defaultpermissions %}
+</div>
+{% endblock body %}

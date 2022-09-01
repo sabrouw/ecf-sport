@@ -3,12 +3,15 @@
 namespace App\Controller;
 
 use App\Repository\StructuresRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class StructuresController extends AbstractController
-{
+{/**
+ *@IsGranted("ROLE_STRUCTURES")
+ */
     #[Route('/structures', name: 'structures')]
     public function structures (StructuresRepository $structuresRepository)
     {    $structures = $structuresRepository ->findAll();

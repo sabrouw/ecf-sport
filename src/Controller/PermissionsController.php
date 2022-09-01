@@ -15,26 +15,26 @@ use Symfony\Component\Routing\Annotation\Route;
 /*récupère toute les permissions*/
 class PermissionsController extends AbstractController
 {
-    #[Route('/permissions', name: 'permissions')]
+    #[Route('/admin/permissions', name: 'admin_permissions')]
     public function permissions(PermissionsRepository $permissionsRepository): Response
     {
         $permissions = $permissionsRepository->findAll();
-        return $this->render('permissions.html.twig', [
+        return $this->render('admin/permissions.html.twig', [
             'permissions' => $permissions,
         ]);
     }
 
  //creation du formulaires pour les permissions en bool  
  //GET et POST 
-    #[Route('/admin/permissions', name: 'admin_permissions', methods:['GET', 'POST'])]
+    #[Route('/admin/permissions', name: 'admin_permissions_form', methods:['GET', 'POST'])]
     public function permissionsForm(Request $request ,EntityManagerInterface $entityManager): Response
     {
        
         $permissions = new Permissions();
-        $permissionsform = $this->createForm(PermissionsType::class, $permissions);
-        $permissionsform->handleRequest($request);
+        $permissionsForm = $this->createForm(PermissionsType::class, $permissions);
+        $permissionsForm->handleRequest($request);
         return $this->render('admin/permissions.html.twig', [
-            'permissionsform' => $permissionsform->createView(),
+            'permissionsForm' => $permissionsForm->createView(),
         ]);
         $entityManager->persist($permissions);
             $entityManager->flush();
