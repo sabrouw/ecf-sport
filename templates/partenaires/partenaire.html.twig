@@ -1,4 +1,4 @@
- {% extends 'base.html.twig' %}
+ {% extends 'partenaires/base.html.twig' %}
  {% block title %}<title>partenaire</title>{% endblock title %}
     {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
  
@@ -7,15 +7,23 @@
  {% block body %}
  
     
-    <h1>{{ partenaire.name }}</h1>  
-    <h2>{{ partenaire.id }}</h2>
-        
-       
-        {% block form %}  
-        <button type="submit" name"modifier_partenaire">Modifier partenaire</button>
-        <button type="submit" name"activer_partenaire">Activier partenaire</button>
-        {% endblock form %}    
+    {% for partenaire in partenaires %}
+	<h1 class="text-capitalize">
+		{{ partenaire.name }}
+	</h1>
+	<h2 class="text-capitalize">
+		{{ partenaire.id }}
+	</h2>
+
+
+	
+		<button class="btn btn-dark" type="submit" name"modifier_partenaire">
+			Modifier partenaire
+		</button>
+		<button class="btn btn-dark" type="submit" name"activer_partenaire">
+			Activier partenaire
+		</button>
+	
     
-    
-    
+    {% endfor %}
     {% endblock body %}

@@ -47,6 +47,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Partenaires::class)]
     private Collection $partenaires;
 
+    #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?Partenaires $partenaire = null;
+
+    #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?Structures $structure = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $username = null;
+
+   
+
+    
+
     public function __construct()
     {
         $this->partenaires = new ArrayCollection();
@@ -158,24 +171,40 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->partenaires;
     }
 
-    public function addPartenaire(Partenaires $partenaire): self
+ 
+
+    public function getPartenaire(): ?Partenaires
     {
-        if (!$this->partenaires->contains($partenaire)) {
-            $this->partenaires->add($partenaire);
-            $partenaire->setUser($this);
-        }
+        return $this->partenaire;
+    }
+
+    public function setPartenaire(?Partenaires $partenaire): self
+    {
+        $this->partenaire = $partenaire;
 
         return $this;
     }
 
-    public function removePartenaire(Partenaires $partenaire): self
+    public function getStructure(): ?Structures
     {
-        if ($this->partenaires->removeElement($partenaire)) {
-            // set the owning side to null (unless already changed)
-            if ($partenaire->getUser() === $this) {
-                $partenaire->setUser(null);
-            }
-        }
+        return $this->structure;
+    }
+
+    public function setStructure(?Structures $structure): self
+    {
+        $this->structure = $structure;
+
+        return $this;
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(?string $username): self
+    {
+        $this->username = $username;
 
         return $this;
     }

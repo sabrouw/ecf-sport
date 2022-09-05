@@ -1,21 +1,14 @@
 
-{% extends 'base.html.twig' %}
+{% extends 'partenaires/base.html.twig' %}
  {% block title %}<title>Partenaire</title>{% endblock title %}
     {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
  
  
  
  {% block body %}
+   
      
-     {% block acceuil %}{% endblock acceuil %}
-    <h2>{{ partenaire.name }}</h2>  
-    <h3>{{ partenaire.id }}</h3>
-        
-       
-        {% block form %}  
-        <button type="submit" name"modifier_partenaire">Modifier partenaire</button>
-        <button type="submit" name"activer_partenaire">Activier partenaire</button>
-        {% endblock form %}    
+   
 {% endblock body %}
 
 

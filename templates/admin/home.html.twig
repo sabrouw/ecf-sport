@@ -2,68 +2,31 @@
    {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock  %}
     {% block title %}<title>Admin Tableau de bord</title>{% endblock %}
   
-  
-
  
 {#message d'acceuil quand connecté#}
 {% block acceuil %}
-<div class="admin-menu"><h1  id="bonjour"> Bonjour et bienvenue {{app.user.email}} </h1></div>
+<div class="admin-menu"><h1  id="bonjour"> Bonjour et bienvenue {{app.user.username}} </h1></div>
 {% endblock acceuil %}
 
 
-{#formulaire de recherche de structures#}
-{% block searchstructures %}
-<div class="navbar__right"> 
-<form class="d-flex" action="{{path ('resultat')}}">
-        <input class="form-control me-sm-2" type="text" placeholder="Rechercher" name="search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>
-       </form>
-</div>
-{% endblock searchstructures %}
-
-{#formulaire de recherche de partenaires#}
-{% block searchpartenaires %}
-<div class="navbar__right">  
-    <form class="d-flex" action="{{ path ('resultat') }}">
-        <input class="form-control me-sm-2" type="text" placeholder="Rechercher un partenaire" name="search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">
-           Rechercher</i>
-          </button>
-    </form>
-    </div>
-{% endblock searchpartenaires %}
 
 
 {#button pour avoir la listes des partenaires#}
 {% block buttonpartenaires %}
-<button class="btn btn-dark" type="btn"><a href="{{ path ('admin_partenaires') }}">Partenaires</a></button>
+<button class="btn btn-dark" type="btn"><a href="{{ path ('admin_partenaires') }}">Les partenaires</a></button>
 {% endblock buttonpartenaires %}
 
 {#button pour avoir la listes des structures#}
 {% block buttonstructures %}
-<button class="btn btn-dark"type="btn"><a href="{{ path ('admin_structures') }}">Structures</a></button>
+<button class="btn btn-dark"type="btn"><a href="{{ path ('admin_structures') }}">Les structures</a></button>
 {% endblock buttonstructures %}
 
-{#liste de partenaires de bdd#}
-{% block partenaires %}
-<div id="zone_partenaires">
-    {% for partenaires in partenaires %}
-    
-    <h2 class="text-capitalize"id="titre_partenaire">Nom: {{ partenaires.name }}</h2>  
-    <h3 id="id_partenaire">Id: {{ partenaires.id }}</h3>
-        
-       
-        {#<button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update")}}"> Modifier partenaire</a></button>#}
-        <button class="btn btn-dark"type="submit" name"activer_partenaires" id="activer_partenaires">Activier partenaire</button>
-        <button class="btn btn-dark"type="submit" name"voir_partenaires" id="voir_partenaires"><a href="{{ path ('partenaire', {'id': partenaires.id}) }}" > Voir le partenaire sur le site </a></button>     
-        <button class="btn btn-dark"type="submit" name"supprimer_partenaires"id="supprimer_partenaires"><a href="{{ path ('admin_partenaires_delete', {'id': partenaires.id} ) }} " > Supprimer </a></button>
-        {% endfor %}
 
-</div>
-{% endblock partenaires %}
-{% block body %}<p class="text-dark">Bonjour et bienvenue dans votre espace d'administration, Vous pourrez gerer vos partenaires ainsi que leur structures.<br>
+{% block body %}
+<p class="text-dark">Bonjour et bienvenue dans votre espace d'administration, Vous pourrez gerer vos partenaires ainsi que leur structures.<br>
 Si le moindre problème survient au sein de l'application vous pourrez nous contacter et obtenir de l'aide dans les meilleurs délais soit par téléphone, soit par le biais du formulaire de contact mis à votre disposition.
-Vous trouverez le détail de toutes les possibilités qui s'offrent à vous dans le fichier "help" téléchargeable ou consultable à partir de votre espace administration</p>{% endblock body %}
+Vous trouverez le détail de toutes les possibilités qui s'offrent à vous dans le fichier "help" téléchargeable ou consultable à partir de votre espace administration</p>
+{% endblock body %}
 
 
 

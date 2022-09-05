@@ -3,6 +3,8 @@
 namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\PartenairesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -21,46 +23,29 @@ class Partenaires
         private ?string $name = null;
       
     #[ORM\Column(length: 255)]
-        private ?string $adresse_postale = null;
+        private ?string $adresse = null;
 
-    #[ORM\Column(length: 180, unique: false)]
-    private ?string $email = null;
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-    /**
-     * @var string The hashed password
-     */
-    #[ORM\Column]
-    private ?string $password = null;
+    #[ORM\OneToOne(mappedBy: 'partenaire', cascade: ['persist', 'remove'])]
+    private ?User $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'partenaires')]
-    private ?Categorie $categorie = null;
+    private ?Permissions $permission1 = null;
 
-    #[ORM\ManyToOne(inversedBy: 'partenaires')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?user $user = null;
+    #[ORM\ManyToOne(inversedBy: 'partenaires2')]
+    private ?Permissions $permission2 = null;
+
+    #[ORM\ManyToOne(inversedBy: 'partenaires3')]
+    private ?Permissions $permission3 = null;
+
+    #[ORM\ManyToOne(inversedBy: 'partenaires4')]
+    private ?Permissions $permission4 = null;
+
+    #[ORM\ManyToOne(inversedBy: 'partenaires5')]
+    private ?Permissions $permission5 = null;
+
+
 
     
-
-    /**
-     * A visual identifier that represents this user.
-     *
-     * @see UserInterface
-     */
-    public function getUserIdentifier(): string
-    {
-        return (string) $this->email;
-    }
-
 
     public function getId(): ?int
     {
@@ -80,40 +65,18 @@ class Partenaires
     }
 
 
-    public function getAdressePostale(): ?string
+    public function getAdresse(): ?string
     {
-        return $this->adresse_postale;
+        return $this->adresse;
     }
 
-    public function setAdressePostale(string $adresse_postale): self
+    public function setAdresse(string $adresse): self
     {
-        $this->adresse_postale = $adresse_postale;
-
-        return $this;
-    }
-/**
-     * @see PasswordAuthenticatedUserInterface
-     */
-    public function getPassword(): string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
-    /**
-     * @see UserInterface
-     */
-    public function eraseCredentials()
-    {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
-    }
 
     public function getCategorie(): ?Categorie
     {
@@ -127,17 +90,93 @@ class Partenaires
         return $this;
     }
 
-    public function getUser(): ?user
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(?user $user): self
+    public function setUser(?User $user): self
     {
+        // unset the owning side of the relation if necessary
+        if ($user === null && $this->user !== null) {
+            $this->user->setPartenaire(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($user !== null && $user->getPartenaire() !== $this) {
+            $user->setPartenaire($this);
+        }
+
         $this->user = $user;
 
         return $this;
     }
+
+    public function getPermission1(): ?Permissions
+    {
+        return $this->permission1;
+    }
+
+    public function setPermission1(?Permissions $permission1): self
+    {
+        $this->permission1 = $permission1;
+
+        return $this;
+    }
+
+    public function getPermission2(): ?Permissions
+    {
+        return $this->permission2;
+    }
+
+    public function setPermission2(?Permissions $permission2): self
+    {
+        $this->permission2 = $permission2;
+
+        return $this;
+    }
+
+    public function getPermission3(): ?Permissions
+    {
+        return $this->permission3;
+    }
+
+    public function setPermission3(?Permissions $permission3): self
+    {
+        $this->permission3 = $permission3;
+
+        return $this;
+    }
+
+    public function getPermission4(): ?Permissions
+    {
+        return $this->permission4;
+    }
+
+    public function setPermission4(?Permissions $permission4): self
+    {
+        $this->permission4 = $permission4;
+
+        return $this;
+    }
+
+    public function getPermission5(): ?Permissions
+    {
+        return $this->permission5;
+    }
+
+    public function setPermission5(?Permissions $permission5): self
+    {
+        $this->permission5 = $permission5;
+
+        return $this;
+    }
+
+    
+
+  
+
+
 
    
 

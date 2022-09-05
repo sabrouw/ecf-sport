@@ -7,6 +7,7 @@ use App\Form\PermissionsType;
 use App\Repository\PermissionsRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
+use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,20 +24,26 @@ class PermissionsController extends AbstractController
             'permissions' => $permissions,
         ]);
     }
+/*recupere une permission*/
+    #[Route('/permissions/{id}', name: 'permission')]
+    public function permission($id,PermissionsRepository $permissionsRepository): Response
+    {
+        $permissions = $permissionsRepository->findBy($id);
+        return $this->render('permission.html.twig', [
+            'permissions' => $permissions,
+        ]);
+    }
 
  //creation du formulaires pour les permissions en bool  
  //GET et POST 
-    #[Route('/admin/permissions', name: 'admin_permissions_form', methods:['GET', 'POST'])]
-    public function permissionsForm(Request $request ,EntityManagerInterface $entityManager): Response
+    #[Route('/admin/permissions', name: 'permissionsForm', methods:['POST'])]
+    public function permissionsForm(Request $request): Response 
     {
        
-        $permissions = new Permissions();
-        $permissionsForm = $this->createForm(PermissionsType::class, $permissions);
-        $permissionsForm->handleRequest($request);
+       $permissions=$request->get(key:"permissions[]");
         return $this->render('admin/permissions.html.twig', [
-            'permissionsForm' => $permissionsForm->createView(),
+            'permissions' => $permissions
         ]);
-        $entityManager->persist($permissions);
-            $entityManager->flush();
+        
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\StructuresRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -26,56 +28,36 @@ class Structures
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
  
-    /**
-     * @var string The hashed password
-     */
-    #[ORM\Column]
-    private ?string $password = null;
-
-    /**
-     * @see PasswordAuthenticatedUserInterface
-     */
-    public function getPassword(): string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * @see UserInterface
-     */
-    public function eraseCredentials()
-    {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
-    }
-
-    #[ORM\Column(length: 180, unique: false)]
-    private ?string $email = null;
 
     #[ORM\ManyToOne(inversedBy: 'structures')]
     private ?Categorie $categorie = null;
 
+   
+    #[ORM\OneToOne(mappedBy: 'structure', cascade: ['persist', 'remove'])]
+    private ?User $user = null;
+
+    #[ORM\ManyToOne(inversedBy: 'structures')]
+    private ?Permissions $permission1 = null;
+
     
-        
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
 
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
+    #[ORM\ManyToOne(inversedBy: 'structures2')]
+    private ?Permissions $permission2 = null;
 
-        return $this;
-    }
+    #[ORM\ManyToOne]
+    private ?Permissions $permission3 = null;
 
+    #[ORM\ManyToOne(inversedBy: 'structure1')]
+    private ?Permissions $permission4 = null;
+
+    #[ORM\ManyToOne]
+    private ?Permissions $permission5 = null;
+
+    
+
+
+
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -117,6 +99,103 @@ class Structures
 
         return $this;
     }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($user === null && $this->user !== null) {
+            $this->user->setStructure(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($user !== null && $user->getStructure() !== $this) {
+            $user->setStructure($this);
+        }
+
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getPermission1(): ?Permissions
+    {
+        return $this->permission1;
+    }
+
+    public function setPermission1(?Permissions $permission1): self
+    {
+        $this->permission1 = $permission1;
+
+        return $this;
+    }
+
+    
+    /**
+     * @return Collection<int, self>
+     */
+    public function getStructures(): Collection
+    {
+        return $this->structures;
+    }
+
+    
+
+      
+
+    public function getPermission2(): ?Permissions
+    {
+        return $this->permission2;
+    }
+
+    public function setPermission2(?Permissions $permission2): self
+    {
+        $this->permission2 = $permission2;
+
+        return $this;
+    }
+
+    public function getPermission3(): ?Permissions
+    {
+        return $this->permission3;
+    }
+
+    public function setPermission3(?Permissions $permission3): self
+    {
+        $this->permission3 = $permission3;
+
+        return $this;
+    }
+
+    public function getPermission4(): ?Permissions
+    {
+        return $this->permission4;
+    }
+
+    public function setPermission4(?Permissions $permission4): self
+    {
+        $this->permission4 = $permission4;
+
+        return $this;
+    }
+
+    public function getPermission5(): ?Permissions
+    {
+        return $this->permission5;
+    }
+
+    public function setPermission5(?Permissions $permission5): self
+    {
+        $this->permission5 = $permission5;
+
+        return $this;
+    }
+
+   
 
     
 

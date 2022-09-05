@@ -8,6 +8,20 @@
 	</title>
 {% endblock %}
 
+{% block header %}
+<label for="pet-select">cherche un partenaire:</label>
+
+<select name="pets" id="partenaire">
+    <option value="">--Please choose an option--</option>
+    <option value="dog">{{ partenaires }}</option>
+    <option value="cat">Cat</option>
+    <option value="hamster">Hamster</option>
+    <option value="parrot">Parrot</option>
+    <option value="spider">Spider</option>
+    <option value="goldfish">Goldfish</option>
+</select>
+{{ dump(partenaire) }}
+{% endblock header %}
 {#button pour avoir la listes des partenaires#}
 {% block buttonpartenaires %}
 	<button class="btn btn-dark" type="btn">
@@ -25,10 +39,12 @@
 	</button>
 {% endblock buttonstructures %}
 {% block body %}
-	<form class="d-flex" action="{{ path ('resultat') }}">
-		<input class="form-control me-sm-2" type="text" placeholder="Rechercher un partenaire" name="search">
+	<form class="d-flex" action="{{ path ('resultat_partenaire') }}">
+		<input class="form-control me-sm-2" type="search" placeholder="Rechercher un partenaire" name="search">
 		<button class="btn btn-secondary my-2 my-sm-0" type="submit">
 			Rechercher
 		</button>
 	</form>
+
+	
 {% endblock body %}

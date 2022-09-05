@@ -26,18 +26,18 @@
 		<div class="nav_icon" onclick="toggleSidebar()">
 			<i class="fa fa-bars" aria-hidden="true"></i>
 		</div>
-		<div class="navbar__left"> {% block acceuil %}{% endblock acceuil %}
+		<div class="navbar__left"> 
+		{% block acceuil %}{% endblock acceuil %}
 			</div>
 	<!--Moteur de recherche de structure et de partenaires-->
 			<div class="navbar__right">
-				<form class="d-flex" action="{{ path ('resultat') }}">
+				<form class="d-flex" action="{{ path ('resultat')}} ">
 					<input class="form-control me-sm-2" type="text" placeholder="Rechercher" name="search">
 					<button class="btn btn-secondary my-2 my-sm-0" type="submit">
 						Rechercher
 					</button>
 				</form>
-
-
+	   
 			</div>
 		</nav>
 		<!--contenu-->
@@ -90,7 +90,10 @@
 					<div class="charts__left">
 						<div class="charts__left__title">
 							<div>
+							
 								{% block body %}
+								
+								
 								{% endblock body %}
 								{% block permissions %}
 								{% endblock permissions %}

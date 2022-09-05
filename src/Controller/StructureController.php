@@ -20,7 +20,7 @@ class StructureController extends AbstractController
             'structures' => $structures,
         ]);
     }
-    #[Security("is_grandted('ROLE_STRUCTURES') and user === structure.getStructures()")]
+    //#[Security("is_granted('ROLE_STRUCTURES') and user === structure.getStructures()")]
     #[Route('/structure', name: 'structure')]
     public function structure($id, StructuresRepository $structuresRepository)
     {

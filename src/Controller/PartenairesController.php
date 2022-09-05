@@ -2,18 +2,17 @@
 
 namespace App\Controller;
 
+
 use App\Repository\PartenairesRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-/**
- *@IsGranted("ROLE_PARTENAIRES")
- */
+
 
 class PartenairesController extends AbstractController
 {#[Route("/partenaires", name:"partenaires")]
     public function partenaires (PartenairesRepository $partenairesRepository)
-    { //Repository permet de faire des requetes sql en bdd avec findAll()
+    { //Repository permet de faire des requetes sql en bdd avec la methode findAll() obtenue par repository
        $partenaires = $partenairesRepository->findAll();
        //envoie mon contenu de ma bdd dans la variable $partenaires 
        //on affiche $partenaires dans fichier twig
@@ -21,6 +20,9 @@ class PartenairesController extends AbstractController
        return $this->render("partenaires/partenaires.html.twig", [
         'partenaires' => $partenaires]);
     }
-  
+    
+    
+
+   
 
 }

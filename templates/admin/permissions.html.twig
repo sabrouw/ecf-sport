@@ -19,29 +19,32 @@
 {% endblock header %}
 {% block body %}   
  
-    <div class="mt-4 "id="zone_permissions">
+    
     {% for permissions in permissions %}
     
-    <h2 class="mt-3 "id="titre_permissions">{{ permissions.name }}</h2>  
-    {#<H4 class=" "id="id_permissions"> id: {{ permissions.id }}</h4>#}
-        <H3 class="mt-3 "id="activite_permissions"> Activité: {{ permissions.activite }}</h3>
-		<H4 class="mt-3 "id="description_permissions"> Decritption: {{ permissions.description }}</h4>
-		
-       
-        {#<button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update")}}"> Modifier partenaire</a></button>#}
-        
-        
-        {% endfor %}
+    <form action" {{ path ("permissionsForm") }}" method="post" class="form-check form-switch">
+    
 
-</div>
+        <label>{{permissions.name}}</label>
+        {{ permissions.activite }}
+        <input  name="permissions[]" checked class="form-check-input" id="buttonCheck" type="checkbox"></input> 
+        <H4 class="mt-3 "id="description_permissions"> Decritption: {{ permissions.description }}</h4>
+		
+        
+        
+        
+ {% endfor %} 
+ <input class="btn btn-primary"type="submit">      
+</form>
+
 {#Formulaire de permissions
-   {{ form_start(permissionsForm) }}
+   {{ form_start(form) }}
 <div id="container-permissions"class="col form-control">
     <div id="permissions_name"class="row form-label ">
-           {{ form_row(permissionsForm.name) }}
+           {{ form_row(permissions.name) }}
     </div>
     <div class="col form-label"  id="register-password">
-            {{ form_row(permissionsForm.activite, {
+            {{ form_row(permissions.activite, {
             label: 'Actif'
         }) }}
     </div>
@@ -50,7 +53,7 @@
     </div>
     <div class="col form-label" type="button" class="btn btn-outline-success" id="register-button">
                 <button type="submit" class="btn"></button>
-            {{ form_end(permissionsForm) }}
+            {{ form_end(form) }}
     </div>
 </div>#}
 {% endblock body %}

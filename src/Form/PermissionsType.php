@@ -2,6 +2,7 @@
 
 namespace App\Form;
 use App\Entity\Permissions;
+
 use Laminas\Code\Generator\EnumGenerator\Name;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -18,7 +19,8 @@ class PermissionsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
 
-        $builder->add('permissions', EntityType::class, [
+        $builder
+        ->add('permissions', EntityType::class, [
             // looks for choices from this entity
             'class' => permissions::class,
         
@@ -26,8 +28,8 @@ class PermissionsType extends AbstractType
             'choice_label' => 'name',
         
             // used to render a select box, check boxes or radios
-            // 'multiple' => true,
-            // 'expanded' => true,
+            'multiple' => true,
+            'expanded' => true,
         ]);
       // $builder
       // ->add('activite', CheckboxType::class, [

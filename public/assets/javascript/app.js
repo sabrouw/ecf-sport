@@ -78,4 +78,11 @@ var options = {
       sidebarOpen = false;
     }
   }
-  
+//let buttonCheck = 1;
+//buttonCheck = document.getElementById('buttonCheck');
+//buttonCheck.addEventListener('click', event =>
+//  buttonCheck = 0
+//)
+//
+
+//console.log$('event');

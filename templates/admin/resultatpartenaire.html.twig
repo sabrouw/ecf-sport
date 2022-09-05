@@ -12,7 +12,7 @@
 {% block header %}
 <h1>
 	Résultats de votre recherche
-	{% block header %}
+	{% endblock header %}
 
 
 	{#button pour avoir la listes des partenaires#}
@@ -36,7 +36,7 @@
 	{% block body %}
 
 
-		{% for partenaire in partenaires %}
+		{% for partenaire in partenaire %}
 
 			<h2>
 				Nom:
@@ -55,7 +55,7 @@
 				Activier partenaire
 			</button>
 			<button class="btn btn-dark mt-4" type="submit" name"voir_partenaire">
-				<a href="{{ path ('partenaire', {'id': partenaire.id}) }}">
+				<a href="{{ path ('admin_partenaires', {'id': partenaire.id}) }}">
 					Voir sur le site
 				</a>
 			</button>

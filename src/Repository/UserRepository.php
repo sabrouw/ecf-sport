@@ -2,12 +2,14 @@
 
 namespace App\Repository;
 
+use App\Entity\Partenaires;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
+use Symfony\Component\Validator\Constraints\All;
 
 /**
  * @extends ServiceEntityRepository<User>
@@ -56,22 +58,25 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->add($user, true);
     }
 
-
-    
-//    /**
-//     * @return User[] Returns an array of User objects
-//     */
-//    public function findByExampleField($value): array
+    /*requete pour recuperer partenaire en jointure de user*/
+    /**
+    *
+    */
+//    public function userFindPartenaire($partenaire_id = null)
 //    {
-//        return $this->createQueryBuilder('u')
-//            ->andWhere('u.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('u.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
+//        $query = $this->createQueryBuilder('u');
+//        if ($partenaire_id != null) {
+//            /*jointure sur partenaire_id*/
+//            /*p = alias partenaire
+//            dans la classe u je veux la colonne partenaire_id*/
+//             $query     ->join('u.partenaire_id', 'p') 
+//                        ->andWhere('p.id = :partenaire_id')
+//                        ->setParameter(':partenaire_id', $partenaire_id);
+//        }
+//        return $query->getQuery()->getResult();
 //    }
+}
+ 
 
 //    public function findOneBySomeField($value): ?User
 //    {
@@ -82,4 +87,4 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 //            ->getOneOrNullResult()
 //        ;
 //    }
-}
+

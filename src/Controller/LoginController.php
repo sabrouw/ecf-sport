@@ -28,6 +28,6 @@ class LoginController extends AbstractController
     public function logout():Response
     {
         $this -> addFlash(type:'success', message:'Vous etes déconnecté');
-        return $this -> redirectToRoute('home');
+        return $this -> redirectToRoute('logout');
     }
 }

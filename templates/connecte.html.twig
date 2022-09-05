@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+ {% block title %}<title>HOME PAGE</title>{% endblock title %}
+    {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
+ 
+
+
+{% block body %}
+<h2>Bonjour {{ app.user.username}}</h2>
+
+
+{% if app.user.categorie == 2 %}
+    <h3 class="mt-3">Vous etes le gérant de {{ app.user.structure.name }} </h2>
+
+<h3 class="mt-3">Description: {{ app.user.structure.description }} </h2>
+
+{% else %}
+<h3 class="mt-3">Vous etes le gérant de {{ app.user.partenaire.name }} </h2>
+<h3 class="mt-3">Adressé au {{ app.user.partenaire.adresse }} </h2>
+{% endif %}
+
+
+
+
+
+
+
+{#<input> <a href "{{ path ('partenaire', {'id': partenaire.id} ) }}">Detail du compte</a></input>#}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock body %}
