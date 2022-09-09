@@ -21,7 +21,7 @@ class StructureController extends AbstractController
         ]);
     }
     //#[Security("is_granted('ROLE_STRUCTURES') and user === structure.getStructures()")]
-    #[Route('/structure', name: 'structure')]
+    #[Route('/structure/{id}', name: 'structure')]
     public function structure($id, StructuresRepository $structuresRepository)
     {
         $structure = $structuresRepository->find($id);

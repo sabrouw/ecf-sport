@@ -49,6 +49,9 @@ class Permissions
     #[ORM\OneToMany(mappedBy: 'permission5', targetEntity: Partenaires::class)]
     private Collection $partenaires5;
 
+    #[ORM\ManyToOne(inversedBy: 'permissions')]
+    private ?Structures $structure = null;
+
     public function __construct()
     {
         $this->structures = new ArrayCollection();
@@ -285,6 +288,22 @@ class Permissions
         return $this;
     }
 
-    
+    public function getStructure(): ?Structures
+    {
+        return $this->structure;
+    }
+
+    public function setStructure(?Structures $structure): self
+    {
+        $this->structure = $structure;
+
+        return $this;
+    }
+
+    public function __toString():string
+    {
+        return $this->activite;
+    }
+
     
 }

@@ -23,7 +23,7 @@ class PartenairesRepository extends ServiceEntityRepository
         parent::__construct($registry, Partenaires::class);
     }
 
-    #[Route ('/resultat',name:'resultat')]
+    #[Route ('/resultat',name:'resultat_partenaire')]
     public function searchPartenaire($search): array
     {
     $qb = $this->createQueryBuilder(alias:'partenaires');

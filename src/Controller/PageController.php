@@ -42,7 +42,7 @@ class PageController extends AbstractController
 /*page d'acceuil si connecté*/
     #[Route('/connecte', name: 'home_connecte')]
     public function homeConnecte(UserRepository $userRepository): Response
-    {$user = $userRepository->userFindPartenaire();
+    {$user = $userRepository->findAll();
         return $this->render('connecte.html.twig', [
             'user' => $user,
         ]);
@@ -54,20 +54,27 @@ class PageController extends AbstractController
     public function contact(Request $request, MailerInterface $mailerInterface): Response
     {
         $postRequest = $request->request;
+        $emailUser = $postRequest->get(key:'emailUser');
         $firstName = $postRequest->get(key:'firstname');
-        $lasttName = $postRequest->get(key:'laststname');
+        $lastName = $postRequest->get(key:'lastname');
         $message = $postRequest->get(key:'message');
 
         /*config de l'envoie email admin*/
-        $email = (new TemplatedEmail());
-        $email->from('sabrow@hotmail.fr')
-        ->to('sabrinadzzz@gmail.com')
-        ->subject('test email')
-        ->textTemplate('emails/contact.html.twig');
+        $templatedEmail = new TemplatedEmail();
+        $templatedEmail->from(adresses:'sabrinadzzz@gmail.com')
+        ->to('sabrow@hotmail.fr')
+        ->subject(subject: $emailUser. 'vous a envoyé un message')
+        ->textTemplate('emails/contact.html.twig')
+        ->context ([
+        'firstName'=> $firstName, 
+        'lastName'=>$lastName,
+        'message'=>$message, 
+        'emailUser' => $emailUser]);
 
         /*instance de la class générique mailer*/
-        $mailerInterface->send($email);
-
+        $mailerInterface->send($templatedEmail);
+        
+        
         return $this -> render('contact.html.twig');
     }
   

@@ -3,16 +3,18 @@
  {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
  
  {% block body %}
-<h1>Hi! Please confirm your email!</h1>
+
+ <div>
+<h1>Bonjour, merci de confirmer votre adresse email afin d'activer votre compte</h1>
 
 <p>
-    Please confirm your email address by clicking the following link: <br><br>
-    <a href="{{ signedUrl }}">Confirm my Email</a>.
-    This link will expire in {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+    clique ci-dessous pour confirmer<br><br>
+    <a href="{{ signedUrl }}">Confirmer mon email</a>.
+    Cet email expirera dans {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
 </p>
 
 <p>
-    Cheers!
+    Envoyer!
 </p>
-
+</div>
  {% endblock body %}

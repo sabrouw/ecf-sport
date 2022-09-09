@@ -1,4 +1,4 @@
- {% extends 'partenaires/base.html.twig' %}
+ {% extends 'base.html.twig' %}
  {% block title %}<title>partenaire</title>{% endblock title %}
     {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
  
@@ -7,7 +7,7 @@
  {% block body %}
  
     
-    {% for partenaire in partenaires %}
+    {% for partenaire in partenaire %}
 	<h1 class="text-capitalize">
 		{{ partenaire.name }}
 	</h1>
@@ -26,4 +26,5 @@
 	
     
     {% endfor %}
+	
     {% endblock body %}

@@ -1,21 +1,22 @@
 {% extends 'admin/base.html.twig' %}
+{% block title %}
+	<title>
+		Interface de gestion des permissions par défaut
+	</title>
+{% endblock title %}
 {% block css %}
 	<link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>
 {% endblock css %}
-{% block title %}
-	<title>
-		Admin Tableau de bord
-	</title>
-{% endblock %}
-
 
 {% block header %}
-	<h1 id="titre_form_insert_partenaire">
-		Formulaire de création de partenaires
-	</h1>
-{% endblock header %}
+	<header id="header">
 
-{#button pour avoir la listes des partenaires#}
+		<h1 id="titre_admin_permissions">
+			Administrer les permissions
+		</h1>
+
+	</header>
+{% endblock header %}
 {% block buttonpartenaires %}
 	<button class="btn btn-dark" type="btn">
 		<a href="{{ path ('admin_partenaires') }}">
@@ -23,7 +24,7 @@
 		</a>
 	</button>
 {% endblock buttonpartenaires %}
-{#button pour avoir la listes des structures#}
+
 {% block buttonstructures %}
 	<button class="btn btn-dark" type="btn">
 		<a href="{{ path ('admin_structures') }}">
@@ -32,8 +33,10 @@
 	</button>
 {% endblock buttonstructures %}
 
-{% block body %}
-	<main id="form_insert_partenaire">
-		{{form (partenaireForm)}}
+{% block body %}   
+<main id="form_update_permissions">
+		<div id="modif_permissions" class="form-control">{{ form(form) }}</div>
 		</main>
-	{% endblock body %}
+
+        {% endblock body %}
+

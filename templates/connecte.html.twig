@@ -10,12 +10,12 @@
 
 
 {% if app.user.categorie == 2 %}
-    <h3 class="mt-3">Vous etes le gérant de {{ app.user.structure.name }} </h2>
+    <h3 class="mt-3">Vous etes le gérant de la structure {{ app.user.structure.name }} </h2>
 
 <h3 class="mt-3">Description: {{ app.user.structure.description }} </h2>
 
 {% else %}
-<h3 class="mt-3">Vous etes le gérant de {{ app.user.partenaire.name }} </h2>
+<h3 class="mt-3">Vous etes le gérant du partenaire {{ app.user.partenaire.name }} </h2>
 <h3 class="mt-3">Adressé au {{ app.user.partenaire.adresse }} </h2>
 {% endif %}
 

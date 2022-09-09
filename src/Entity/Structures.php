@@ -53,6 +53,17 @@ class Structures
     #[ORM\ManyToOne]
     private ?Permissions $permission5 = null;
 
+    #[ORM\OneToMany(mappedBy: 'structure', targetEntity: Permissions::class)]
+    private Collection $permissions;
+
+    #[ORM\Column]
+    private ?bool $statut = null;
+
+    public function __construct()
+    {
+        $this->permissions = new ArrayCollection();
+    }
+
     
 
 
@@ -195,10 +206,56 @@ class Structures
         return $this;
     }
 
+    /**
+     * @return Collection<int, Permissions>
+     */
+    public function getPermissions(): Collection
+    {
+        return $this->permissions;
+    }
+
+    public function addPermission(Permissions $permission): self
+    {
+        if (!$this->permissions->contains($permission)) {
+            $this->permissions->add($permission);
+            $permission->setStructure($this);
+        }
+
+        return $this;
+    }
+
+    public function removePermission(Permissions $permission): self
+    {
+        if ($this->permissions->removeElement($permission)) {
+            // set the owning side to null (unless already changed)
+            if ($permission->getStructure() === $this) {
+                $permission->setStructure(null);
+            }
+        }
+
+        return $this;
+    }
+
    
+    public function __toString()
+    {
+        return $this->name;
+    }
+
+    public function isStatut(): ?bool
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(bool $statut): self
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
 
     
-
+ 
    
   
 

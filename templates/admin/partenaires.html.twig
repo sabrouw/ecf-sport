@@ -71,7 +71,7 @@
 			</button>
 
 			<button class="btn btn-dark mt-3" type="submit" name"voir_partenaires" id="voir_partenaires">
-				<a href="{{ path ('partenaire', {'id': partenaires.id}) }}">
+				<a href="{{ path ('admin_partenaire', {'id': partenaires.id} ) }}">
 					Voir le partenaire
 				</a>
 			</button>
@@ -80,7 +80,13 @@
 					Supprimer
 				</a>
 			</button>
+			{#<button class="btn btn-dark mt-3" type="submit" name"modifier_partenaires" id="modifier_partenaires">
+				<a href="{{ path ("admin_permissions", {'id': partenaires.id})}}">
+					Voir les permissions
+				</a>
+			</button>#}
 		{% endfor %}
+		
 
 	</div>
 

@@ -11,7 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-
+use function PHPUnit\Framework\stringContains;
 
 #[ApiResource (collectionOperations: ['get'], itemOperations: ['get'])]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
@@ -37,6 +37,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
+   
+    #[ORM\Column(type:'string', length:100)]
+    private $resetToken;
 
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
@@ -208,7 +211,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+   
+    
+    /**
+     * Get the value of resetToken
+     */ 
+    public function getResetToken(): ?string
+    {
+        return $this->resetToken;
+    }
 
-    
-    
+    /**
+     * Set the value of resetToken
+     *
+     * @return  self
+     */ 
+    public function setResetToken(?string $resetToken):self
+    {
+        $this->resetToken = $resetToken;
+
+        return $this;
+    }
 }

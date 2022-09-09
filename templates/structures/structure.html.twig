@@ -1,20 +1,21 @@
-{% extends 'base.html.twig' %}
+{% extends 'structures/base.html.twig' %}
 {% block title %}<title>structure</title>{% endblock title %}
    {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
 
 
    {% block body %}
  
+    {% for structure in structure %}
+        
     
     <h1>{{ structure.name }}</h1>  
     <h2>{{ structure.id }}</h2>
         
        
-        {% block form %}  
+       
         <button type="submit" name"modifier_structure">Modifier structure</button>
         <button type="submit" name"activer_structure">Activier structure</button>
-        {% endblock form %}    
-    
-    
+       
+    {% endfor %}
     
     {% endblock body %}

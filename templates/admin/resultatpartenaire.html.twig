@@ -49,13 +49,13 @@
 
 
 			<button class="btn btn-dark mt-4" type="submit" name"modifier_partenaire">
-				Modifier partenaire
+			<a href="{{ path ('admin_partenaire_update', {'id': partenaire.id}) }}">	Modifier partenaire</a>
 			</button>
 			<button class="btn btn-dark mt-4" type="submit" name"activer_partenaire">
 				Activier partenaire
 			</button>
 			<button class="btn btn-dark mt-4" type="submit" name"voir_partenaire">
-				<a href="{{ path ('admin_partenaires', {'id': partenaire.id}) }}">
+				<a href="{{ path ('admin_partenaire', {'id': partenaire.id}) }}">
 					Voir sur le site
 				</a>
 			</button>

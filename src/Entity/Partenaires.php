@@ -43,6 +43,9 @@ class Partenaires
     #[ORM\ManyToOne(inversedBy: 'partenaires5')]
     private ?Permissions $permission5 = null;
 
+    #[ORM\Column]
+    private ?bool $statut = null;
+
 
 
     
@@ -168,6 +171,23 @@ class Partenaires
     public function setPermission5(?Permissions $permission5): self
     {
         $this->permission5 = $permission5;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->adresse;
+    }
+
+    public function isStatut(): ?bool
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(bool $statut): self
+    {
+        $this->statut = $statut;
 
         return $this;
     }

@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * @method Structures[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class StructuresRepository extends ServiceEntityRepository
-{#[Route('/search',name:'resultat')]
+{#[Route('/search',name:'resultat_structure')]
     public function searchStructure($search): array
     {
     $qb = $this->createQueryBuilder(alias:'structures');

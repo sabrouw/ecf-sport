@@ -5,8 +5,8 @@ namespace App\Controller;
 use App\Entity\Permissions;
 use App\Form\PermissionsType;
 use App\Repository\PermissionsRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,25 +25,35 @@ class PermissionsController extends AbstractController
         ]);
     }
 /*recupere une permission*/
-    #[Route('/permissions/{id}', name: 'permission')]
+    #[Route('/admin/permissions/{id}', name: 'admin_permission')]
     public function permission($id,PermissionsRepository $permissionsRepository): Response
     {
-        $permissions = $permissionsRepository->findBy($id);
-        return $this->render('permission.html.twig', [
-            'permissions' => $permissions,
+        $permission = $permissionsRepository->findBy($id);
+        return $this->render('admin/permissions.html.twig', [
+            'permission' => $permission,
         ]);
     }
 
- //creation du formulaires pour les permissions en bool  
+ //creation du formulaires pour les permissions en boolean  
  //GET et POST 
-    #[Route('/admin/permissions', name: 'permissionsForm', methods:['POST'])]
-    public function permissionsForm(Request $request): Response 
+ #[Route('/admin/permission/{id}/edit', name: 'admin_permission_edit')]
+ public function updatePermissions($id,Permissions $permissions = null , EntityManagerInterface $entityManagerInterface, Request $request, PermissionsRepository $permissionsRepository)
     {
-       
-       $permissions=$request->get(key:"permissions[]");
-        return $this->render('admin/permissions.html.twig', [
-            'permissions' => $permissions
-        ]);
+        $permissions = $permissionsRepository->find($id);
+
+        $form = $this->createForm(PermissionsType::class, $permissions);
+        $form->handleRequest($request);
+        //si mon objet est vide je creer un nouvel objet sinon le formulaire apparait prérempli
+   
+        //si mon formulaire est soumis (post)et valide alors j'envoie les données en bdd (flush)
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManagerInterface->persist($permissions);
+            $entityManagerInterface->flush();
+            $this->addFlash(type: 'success', message: 'permissions  mis à jour');
+        } 
         
+        return $this->render("admin/permission_edit.html.twig", [
+            'form' => $form->createView()
+        ]);
     }
 }

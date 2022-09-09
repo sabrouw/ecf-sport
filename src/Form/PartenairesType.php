@@ -17,48 +17,63 @@ class PartenairesType extends AbstractType
         $builder
             ->add('name')
             ->add('adresse')
-            ->add('permission1', ChoiceType::class, [
-                'choices'  => array(
-                        'activé'        => true,
-                        'désactive'     => false 
-                ),      'expanded'      => true,
-                        'multiple'      => false 
-            ])
-            ->add('permission3', ChoiceType::class, [
-                'choices'  => array(
-                    'activé'        => true,
-                    'désactive'     => false 
-                ),
-                    'expanded'      => true,
-                    'multiple'      => false  
-                      
-                ]   
-            )
-            ->add('permission4', ChoiceType::class, [
-                'choices'  => array(
-                    'activé'        => true,
-                    'désactive'     => false 
-                ),
-                    'expanded'      => true,
-                    'multiple'      => false  
-                      
-                ]   
-            )
-            ->add('permission5', ChoiceType::class, [
-                'choices'  => array(
-                    'activé'        => true,
-                    'désactive'     => false 
-                ),
-                    'expanded'      => true,
-                    'multiple'      => false  
-                      
-                ]   
-            )
+            ->add('statut')
+            ->add('permission1')
+            ->add('permission1',ChoiceType::class,[
+                'choices'=> [
+                    'activer'=> true,
+                    'desactiver'=> false],
+                    'expanded'=> true,
+                    'label'=>'Connection et lecture seule'
+                    ])    
+            ->add('permission2',ChoiceType::class,[
+                'choices'=> [
+                    'activer'=> true,
+                    'desactiver'=> false],
+                    'expanded'=> true,
+                    'label'=>'Consulter prélèvements '
+                    ])    
+            ->add('permission3', ChoiceType::class,[
+                'choices'=> [
+                    'activer'=> true,
+                    'desactiver'=> false],
+                    'expanded'=> true,
+                    'label'=>'Modification option par défaut'
+                    ])    
+            ->add('permission4',ChoiceType::class,[
+                'choices'=> [
+                    'activer'=> true,
+                    'desactiver'=> false],
+                    'expanded'=> true,
+                    'label'=>'Voir les paiements programmés'
+                    ])    
+            /*->add('permission5', ChoiceType::class,[
+                'choices'=> [
+                    'activer'=> true,
+                    'desactiver'=> false],
+                    'expanded'=> true,
+                    'label'=>'d'
+                    
+                    ])    */
+                
+                
+            
+                /*'expanded'=> true,
+                'multiple'=> false,
+                'required'=> true,
+                )*/
+                
+               
+            
+            
+           
+            
             
                                
    
             ->add('submit', SubmitType::class)
         ;
+            
     }
 
     public function configureOptions(OptionsResolver $resolver): void
