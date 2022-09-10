@@ -1,7 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block contact %}
-
+<h1 class="mt-4"> Contactez l'adiministrateur</h1>
+<div class="container mt-5 mb-3">
     <form class="form-control" action="{{ path('contact') }}" method="post">
         <label class="form-label"for="firstName">Prénom</label>
         <input class="form-control" type="text" name="firstName">
@@ -13,5 +14,5 @@
         <textarea class="form-control" name="message"></textarea>
         <input class="btn btn-primary"type="submit">
     </form>
-
+</div>
 {% endblock contact %}

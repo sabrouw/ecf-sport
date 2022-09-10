@@ -4,7 +4,11 @@
 
 
 {% block header %} <h1 id="titre_form_update_partenaire"> Formulaire de modification de partenaire</h1>{% endblock header %}
- 
+ {% block flash %}
+{% for message in app.flashes('success') %}
+{{message}}
+{% endfor %}
+{% endblock flash %}
  {#button pour avoir la listes des partenaires#}
 {% block buttonpartenaires %}
 <button class="btn btn-dark" type="btn"><a href="{{ path ('admin_partenaires') }}">Partenaires</a></button>

@@ -22,6 +22,14 @@
 </select>
 {{ dump(partenaire) }}
 {% endblock header %}
+
+
+{% block flash %}
+{% for message in app.flashes('success') %}
+{{message}}
+{% endfor %}
+{% endblock flash %}
+
 {#button pour avoir la listes des partenaires#}
 {% block buttonpartenaires %}
 	<button class="btn btn-dark" type="btn">

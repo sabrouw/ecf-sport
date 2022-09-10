@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
+{% block css %} <link rel="stylesheet" href="{{ asset ("assets/css/autre.css") }}"/>{% endblock css %}
 {% block title %}<title>login</title>{% endblock title %}
 {% block body %}
 {% if error %}
@@ -10,24 +10,26 @@
 
 
 
-<h1 class="login-h1"> Merci de vous authentifier </h1>
+<h1 class="login-h1 mt-4"> Merci de vous authentifier </h1>
   
+<div class="container">
+   <form class="form-control mt-4" id="form_login" action="{{ path ('login') }}" method="post">
+   
+        <label class="text-bold form-label " for="username"id="label_username">Email:</label>
+        <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}"/>
+    
+    
+        <label class="text-bold form-label" for="password" id="label_password" >Password:</label>
+        <input class="form-control"type="password" id="password" name="_password"/>
+    
+        {# If you want to control the URL the user is redirected to on success
+        <input type="hidden" name="_target_path" value="/"/>#}
 
-   <form class="form_label form-control" id="form_login" action="{{ path ('login') }}" method="post">
-   <div class="mb-3 row g-3 align-items-center" id="zone_username">
-        <label class="text-bold" for="username"id="label_username">Email:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
-    </div>
-    <div class="mb-3 row g-3 align-items-center" id="zone_password">
-        <label for="password" id="label_password" >Password:</label>
-        <input type="password" id="password" name="_password"/>
-    </div>
-        {# If you want to control the URL the user is redirected to on success#}
-        <input type="hidden" name="_target_path" value="/"/>
-
-        <button class="btn btn-dark" type="submit">Authentification</button>
+        <button class="btn btn-dark mt-4" type="submit">Authentification</button>
+        <a class="btn btn-dark mt-4"href="{{ path ('passe_oublie') }}"> Mot de passe oublié </a>
+        
     </form>
-
+</div>
 
 
 {% endblock %}

@@ -8,6 +8,7 @@
 	</title>
 {% endblock %}
 
+
 {#button pour avoir la listes des partenaires#}
 {% block buttonpartenaires %}
 	<button class="btn btn-dark" type="btn">
@@ -24,6 +25,12 @@
 		</a>
 	</button>
 {% endblock buttonstructures %}
+
+{% block flash %}
+{% for message in app.flashes('success') %}
+{{message}}
+{% endfor %}
+{% endblock flash %}
 
 
 {% block body %}

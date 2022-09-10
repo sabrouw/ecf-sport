@@ -24,6 +24,14 @@
 		</a>
 	</button>
 {% endblock buttonstructures %}
+
+{% block flash %}
+{% for message in app.flashes('success') %}
+{{message}}
+{% endfor %}
+{% endblock flash %}
+
+
 {% block body %}
 
 	<form class="d-flex mt-4" action="{{ path ('resultat_structure') }}">

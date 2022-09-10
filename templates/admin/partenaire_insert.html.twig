@@ -14,6 +14,11 @@
 		Formulaire de création de partenaires
 	</h1>
 {% endblock header %}
+{% block flash %}
+{% for message in app.flashes('success') %}
+{{message}}
+{% endfor %}
+{% endblock flash %}
 
 {#button pour avoir la listes des partenaires#}
 {% block buttonpartenaires %}

@@ -18,6 +18,14 @@
 		</a>
 	</button>
 {% endblock buttonstructures %}
+
+{% block flash %}
+{% for message in app.flashes('success') %}
+{{message}}
+{% endfor %}
+{% endblock flash %}
+
+
    {% block body %}
 {#formulaire avec builder#}
 

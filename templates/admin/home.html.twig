@@ -7,7 +7,12 @@
 {% block acceuil %}
 <div class="admin-menu"><h1  id="bonjour"> Bonjour et bienvenue {{app.user.username}} </h1></div>
 {% endblock acceuil %}
+{% block flash %}
+{% for message in app.flashes('success') %}
 
+{{message}}
+{% endfor %}
+{% endblock flash %}
 
 
 
@@ -24,9 +29,7 @@
 
 {% block body %}
 
-{% for message in app.flashes('success') %}
-{{message}}
-{% endfor %}
+
 
 <div class="mt-4">
 <p class="text-dark">Bonjour et bienvenue dans votre espace d'administration, Vous pourrez gerer vos partenaires ainsi que leur structures.<br>
