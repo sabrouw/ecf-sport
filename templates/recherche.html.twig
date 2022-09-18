@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+  {% block title %}<title>Interface de gestion des permissions par défaut</title>{% endblock title %}
+ {% block css %} <link rel="stylesheet" href="{{ asset ("assets/css/autre.css") }}"/>{% endblock css %}
+ 
+ {% block header %}
+ <header id="header">
+        
+                <h1 id="titre_admin_partenaires">Administrer les partenaires</h1>
+           
+    </header>     
+{% endblock header %}
+    
+
+      
+ {% block body %} 
+
+
+{{ form (rechercheForm) }}
+
+{% endblock body %}

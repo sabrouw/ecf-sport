@@ -27,7 +27,6 @@ security:
                 login_path: login
                 check_path: login
                 target_path_parameter: home_connecte
-                default_target_path: home_connecte
             logout: 
                 path: logout
         admin:

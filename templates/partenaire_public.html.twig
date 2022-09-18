@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+ {% block title %}<title>HOME PAGE</title>{% endblock title %}
+    {% block css %} <link rel="stylesheet" href="{{ asset ("assets/css/autre.css") }}"/>{% endblock css %}
+ 
+
+
+{% block body %}
+{% for partenaire in partenaires %}
+
+<h2>{{ partenaire.name }}</h2>
+
+<img src="https://cdn.pixabay.com/photo/2016/02/03/22/35/gym-room-1178293_1280.jpg" alt="materiel de sport"></img>
+    
+{% endfor %}
+
+
+{% endblock body %}

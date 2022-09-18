@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Repository\PartenairesRepository;
+use App\Repository\StructuresRepository;
 use App\Repository\UserRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -41,13 +43,19 @@ class PageController extends AbstractController
     }
 /*page d'acceuil si connecté*/
     #[Route('/connecte', name: 'home_connecte')]
-    public function homeConnecte(UserRepository $userRepository): Response
-    {$user = $userRepository->findAll();
+    public function homeConnecte(UserRepository $userRepository, PartenairesRepository $partenairesRepository, StructuresRepository $structuresRepository): Response
+    {   $user = $userRepository->findAll();
+        $partenaire = $partenairesRepository->findAll();
+        $structure = $structuresRepository->findAll();
+
         return $this->render('connecte.html.twig', [
             'user' => $user,
+            'partenaire'=> $partenaire,
+            'structure' => $structure,
         ]);
 
     }
+
 /*formulaire de contact*/
 /*on recupere les données du formulaire en post avec request des champs ci-dessous*/
     #[Route('/contact', name:'contact')]

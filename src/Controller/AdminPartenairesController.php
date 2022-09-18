@@ -30,9 +30,8 @@ class AdminPartenairesController extends AbstractController
     //partie recherche d'un partenaire par id
     #[Route("admin/partenaire/{id}", name: "admin_partenaire")]
     public function adminPartenaire($id, PartenairesRepository $partenairesRepository)
-    { //recupere l'article par l'id dans l'url
+    { //recupere le partenaire par l'id dans l'url
         $partenaire = $partenairesRepository->find($id);
-        $this->addFlash(type: 'success', message: 'Résultat de votre recherche');
         return $this->render('admin/partenaire.html.twig', [
             'partenaire' => $partenaire
         ]);

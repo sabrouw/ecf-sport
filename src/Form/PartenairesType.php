@@ -18,7 +18,6 @@ class PartenairesType extends AbstractType
             ->add('name')
             ->add('adresse')
             ->add('statut')
-            ->add('permission1')
             ->add('permission1',ChoiceType::class,[
                 'choices'=> [
                     'activer'=> true,

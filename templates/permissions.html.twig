@@ -13,7 +13,11 @@
 
       
  {% block body %}   
- 
+ <form>
+    <input type="checkbox" name="permissions[]" value="{{ permissions.name }}"></input>
+ </form>
+
+
     <div id="zone_permissions">
     {% for permissions in permissions %}
     

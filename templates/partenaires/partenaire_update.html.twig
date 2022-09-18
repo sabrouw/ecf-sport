@@ -1,0 +1,30 @@
+{% extends 'admin/base.html.twig' %}
+  {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
+    {% block title %}<title>Admin Tableau de bord</title>{% endblock %}
+
+
+{% block header %} <h1 id="titre_form_update_partenaire"> Formulaire de modification de partenaire</h1>{% endblock header %}
+ {% block flash %}
+{% for message in app.flashes('success') %}
+{{message}}
+{% endfor %}
+{% endblock flash %}
+ {#button pour avoir la listes des partenaires#}
+{% block buttonpartenaires %}
+<button class="btn btn-dark" type="btn"><a href="{{ path ('admin_partenaires') }}">Partenaires</a></button>
+{% endblock buttonpartenaires %}
+{#button pour avoir la listes des structures#}
+{% block buttonstructures %}
+<button class="btn btn-dark"type="btn"><a href="{{ path ('admin_structures') }}">Structures</a></button>
+{% endblock buttonstructures %}
+
+{% block body %} 
+      <main id="form_update_partenaire">
+      <div class="form-control">{{ form (partenaireForm) }}</div>
+      </main>
+
+      
+{% endblock body %}
+          
+
+        

@@ -5,6 +5,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\PartenairesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -45,6 +46,9 @@ class Partenaires
 
     #[ORM\Column]
     private ?bool $statut = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $img = null;
 
 
 
@@ -188,6 +192,18 @@ class Partenaires
     public function setStatut(bool $statut): self
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    public function getImg(): ?string
+    {
+        return $this->img;
+    }
+
+    public function setImg(?string $img): self
+    {
+        $this->img = $img;
 
         return $this;
     }
