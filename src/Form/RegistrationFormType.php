@@ -54,7 +54,12 @@ class RegistrationFormType extends AbstractType
                 ],
                 
             ])
-            
+            ->add('activite', ChoiceType::class,[
+                'choice'    =>[
+                    'Actif' => true,
+                    'Inactif'=> false,
+                ]
+            ])
             ->add('submit', SubmitType::class);
             
     }

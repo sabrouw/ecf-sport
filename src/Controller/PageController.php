@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Repository\PartenairesRepository;
 use App\Repository\StructuresRepository;
 use App\Repository\UserRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -42,6 +44,7 @@ class PageController extends AbstractController
         ]);
     }
 /*page d'acceuil si connecté*/
+    #[IsGranted("ROLE_USER")]
     #[Route('/connecte', name: 'home_connecte')]
     public function homeConnecte(UserRepository $userRepository, PartenairesRepository $partenairesRepository, StructuresRepository $structuresRepository): Response
     {   $user = $userRepository->findAll();

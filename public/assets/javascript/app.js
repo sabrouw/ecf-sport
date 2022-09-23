@@ -1,4 +1,9 @@
 // This is for able to see chart. We are using Apex Chart. U can check the documentation of Apex Charts too..
+//creer global acces au $ pour jquery
+//const $ = require('jquery');
+//global.$ = global.jQuery = $;
+
+
 var options = {
     series: [
       {
@@ -56,8 +61,8 @@ var options = {
     },
   };
   
-  var chart = new ApexCharts(document.querySelector("#apex1"), options);
-  chart.render();
+  /*var chart = new ApexCharts(document.querySelector("#apex1"), options);
+  chart.render();*/
   
   // Sidebar Toggle Codes;
   
@@ -86,3 +91,12 @@ var options = {
 //
 
 //console.log$('event');
+
+$(document).ready(function(){
+  console.log("jquery ok ?")
+  
+});
+
+console.log('ca marche js ?');
+
+

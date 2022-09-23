@@ -1,0 +1,9 @@
+jquery javascript et select2 installation pour la mise en place du moteur de recherche avec autocompletion a la frappe, pour rechercher les structures et les partenaires
+
+Js ok facilement puisqu'integrer installation ensuite webpack encore pour la prise en charge de jquery qui n'a pas voulu fonctionner avec les link cdn css et js.
+
+recherche sur stackoverflow pour trouver une eventuelle solution avec le message d'erreur "Uncaught ReferenceError: $ is not defined"
+j'instaure la balise classique de jquery a l'instar de celle de js et tout fonctionne, j'installe select2 pour ajaxisé mon moteur de recherche et le rendre dynamique et intuitif
+
+ajouter defer dans le scdn du select2 pour qu'on puisse taper les mots pour rechercher.
+ajouter une propriété qui justifie l'activité des users.

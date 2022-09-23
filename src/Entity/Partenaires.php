@@ -179,11 +179,11 @@ class Partenaires
         return $this;
     }
 
+    
     public function __toString()
     {
-        return $this->adresse;
+        return $this->name;
     }
-
     public function isStatut(): ?bool
     {
         return $this->statut;
@@ -195,7 +195,7 @@ class Partenaires
 
         return $this;
     }
-
+    
     public function getImg(): ?string
     {
         return $this->img;
