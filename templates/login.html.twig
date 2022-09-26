@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block css %} {% endblock css %}
+{% block css %}{% endblock css %}
 {% block title %}<title>login</title>{% endblock title %}
 {% block body %}
 {% if error %}
@@ -10,9 +10,10 @@
 
 
 
-<h1 class="login-h1 mt-4"> Merci de vous authentifier </h1>
+
   
-<div class="container">
+<div class="container form-control mt-4 ">
+<h1 class="login-h1 mt-4"> Merci de vous authentifier </h1>
    <form class="form-control mt-4" id="form_login" action="{{ path ('login') }}" method="post">
    
         <label class="text-bold form-label " for="username"id="label_username">Email:</label>

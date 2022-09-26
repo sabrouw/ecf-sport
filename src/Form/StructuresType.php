@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Permissions;
 use App\Entity\Structures;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -17,7 +18,16 @@ class StructuresType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('permission1',ChoiceType::class,[
+            ->add('statut')
+            ->add('permission1',EntityType::class,[
+                'class'=> Permissions::class,
+                
+                 'expanded'=> true,
+                 'choice_label'=> 'name',
+                 'required' => false,
+                 'compound' => true,
+             ])    
+            /*->add('permission1',ChoiceType::class,[
                 'choices'=> [
                     'activite'=> true,
                     'desactiver'=> false],

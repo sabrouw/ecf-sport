@@ -46,17 +46,5 @@ class PartenaireController extends AbstractController
             'partenaire' => $partenaire
         ]);
  }
-// #[Route('/admin/search', name:'admin_search')]
-// public function searchAll(Request $request, PartenairesRepository $partenairesRepository)
-// {
-// $search = $request->query->get('q');
-// if ($search) {
-// $partenaires = $partenairesRepository->search($search);
-// } else {
-// $partenaires = $partenairesRepository->findAllOrdered();
-// }
-// return $this->render('admin/search.html.twig', [
-//    'partenaires' => $partenaires
-//]);
-// }
+ 
 }

@@ -2,31 +2,35 @@
 
 namespace App\Form;
 
-use App\Entity\Permissions;
+use App\Entity\Partenaires;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PermissionsType extends AbstractType
+class ActivityPartenaireType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder 
-        ->add('name')
-        ->add('activite')
-        ->add('description')     
-        ->add('valider', SubmitType::class)  
+        $builder
             
+            ->add('activite',EntityType::class,[
+                'class'=> Partenaires::class,
+                
+                 'expanded'=> true,
+                 'choice_label'=> 'name',
+                 'required' => false,
+                 'compound' => true,
+             ]) 
+             ->add('submit', SubmitType::class)    
         ;
-
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Permissions::class,
+            // Configure your form options here
         ]);
     }
 }

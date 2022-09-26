@@ -3,7 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Partenaires;
+use App\Entity\Permissions;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -18,14 +21,15 @@ class PartenairesType extends AbstractType
             ->add('name')
             ->add('adresse')
             ->add('statut')
-            ->add('permission1',ChoiceType::class,[
-                'choices'=> [
-                    'activer'=> true,
-                    'desactiver'=> false],
-                    'expanded'=> true,
-                    'label'=>'Connection et lecture seule'
-                    ])    
-            ->add('permission2',ChoiceType::class,[
+            ->add('permission1',EntityType::class,[
+               'class'=> Permissions::class,
+               
+                'expanded'=> true,
+                'choice_label'=> 'name',
+                'required' => false,
+                'compound' => true,
+            ])    
+            /*->add('permission2',ChoiceType::class,[
                 'choices'=> [
                     'activer'=> true,
                     'desactiver'=> false],
