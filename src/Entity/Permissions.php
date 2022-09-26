@@ -302,7 +302,7 @@ class Permissions
 
     public function __toString():string
     {
-        return $this->activite;
+        return $this->name;
     }
 
     

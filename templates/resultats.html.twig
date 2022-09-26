@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+  {% block title %}<title>Resultat recherche</title>{% endblock title %}
+  		{% block select2 %}{% endblock select2 %}	
+
+ {% block css %}{% endblock css %}
+ 
+ {% block header %}
+ <header id="header">
+        
+                <h1 id="titre_admin_partenaires">Résultat recherche</h1>
+           
+    </header>     
+{% endblock header %}
+    
+
+      
+ {% block body %} 
+
+ {% if categorie == 1 %}
+ {% for partenaire in partenaire %}
+
+			<h2>
+				Nom:
+				{{ partenaire.name }}
+			</h2>
+			<h3>
+				Id:
+				{{ partenaire.id }}
+			</h3>
+
+
+			<button class="btn btn-dark mt-4" type="submit" name"modifier_partenaire">
+			<a href="{{ path ('admin_partenaire_update', {'id': partenaire.id}) }}">	Modifier partenaire</a>
+			</button>
+			<button class="btn btn-dark mt-4" type="submit" name"activer_partenaire">
+				Activier partenaire
+			</button>
+			<button class="btn btn-dark mt-4" type="submit" name"voir_partenaire">
+				<a href="{{ path ('partenaire', {'id': partenaire.id}) }}">
+					Voir sur le site
+				</a>
+			</button>
+
+		{% endfor  %}
+        {% for structure in structure %}
+
+			<h2>
+				Nom:
+				{{ structure.name }}
+			</h2>
+			<h3>
+				Id:
+				{{ structure.id }}
+			</h3>
+
+
+			<button class="btn btn-dark mt-4" type="submit" name"modifier_partenaire">
+				Modifier structure
+			</button>
+			<button class="btn btn-dark mt-4" type="submit" name"activer_partenaire">
+				Activier structure
+			</button>
+			<button class="btn btn-dark mt-4" type="submit" name"voir_partenaire">
+				<a href="{{ path ('structure', {'id': structure.id}) }}">
+					Voir sur le site
+				</a>
+			</button>
+
+		{% endfor %}
+ 
+ {% endif %}
+ 
+ {% endblock body %} 

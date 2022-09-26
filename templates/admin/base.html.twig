@@ -8,7 +8,7 @@
 
 		{% block css %}
 			<link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>
-		{% endblock %}
+		{% endblock css %}
 		{% block title %}
 			<title>
 				Tableau de bord
@@ -47,7 +47,7 @@
 
 				<!-- Message de bienvenue personnalisé -->
 				<div class="main__title">
-					<img src="assets/hello.svg" alt=""/>
+					
 					<div
 						class="main__greeting">
 						<!--block header avec titre des pages-->
@@ -110,7 +110,7 @@
 				<div id="sidebar">
 					<div class="sidebar__title">
 						<div class="sidebar__img">
-							<img src="assets/logo.png" alt="logo"/>
+							
 							<h1></h1>
 						</div>
 						<i onclick="closeSidebar()" class="fa fa-times" id="sidebarIcon" aria-hidden="true"></i>

@@ -4,6 +4,7 @@
 //global.$ = global.jQuery = $;
 
 
+
 var options = {
     series: [
       {

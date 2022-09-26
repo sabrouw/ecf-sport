@@ -1,52 +1,168 @@
 {% extends 'base.html.twig' %}
 
  {% block title %}<title>HOME PAGE</title>{% endblock title %}
-    {% block css %} <link rel="stylesheet" href="{{ asset ("assets/css/autre.css") }}"/>
-    {% endblock css %}
+    {% block css %} <link rel="stylesheet" href="{{ asset ("assets/css/autre.css") }}"/>    {% endblock css %}
  
 
 
 {% block body %}
-<h1>Bonjour {{ app.user.username}}</h1>
+
+
+<form method="post" action="">
+<h1 class="mt-4">Bonjour {{ app.user.username}}</h1>
 
 
 {% if app.user.categorie == 2 %}
+
+
+<div class="card">
+  <div class="card-body">
     <h2 class="mt-3">Vous etes le gérant de la structure {{ app.user.structure.name }} </h2>
-
     <h3 class="mt-3">Description: {{ app.user.structure.description }} </h2>
+  </div>
+</div>
+    
+ 
+    <table  class="table table-dark table-striped mt-4">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Permission par défaut</th>
+      <th scope="col">Actif</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>{{ app.user.structure.permission1.name }}</td>
+      <td><div class="form-check form-switch">
+  <input class="form-check-input" name="ch[]" value=""  type="checkbox" role="switch" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+</div></td>
+      <td>{{ app.user.structure.permission1.description }}</td>
 
-    <p>{{ app.user.structures.permission1 }}</p>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>{{ app.user.structure.permission2.name }}</td>
+      <td><div class="form-check form-switch">
+  <input class="form-check-input" name="ch[]" value=""  type="checkbox" role="switch" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+  </div>
+        <td>{{ app.user.structure.permission2.description }}</td>
+    </td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>{{ app.user.structure.permission3.name }}</td>
+      <td><div class="form-check form-switch">
+  <input class="form-check-input" name="ch[]" value=""  type="checkbox" role="switch" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+  </div>
+        <td>{{ app.user.structure.permission3.description }}</td>
+    </td>
+    </tr>
+
+    <tr>
+      <th scope="row">4</th>
+      <td>{{ app.user.structure.permission4.name }}</td>
+      <td><div class="form-check form-switch">
+  <input class="form-check-input" name="ch[]" value=""  type="checkbox" role="switch" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+</div></td>
+      <td>{{ app.user.structure.permission4.description }}</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>{{ app.user.structure.permission5.name }}</td>
+      <td><div class="form-check form-switch">
+  <input class="form-check-input" name="ch[]" value=""  type="checkbox" role="switch" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+</div></td>
+      <td>{{ app.user.structure.permission5.description }}</td>
+    </tr>
+  </tbody>
+
 
 {% else %}
-<h2 class="mt-3">Vous etes le gérant du partenaire {{ app.user.partenaire.name }} </h2>
-<h3 class="mt-3">Adressé au {{ app.user.partenaire.name }} </h2>
-<p>{{ app.user.partenaire.permission1.name }}</p>
+<div class="card" style="width: 18rem;">
+  <img widht="150"height="150"src="https://cdn.pixabay.com/photo/2017/07/13/20/12/muscles-2501764_1280.jpg" class="card-img-top" alt="homme avec altères">
+  <div class="card-body">
+    <h2 class="mt-3">Vous etes le gérant du partenaire {{ app.user.partenaire.name }} </h2>
+    <h3 class="mt-3">Adressé au {{ app.user.partenaire.name }} </h3>
+  </div>
+</div>
+    
+ 
+
+<h2 class="mt-4">Vos permissions par défaut ci dessous</h2>
+<table  class="table table-dark table-striped mt-4">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Permission par défaut</th>
+      <th scope="col">Actif</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>{{ app.user.partenaire.permission1.name }}</td>
+      <td><div class="form-check form-switch">
+  <input class="form-check-input" name="ch[]" value=""  type="checkbox" role="switch" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+</div></td>
+      <td>{{ app.user.partenaire.permission1.description }}</td>
+
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>{{ app.user.partenaire.permission2.name }}</td>
+      <td><div class="form-check form-switch">
+  <input class="form-check-input" name="ch[]" value="" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+  </div>
+        <td>{{ app.user.partenaire.permission2.description }}</td>
+    </td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>{{ app.user.partenaire.permission3.name }}</td>
+      <td><div class="form-check form-switch">
+  <input class="form-check-input" name="ch[]" value="" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+  </div>
+        <td>{{ app.user.partenaire.permission3.description }}</td>
+    </td>
+    </tr>
+
+    <tr>
+      <th scope="row">4</th>
+      <td>{{ app.user.partenaire.permission4.name }}</td>
+      <td><div class="form-check form-switch">
+  <input class="form-check-input" name="ch[]" value=""  type="checkbox" role="switch" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+</div></td>
+      <td>{{ app.user.partenaire.permission4.description }}</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>{{ app.user.partenaire.permission5.name }}</td>
+      <td><div class="form-check form-switch">
+  <input class="form-check-input" name="ch[]" value="" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+</div></td>
+      <td>{{ app.user.partenaire.permission5.description }}</td>
+    </tr>
+  </tbody>
+
+
 {% endif %}
-
-
-
-
-
-
-
-{#<input> <a href "{{ path ('partenaire', {'id': partenaire.id} ) }}">Detail du compte</a></input>#}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<label></label>
+<input class="mt-4 btn btn-primary" type="submit" name="valider" value="Valider vos modifications"> </input>
+</form>
 
 {% endblock body %}
 

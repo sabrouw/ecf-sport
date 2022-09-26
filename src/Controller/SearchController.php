@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Partenaires;
 use App\Entity\Structures;
+use App\Repository\PartenairesRepository;
+use App\Repository\StructuresRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -14,9 +16,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class SearchController extends AbstractController
 {
     #[Route('/recherche', name: 'recherche')]
-    public function recherche(): Response
+    public function recherche(PartenairesRepository $partenaireRepo, StructuresRepository $structureRepo): Response
     {
-       $form = $this->createFormBuilder()
+        $partenaire = $partenaireRepo;
+        $structure = $structureRepo;
+         $form = $this->createFormBuilder()
         
         ->add('Structure', EntityType::class,[
                'class'     => Structures::class,
@@ -44,6 +48,17 @@ class SearchController extends AbstractController
         
         ->getForm()
     ;
+if ($form->isSubmitted() && $form->isValid()) {
+    // encoder mot de passe entré
+
+    $resultat = $form->getData();
+    return $this->redirectToRoute('resultat.html.twig', [
+        'partenaire' => $partenaire,
+        'structure'  => $structure
+        ]);
+}
+            
+        ;
 
 return $this->renderForm('recherche.html.twig',[
     'form' => $form
