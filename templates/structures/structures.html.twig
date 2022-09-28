@@ -1,18 +1,45 @@
-{% extends 'home.html.twig' %}
-{% block title %}<title>structures</title>{% endblock title %}
-   {% block css %} <link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
+{% extends 'base.html.twig' %}
+{% block title %}<title>Liste des structures</title>{% endblock title %}
+   
 
 
    {% block body %}
+   <h1> Liste des structures </h1>
  {% for structures in structures %}
+ <div class="card mt-5 d-inline-flex p-2" style="width: 18rem">
+  {#js pour switch case#}
+  {% if structures.id == 1 %}
+    <img src="https://cdn.pixabay.com/photo/2017/04/22/10/15/woman-2250970__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if structures.id == 2 %}
+    <img src="https://cdn.pixabay.com/photo/2015/07/02/10/22/training-828726__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if structures.id == 3 %}
+    <img class="h-25" src="https://cdn.pixabay.com/photo/2017/04/27/08/29/man-2264825__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if structures.id == 4 %}
+    <img src="https://cdn.pixabay.com/photo/2016/02/04/21/55/gym-room-1180016__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if structures.id == 5 %}
+    <img src="https://cdn.pixabay.com/photo/2018/03/03/22/19/sumoringer-3196753__480.jpg" class="card-img-top" alt="...">
+
+    {% endif %}
+
+  
+ 
+  
+  <div class="card-body">
     
-    <h2>Nom: {{ structures.name }}</h2>  
-    <h3>Id: {{ structures.id }}</h3>
+  
+    <h5 class="card-title text-capitalize">{{ structures.name }}</h5>
+    <p class="card-text text-capitalize">{{ structures.description }}</p>
+    <button class="btn btn-dark" type="submit" name"voir_structure"><a href="{{ path ('structure', {'id': structures.id}) }}">Détails</a> </button>  
+  </div>
+</div> 
+    
+
         
-       
-        <button type="submit" name"modifier_structure">Modifier structure</button>
-        <button type="submit" name"activer_structure">Activier structure</button>
-        <button type="submit" name"voir_structure"><a href="{{ path ('structure', {'id': structures.id}) }}" > Voir la structure sur le site </a> </button>     
+          
     
     
     {% endfor %}

@@ -8,6 +8,7 @@ use App\Repository\PartenairesRepository;
 use App\Repository\StructuresRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,8 +32,17 @@ class SearchController extends AbstractController
                  'attr' => [
                      'class'=> 'select2'
                     ]
+                    
                  ]) 
+                 
+        ->add('activite', CheckboxType::class,[
+            'label'  =>'Afficher uniquement les Structures actives',
+            'attr' => ['class' => 'active'],
+
+            'required' => false,
             
+
+        ] )    
         
         ->add('Partenaire', EntityType::class,[
             'class' => Partenaires::class,
@@ -41,30 +51,54 @@ class SearchController extends AbstractController
             'multiple'     => true,
             'choice_label'  =>'name',
             'attr' => [
-                'class'=> 'select2'
-               ]
+                'class'=> 'select2', 'active'
+                               ]
             ])
+            ->add('statut', CheckboxType::class,[
+                'label'  =>'afficher uniquement les Partenaires actifs',
+                'required' => false,
+                
+    
+            ] )    
         ->add('rechercher', SubmitType::class)
-        
+        ->setMethod('GET')
         ->getForm()
     ;
 if ($form->isSubmitted() && $form->isValid()) {
     // encoder mot de passe entré
 
     $resultat = $form->getData();
-    return $this->redirectToRoute('resultat.html.twig', [
+    return $this->redirectToRoute('resultats.html.twig', [
         'partenaire' => $partenaire,
         'structure'  => $structure
         ]);
 }
-            
-        ;
+else      {   
+        
 
 return $this->renderForm('recherche.html.twig',[
-    'form' => $form
-]);
+    'form' => $form,
+    'partenaire' => $partenaire,
+    'structure'  => $structure
+]);}   
         
-    }}
+    }
+
+#[Route('resultats/{id}', name:'resultats')]    
+public function resultatSearch($id, PartenairesRepository $partenairesRepository,StructuresRepository $structuresRepository ){
+    $partenaire = $partenairesRepository->findBy($id);
+    $structure = $structuresRepository->findBy($id);
+    return $this->render('resultats.html.twig', [
+        'partenaire' => $partenaire,
+        'structure' => $structure,
+
+    ]);
+
+
+
+
+}
+}
        
    
 

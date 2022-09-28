@@ -9,9 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class StructuresController extends AbstractController
-{/**
- *@IsGranted("ROLE_STRUCTURES")
- */
+{
     #[Route('/structures', name: 'structures')]
     public function structures (StructuresRepository $structuresRepository)
     {    $structures = $structuresRepository ->findAll();
@@ -21,7 +19,7 @@ class StructuresController extends AbstractController
             return $this->render("structures/structures.html.twig", [
              'structures' => $structures]);
          }
-       
+        
         
        
     }

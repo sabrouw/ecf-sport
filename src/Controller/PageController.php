@@ -2,13 +2,19 @@
 
 namespace App\Controller;
 
+use App\Entity\Partenaires;
+use App\Entity\Permissions;
 use App\Repository\PartenairesRepository;
 use App\Repository\StructuresRepository;
 use App\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mime\Email;
@@ -35,6 +41,15 @@ class PageController extends AbstractController
             'controller_name' => 'PageController',
         ]);
     }
+
+    /*page d'acceuil structures*/
+    #[Route('/structure/home', name: 'structure_home')]
+    public function structuresHome(): Response
+    {
+        return $this->render('structures/home.html.twig', [
+            'controller_name' => 'PageController',
+        ]);
+    }
 /*page d'acceuil admin*/
     #[Route('/admin/home', name: 'admin_home')]
     public function adminHome(): Response
@@ -50,11 +65,33 @@ class PageController extends AbstractController
     {   $user = $userRepository->findAll();
         $partenaire = $partenairesRepository->findAll();
         $structure = $structuresRepository->findAll();
+       /* $form = $this->createFormBuilder()
+        
+        ->add('statut', CheckboxType::class,[
+            'label' => 'actif',
+            'required=> false,
+            
+            
+            'class' => Partenaire::class,
+                 ]) 
+            
+        
+        
+        ->add('valider', SubmitType::class)
+        
+        ->getForm()
+    ;
+if ($form->isSubmitted() && $form->isValid()) {
+    // encoder mot de passe entré
 
-        return $this->render('connecte.html.twig', [
+    $permissions = $form->getData();
+    
+}*/
+        return $this->renderForm('connecte.html.twig', [
             'user' => $user,
             'partenaire'=> $partenaire,
             'structure' => $structure,
+            /*'form' => $form*/
         ]);
 
     }

@@ -4,7 +4,7 @@
     {% block css %} <link rel="stylesheet" href="{{ asset ("assets/css/autre.css") }}"/>    {% endblock css %}
  
 
-
+{#{ form (form)}#}
 {% block body %}
 
 {#//decalaration de variable pour l'activité des permissions et des boutons pour event
@@ -19,9 +19,7 @@ permission
 permButton = document.getElementsByClassName("checkbox");
 
 </script>
-{% if condition %}
-  
-{% endif %}
+
 <form method="post" action="">
 <h1 class="mt-4">Bonjour {{ app.user.username}}</h1>
 
@@ -50,7 +48,9 @@ permButton = document.getElementsByClassName("checkbox");
     <tr>
       <th scope="row">1</th>
       <td>{{ app.user.structure.permission1.name }}</td>
-      <td><div class="form-check form-switch">
+      
+      
+            <td><div class="form-check form-switch">
   <input class="form-check-input" name="ch[]" value=""  type="checkbox" role="switch" id="flexSwitchCheckDefault">
   <label class="form-check-label" for="flexSwitchCheckDefault"></label>
 </div></td>

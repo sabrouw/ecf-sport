@@ -2,24 +2,30 @@
   {% block title %}<title>Interface de gestion des permissions par défaut</title>{% endblock title %}
   		{% block select2 %}{% endblock select2 %}	
 
- {% block css %}{% endblock css %}
+ 
  
  {% block header %}
  <header id="header">
         
-                <h1 id="titre_admin_partenaires">Recherche</h1>
+                <h1 class="mt-4"id="titre_admin_partenaires">Rechercher un partenaire ou une structure</h1>
            
     </header>     
 {% endblock header %}
     
-
-      
- {% block body %} 
+{% block recherche %}
 <div class="col-6 mx-auto mt-4">
 {{ form_start (form) }}
+
+    {{ dump(partenaire) }}
+
+
 {{ form_widget (form) }}
 {{ form_end (form) }}
 </div>
+{% endblock recherche %}
+      
+ {% block body %} 
+
 
 {% endblock body %}
 

@@ -55,8 +55,8 @@ security:
     access_control:
          # - { path: ^/profile, roles: ROLE_USER } 
          - { path: ^/admin, roles: ROLE_ADMIN }
-         - { path: ^/partenaires, roles: ROLE_PARTENAIRE }
-         - { path: ^/structures, roles: ROLE_STRUCTURES }
+         #- { path: ^/partenaires, roles: ROLE_PARTENAIRE }
+         #- { path: ^/structures, roles: ROLE_STRUCTURES }
          
          
         # the 'path' value can be any valid regular expression

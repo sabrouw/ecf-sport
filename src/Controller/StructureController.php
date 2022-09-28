@@ -10,16 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class StructureController extends AbstractController
 {
-    #[Route('/structures', name: 'structures')]
-    
-//requete sql pour récupérer tous les structures
-    public function structures(StructuresRepository $structuresRepository)
-    {  
-        $structures = $structuresRepository->findAll();
-        return $this->render('structures/structures.html.twig', [
-            'structures' => $structures,
-        ]);
-    }
+   
     //#[Security("is_granted('ROLE_STRUCTURES') and user === structure.getStructures()")]
     #[Route('/structure/{id}', name: 'structure')]
     public function structure($id, StructuresRepository $structuresRepository)
