@@ -94,8 +94,8 @@ $(document).ready(function(){
 console.log('ca marche js ?');
 
 //decalaration de variable pour l'activité des permissions et des boutons pour event
-permButton = document.getElementsByClassName("checkbox");
-permission
+
+
 //selection de l'activite dans la base de données de l'activité des permissions
 //si la valeur de l'activité des permissions est 0 (bool) et si on clique sur valider le formulaire
 //alors la valeur passe a 1 dans la base de données et dans l'affichage

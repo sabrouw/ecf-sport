@@ -4,22 +4,23 @@
 {% endblock  %}
 {% block title %}
 	<title>
-		Résultat de recherche structure
+		Résultat de recherche partenaires
 	</title>
 {% endblock %}
 
 
 {% block header %}
-	<h1>
-		Résultats de votre recherche
+<h1>
+	Résultats de votre recherche
 	{% endblock header %}
 
-
-{% block flash %}
+	{% block flash %}
 {% for message in app.flashes('success') %}
 {{message}}
 {% endfor %}
 {% endblock flash %}
+
+
 
 
 	{#button pour avoir la listes des partenaires#}
@@ -41,8 +42,39 @@
 
 
 	{% block body %}
-	
-		{% for structure in structure %}
+   
+        
+
+
+		{% for partenaire in partenaire %}
+
+			<h2>
+				Nom:
+				{{ partenaire.name }}
+			</h2>
+			<h3>
+				Id:
+				{{ partenaire.id }}
+			</h3>
+
+
+			<button class="btn btn-dark mt-4" type="submit" name"modifier_partenaire">
+			<a href="{{ path ('admin_partenaire_update', {'id': partenaire.id}) }}">	Modifier partenaire</a>
+			</button>
+			<button class="btn btn-dark mt-4" type="submit" name"activer_partenaire">
+				Activier partenaire
+			</button>
+			<button class="btn btn-dark mt-4" type="submit" name"voir_partenaire">
+				<a href="{{ path ('admin_partenaire', {'id': partenaire.id}) }}">
+					Voir sur le site
+				</a>
+			</button>
+
+		{% endfor  %}
+
+
+       
+        {% for structure in structure %}
 
 			<h2>
 				Nom:
@@ -54,17 +86,19 @@
 			</h3>
 
 
-			<button class="btn btn-dark mt-4" type="submit" name"modifier_partenaire">
+			<button class="btn btn-dark mt-4" type="submit" name"modifier_structure">
 				Modifier structure
 			</button>
-			<button class="btn btn-dark mt-4" type="submit" name"activer_partenaire">
+			<button class="btn btn-dark mt-4" type="submit" name"activer_structure">
 				Activier structure
 			</button>
-			<button class="btn btn-dark mt-4" type="submit" name"voir_partenaire">
+			<button class="btn btn-dark mt-4" type="submit" name"voir_structure">
 				<a href="{{ path ('admin_structures', {'id': structure.id}) }}">
 					Voir sur le site
 				</a>
 			</button>
 
 		{% endfor %}
+        
 	{% endblock body %}
+ {% block javascript %}{% endblock javascript %}

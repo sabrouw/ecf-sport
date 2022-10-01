@@ -52,6 +52,9 @@ class Permissions
     #[ORM\ManyToOne(inversedBy: 'permissions')]
     private ?Structures $structure = null;
 
+    #[ORM\ManyToOne(inversedBy: 'perms')]
+    private ?Structures $struct = null;
+
     public function __construct()
     {
         $this->structures = new ArrayCollection();
@@ -303,6 +306,18 @@ class Permissions
     public function __toString():string
     {
         return $this->activite;
+    }
+
+    public function getStruct(): ?Structures
+    {
+        return $this->struct;
+    }
+
+    public function setStruct(?Structures $struct): self
+    {
+        $this->struct = $struct;
+
+        return $this;
     }
 
     

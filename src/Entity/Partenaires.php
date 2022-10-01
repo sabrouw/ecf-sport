@@ -50,6 +50,14 @@ class Partenaires
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $img = null;
 
+    #[ORM\OneToMany(mappedBy: 'partenaires', targetEntity: Structures::class)]
+    private Collection $structures;
+
+    public function __construct()
+    {
+        $this->structures = new ArrayCollection();
+    }
+
 
 
     
@@ -182,7 +190,7 @@ class Partenaires
     
     public function __toString()
     {
-        return $this->name;
+        return $this->getName;
     }
     public function isStatut(): ?bool
     {
@@ -204,6 +212,36 @@ class Partenaires
     public function setImg(?string $img): self
     {
         $this->img = $img;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Structures>
+     */
+    public function getStructures(): Collection
+    {
+        return $this->structures;
+    }
+
+    public function addStructure(Structures $structure): self
+    {
+        if (!$this->structures->contains($structure)) {
+            $this->structures->add($structure);
+            $structure->setPartenaires($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStructure(Structures $structure): self
+    {
+        if ($this->structures->removeElement($structure)) {
+            // set the owning side to null (unless already changed)
+            if ($structure->getPartenaires() === $this) {
+                $structure->setPartenaires(null);
+            }
+        }
 
         return $this;
     }

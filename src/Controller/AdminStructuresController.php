@@ -4,23 +4,29 @@ namespace App\Controller;
 
 use App\Entity\Structures;
 use App\Form\StructuresType;
+use App\Repository\PartenairesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\StructuresRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
+
 
 class AdminStructuresController extends AbstractController
 {
     #[Route('/admin/structures', name: 'admin_structures')]
-    public function structures(StructuresRepository $structuresRepository)
-    {
+    public function structures(UserRepository $userRepository ,StructuresRepository $structuresRepository)
+    {   $user = $userRepository->findAll();
         $structures = $structuresRepository->findAll();
         //envoie mon contenu de ma bdd dans la variable $strucures 
         //on affiche $partenaires dans fichier twig
 
         return $this->render("admin/structures.html.twig", [
-            'structures' => $structures
+            'structures' => $structures,
+            'user'=>$user
         ]);
     }
     //partie controller recherche d'une structure par id
@@ -44,8 +50,11 @@ class AdminStructuresController extends AbstractController
     }
     //formulaire de creation d'entité permet  de creer une entité
     #[Route('/admin/structures/insert', name: 'admin_insert_structure')]
-    public function insertStructure(Request $request, EntityManagerInterface $entityManagerInterface)
+    public function insertStructure( PartenairesRepository $partenaireRepo,StructuresRepository $structureRepo,Request $request, EntityManagerInterface $entityManagerInterface, MailerInterface $mailer)
     {
+        
+        
+        
         $structure = new Structures();
 
         $structureForm = $this->createForm(StructuresType::class, $structure);
@@ -54,6 +63,28 @@ class AdminStructuresController extends AbstractController
         if ($structureForm->isSubmitted() && $structureForm->isValid()) {
             $entityManagerInterface->persist($structure);
             $entityManagerInterface->flush();
+        //et envoie email au partenaire correspondant à la structure    
+            //$emailToUser = (new TemplatedEmail())
+            //->from('sabrow@hotmail.fr') 
+            //->to($id)
+            //->subject('Une structure a été ajoutée à vos structures')
+            //->htmlTemplate('emails/ajoutStructure.html.twig')
+            ////envoie de toutes les variables
+            //->context([
+            //    'partenaires'=>$partenaire,
+            //    'structures'=>$structure,
+            //     
+            //    
+//
+//
+//
+        //]);//
+//
+    /*instan//ce de la class générique mailer*/
+            // $mailer->send($emailToUser)
+            //       
+    //
+;
         }
         $this->addFlash(type: 'success', message: 'La structure a bien été ajouté');
         return $this->render('admin/structure_insert.html.twig', [

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\PartenairesRepository;
 use App\Repository\StructuresRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,14 +23,16 @@ class StructureController extends AbstractController
     }
 /*recherche structure*/ 
     #[Route('/resultat', name:'resultat')]
-    public function searchStructure(Request $request, StructuresRepository $structuresRepository)
+    public function searchStructure(Request $request, PartenairesRepository $partenairesRepository, StructuresRepository $structuresRepository)
     {
         //get ('name:input et dans l'url')
     $search = $request->query->get('search');
-    $structure = $structuresRepository -> searchStructure($search);
+    $structure = $structuresRepository -> search($search);
+    $partenaire = $partenairesRepository -> search($search);
     $this -> addFlash(type:'success', message:'Merci pour votre recherche, voici le résultat');
-        return $this->render('admin/resultatstructure.html.twig', [
-            'structure' => $structure
+        return $this->render('admin/resultats.html.twig', [
+            'structure' => $structure,
+            'partenaire'=>$partenaire,
         ]);
  }
 }

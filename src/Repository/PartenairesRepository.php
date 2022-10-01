@@ -24,7 +24,7 @@ class PartenairesRepository extends ServiceEntityRepository
     }
 
     #[Route ('/resultat',name:'resultat_partenaire')]
-    public function searchPartenaire($search): array
+    public function search($search): array
     {
     $qb = $this->createQueryBuilder(alias:'partenaires');
     
@@ -69,13 +69,13 @@ class PartenairesRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Partenaires
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function recherche($criteria): ?Partenaires
+    {
+        return $this->createQueryBuilder('P')
+            ->Where('p.name = :val')
+            ->setParameter('val', $criteria)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }

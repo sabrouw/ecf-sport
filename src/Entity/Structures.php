@@ -59,9 +59,16 @@ class Structures
     #[ORM\Column]
     private ?bool $statut = null;
 
+    #[ORM\ManyToOne(inversedBy: 'structures')]
+    private ?Partenaires $partenaires = null;
+
+    #[ORM\OneToMany(mappedBy: 'struct', targetEntity: Permissions::class)]
+    private Collection $perms;
+
     public function __construct()
     {
         $this->permissions = new ArrayCollection();
+        $this->perms = new ArrayCollection();
     }
 
     
@@ -239,7 +246,7 @@ class Structures
    
     public function __toString()
     {
-        return $this->name;
+        return $this->getName();
     }
 
     public function isStatut(): ?bool
@@ -250,6 +257,48 @@ class Structures
     public function setStatut(bool $statut): self
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    public function getPartenaires(): ?Partenaires
+    {
+        return $this->partenaires;
+    }
+
+    public function setPartenaires(?Partenaires $partenaires): self
+    {
+        $this->partenaires = $partenaires;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Permissions>
+     */
+    public function getPerms(): Collection
+    {
+        return $this->perms;
+    }
+
+    public function addPerm(Permissions $perm): self
+    {
+        if (!$this->perms->contains($perm)) {
+            $this->perms->add($perm);
+            $perm->setStruct($this);
+        }
+
+        return $this;
+    }
+
+    public function removePerm(Permissions $perm): self
+    {
+        if ($this->perms->removeElement($perm)) {
+            // set the owning side to null (unless already changed)
+            if ($perm->getStruct() === $this) {
+                $perm->setStruct(null);
+            }
+        }
 
         return $this;
     }

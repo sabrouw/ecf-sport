@@ -22,19 +22,14 @@ class PartenaireController extends AbstractController
         ]);
     }
 
-
-    
-
-
     //moteur de recherche partenaires
-    #[Route('/resultat', name:'resultat_partenaire')]
+    #[Route('/resultat', name:'resultat')]
     public function searchPartenaire(Request $request, PartenairesRepository $partenairesRepository)
     {
         //get ('name:input et dans l'url')
         $search = $request->query->get('search');
-        $partenaire = $partenairesRepository -> searchPartenaire($search);
-
-        return $this->render('admin/resultatpartenaire.html.twig', [
+        $partenaire = $partenairesRepository -> search($search);
+        return $this->render('admin/resultats.html.twig', [
             'partenaire' => $partenaire
         ]);
     }

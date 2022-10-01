@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\Messenger\SendEmailMessage;
 use Symfony\Component\Mailer\Transport\SendmailTransport;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface as GeneratorUrlGeneratorInterface;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -59,7 +60,7 @@ class LoginController extends AbstractController
                     $entityManagerInterface->persist($user);
                     $entityManagerInterface->flush();
 //genere url token
-                    $url = $this->generateUrl('reset_pass',['token'=>$token], UrlGeneratorInterface::ABS_URL);
+                    $url = $this->generateUrl('reset_pass',['token'=>$token], GeneratorUrlGeneratorInterface::ABSOLUTE_URL);
                     $context = compact('url', 'user');
 
                    // envoie email
@@ -81,11 +82,11 @@ class LoginController extends AbstractController
             ]);
         }
 
-        #[Route('/oubli_pass/{token}', name:'reset_pass')]
+        /*#[Route('/oubli_pass/{token}', name:'reset_pass')]
         public function pass():Response
         {
 
-        }
+        }*/
 
         
 

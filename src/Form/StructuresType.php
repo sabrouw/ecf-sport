@@ -2,14 +2,15 @@
 
 namespace App\Form;
 
-use App\Entity\Permissions;
 use App\Entity\Structures;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Partenaires;
+use App\Entity\Permissions;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class StructuresType extends AbstractType
 {
@@ -19,14 +20,14 @@ class StructuresType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('statut')
-            ->add('permission1',EntityType::class,[
+            /*->add('perms',EntityType::class,[
                 'class'=> Permissions::class,
                 
                  'expanded'=> true,
                  'choice_label'=> 'name',
                  'required' => false,
                  'compound' => true,
-             ])    
+             ])    */
             /*->add('permission1',ChoiceType::class,[
                 'choices'=> [
                     'activite'=> true,
@@ -74,7 +75,13 @@ class StructuresType extends AbstractType
                 )*/
                 
                
-            
+           ->add('partenaires', EntityType::class,[
+                'class' => Partenaires::class,
+                'expanded'=> true,
+                 'choice_label'=> 'name',
+                 'required' => false,
+                 'compound' => true
+            ])
             
             
                                

@@ -47,7 +47,9 @@
 	</button>
 
 	{% for structures in structures %}
-
+{% for user in user %}
+	
+{% endfor %}
 		<h2 class="mt-3 text-capitalize">
 			{{ structures.name }}
 		</h2>
@@ -55,7 +57,10 @@
 			Id: (
 			{{ structures.id }}
 			)
-			{{ structures.user.id }}
+			{{ structures.description }}
+			
+			
+			
 		</h3>
 		<div class="form-check form-switch">
 			<input class="form-check-input mt-4" type="checkbox" id="flexSwitchCheckDefault">
@@ -84,4 +89,5 @@
 
 
 	{% endfor %}
+	
 {% endblock body %}

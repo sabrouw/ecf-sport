@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class StructuresRepository extends ServiceEntityRepository
 {#[Route('/search',name:'resultat_structure')]
-    public function searchStructure($search): array
+    public function search($search): array
     {
     $qb = $this->createQueryBuilder(alias:'structures');
     
