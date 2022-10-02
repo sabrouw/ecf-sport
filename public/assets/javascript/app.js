@@ -1,4 +1,12 @@
 // This is for able to see chart. We are using Apex Chart. U can check the documentation of Apex Charts too..
+// assets/app.js
+/*
+ * Welcome to your app's main JavaScript file!
+ *
+ * We recommend including the built version of this JavaScript file
+ * (and its CSS file) in your base layout (base.html.twig).
+ */
+
 var options = {
   series: [
     {

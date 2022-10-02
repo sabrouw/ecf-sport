@@ -3,7 +3,21 @@ jquery javascript et select2 installation pour la mise en place du moteur de rec
 Js ok facilement puisqu'integrer installation ensuite webpack encore pour la prise en charge de jquery qui n'a pas voulu fonctionner avec les link cdn css et js.
 
 recherche sur stackoverflow pour trouver une eventuelle solution avec le message d'erreur "Uncaught ReferenceError: $ is not defined"
-j'instaure la balise classique de jquery a l'instar de celle de js et tout fonctionne, j'installe select2 pour ajaxisé mon moteur de recherche et le rendre dynamique et intuitif
+j'instaure la balise classique de jquery a l'instar de celle de js et tout fonctionne, 
+j'installe select2 pour ajaxisé mon moteur de recherche et le rendre dynamique et intuitif
 
-ajouter defer dans le scdn du select2 pour qu'on puisse taper les mots pour rechercher.
-ajouter une propriété qui justifie l'activité des users.
+ajouter defer dans le cdn du select2 pour qu'on puisse taper les mots pour rechercher, 
+on peut ajouter plusieurs nom de structures et de partenaire a notre recherche et 
+les filtrer afin d'avoir uniquement les partenaires et les structures actifs..
+
+
+Le moteur de recherche utilise le querybuilder qui utilise a son tour des alias(première lettre de l'entité de la base de données
+eg: pour l'entité partenaires j'ai mis 'p')  afin d'aller chercher 
+les noms taper dans la barre de recherch et classer par ordre alphabétique "ASC" avec "orderBy" 
+les noms dans le select.
+
+Passons maintenant maintenant au traitement de mon formulaire:
+J'ai injecter dans mon Searchcontroller le request http fundation de symfony,
+
+message d'erreur que j'ai rechercher sur google et j'ai trouvé la sotulion sur stackOverflow 
+"[Syntax Error] line 0, col 56: Error: Expected end of string, got '.'"

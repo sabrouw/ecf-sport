@@ -55,7 +55,7 @@ class Partenaires
 
     public function __construct()
     {
-        $this->structures = new ArrayCollection();
+        $this->structures = new ArrayCollection([]);
     }
 
 
@@ -226,7 +226,7 @@ class Partenaires
 
     public function addStructure(Structures $structure): self
     {
-        if (!$this->structures->contains($structure)) {
+        if (!$this->structures->constains($structure)) {
             $this->structures->add($structure);
             $structure->setPartenaires($this);
         }

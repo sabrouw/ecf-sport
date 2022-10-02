@@ -9,22 +9,7 @@
 {% endblock css %}
 
 
-{#button pour avoir la listes des partenaires#}
-{% block buttonpartenaires %}
-	<button class="btn btn-dark" type="btn">
-		<a href="{{ path ('admin_partenaires') }}">
-			Partenaires
-		</a>
-	</button>
-{% endblock buttonpartenaires %}
-{#button pour avoir la listes des structures#}
-{% block buttonstructures %}
-	<button class="btn btn-dark" type="btn">
-		<a href="{{ path ('admin_structures') }}">
-			Structures
-		</a>
-	</button>
-{% endblock buttonstructures %}
+
 
 {% block flash %}
 
@@ -47,6 +32,8 @@
 
 	
 		<button class="btn btn-dark" type="submit" name"modifier_partenaire">
+			<i class="fa fa-pencil" aria-hidden="true"></i>
+
 			Modifier partenaire
 		</button>
 		<button class="btn btn-dark" type="submit" name"activer_partenaire">

@@ -4,7 +4,7 @@
 {% endblock  %}
 {% block title %}
 	<title>
-		Résultat de recherche partenaires
+		Résultat de recherche admin
 	</title>
 {% endblock %}
 
@@ -23,49 +23,32 @@
 
 
 
-	{#button pour avoir la listes des partenaires#}
-	{% block buttonpartenaires %}
-		<button class="btn btn-dark" type="btn">
-			<a href="{{ path ('admin_partenaires') }}">
-				Partenaires
-			</a>
-		</button>
-	{% endblock buttonpartenaires %}
-	{#button pour avoir la listes des structures#}
-	{% block buttonstructures %}
-		<button class="btn btn-dark" type="btn">
-			<a href="{{ path ('admin_structures') }}">
-				Structures
-			</a>
-		</button>
-	{% endblock buttonstructures %}
-
-
+	
 	{% block body %}
    
         
 
 
-		{% for partenaire in partenaire %}
+		{% for partenaires in partenaires %}
 
 			<h2>
 				Nom:
-				{{ partenaire.name }}
+				{{ partenaires.name }}
 			</h2>
 			<h3>
 				Id:
-				{{ partenaire.id }}
+				{{ partenaires.id }}
 			</h3>
 
 
 			<button class="btn btn-dark mt-4" type="submit" name"modifier_partenaire">
-			<a href="{{ path ('admin_partenaire_update', {'id': partenaire.id}) }}">	Modifier partenaire</a>
+			<a href="{{ path ('admin_partenaire_update', {'id': partenaires.id}) }}">	Modifier partenaire</a>
 			</button>
 			<button class="btn btn-dark mt-4" type="submit" name"activer_partenaire">
 				Activier partenaire
 			</button>
 			<button class="btn btn-dark mt-4" type="submit" name"voir_partenaire">
-				<a href="{{ path ('admin_partenaire', {'id': partenaire.id}) }}">
+				<a href="{{ path ('admin_partenaire', {'id': partenaires.id}) }}">
 					Voir sur le site
 				</a>
 			</button>
@@ -74,15 +57,15 @@
 
 
        
-        {% for structure in structure %}
+        {% for structures in structures %}
 
 			<h2>
 				Nom:
-				{{ structure.name }}
+				{{ structures.name }}
 			</h2>
 			<h3>
 				Id:
-				{{ structure.id }}
+				{{ structures.id }}
 			</h3>
 
 
@@ -93,7 +76,7 @@
 				Activier structure
 			</button>
 			<button class="btn btn-dark mt-4" type="submit" name"voir_structure">
-				<a href="{{ path ('admin_structures', {'id': structure.id}) }}">
+				<a href="{{ path ('admin_structures', {'id': structures.id}) }}">
 					Voir sur le site
 				</a>
 			</button>

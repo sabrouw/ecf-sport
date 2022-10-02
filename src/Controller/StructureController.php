@@ -21,18 +21,5 @@ class StructureController extends AbstractController
             "structure" => $structure,
         ]);
     }
-/*recherche structure*/ 
-    #[Route('/resultat', name:'resultat')]
-    public function searchStructure(Request $request, PartenairesRepository $partenairesRepository, StructuresRepository $structuresRepository)
-    {
-        //get ('name:input et dans l'url')
-    $search = $request->query->get('search');
-    $structure = $structuresRepository -> search($search);
-    $partenaire = $partenairesRepository -> search($search);
-    $this -> addFlash(type:'success', message:'Merci pour votre recherche, voici le résultat');
-        return $this->render('admin/resultats.html.twig', [
-            'structure' => $structure,
-            'partenaire'=>$partenaire,
-        ]);
- }
+
 }

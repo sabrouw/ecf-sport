@@ -69,13 +69,13 @@ class PartenairesRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-    public function recherche($criteria): ?Partenaires
-    {
-        return $this->createQueryBuilder('P')
-            ->Where('p.name = :val')
-            ->setParameter('val', $criteria)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
+ //   public function recherche($criteria): ?Partenaires
+ //   {
+ //       return $this->createQueryBuilder('P')
+ //           ->Where('p.name = :val')
+ //           ->setParameter('val', $criteria)
+ //           ->getQuery()
+ //           ->getOneOrNullResult()
+ //       ;
+ //   }
 }

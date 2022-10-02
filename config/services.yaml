@@ -6,6 +6,10 @@
 parameters:
 
 services:
+    App\Autocompleter\FoodAutocompleter:
+        tags:
+            - { name: ux.entity_autocompleter, alias: 'partenaires' }
+            - { name: ux.entity_autocompleter, alias: 'structures' }
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.

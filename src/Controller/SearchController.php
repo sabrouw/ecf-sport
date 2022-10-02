@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Partenaires;
 use App\Entity\Structures;
+use App\Repository\CategorieRepository;
 use App\Repository\PartenairesRepository;
 use App\Repository\StructuresRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -20,106 +21,45 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SearchController extends AbstractController
 {
-    #[Route('/recherche', name: 'recherche')]
-    public function recherche(PartenairesRepository $partenaireRepo, StructuresRepository $structureRepo, Request $request): Response
-    {
-   
-        $partenaire = $partenaireRepo;
-        $structure = $structureRepo;
-        $form = $this->createFormBuilder()
+   /*moteur de recherche public*/
+#[Route('/resultat', name:'resultat')]
+public function search(CategorieRepository $categorieRepo,Request $request, PartenairesRepository $partenairesRepository, StructuresRepository $structuresRepository)
+{
+$categorie = $categorieRepo->findAll();
 
-    ->add('Structure', EntityType::class, [
-
-           'class'     => Structures::class,
-             'query_builder'=> function (StructuresRepository $structureRepo) {
-                 return $structureRepo->createQueryBuilder('s')->orderBy('s.name', 'ASC');
-             },
-             'expanded'     => false,
-             'required'     => false,
-             'multiple'     => true,
-             'choice_label'  =>'name',
-             'attr' => [
-                 'class'=> 'select2'
-                ]
-
-             ])
-
-    ->add('activite', ChoiceType::class, [
-            'label'  =>'Afficher uniquement les Structures actives',
-            'choices'=>[
-                'Actif'=> true,
-                'Inactif'=>false
-            ],
-            'required' => false,
-            'compound'=> true,
-            'expanded'=> true,
-
-        ])
-
-    ->add('Partenaire', EntityType::class, [
-            'placeholder'=>'franchisé',
-            'class' => Partenaires::class,
-            'query_builder'=> function (PartenairesRepository $partenaireRepo) {
-                return $partenaireRepo->createQueryBuilder('p')->orderBy('p.name', 'ASC');
-            },
-            'expanded'     => false,
-            'required'     => false,
-            'multiple'     => true,
-            'choice_label'  =>'name',
-            'attr' => [
-                'class'=> 'select2', 'active'
-                           ]
-            ])
-        ->add('statut', ChoiceType::class, [
-               'label'  =>'afficher uniquement les Partenaires actifs',
-               'required' => false,
-               'choices'=>[
-                'Actif'=> true,
-                'Inactif'=>false
-            ],
-            'required' => false,
-            'compound'=> true,
-            'expanded'=> true,
-
-            ])
-
-    ->add('rechercher', SubmitType::class)
-
-    ->setMethod('GET')
-    ->getForm()
-
-    ;
-
-    $form->handleRequest($request);
-    if ($form->isSubmitted() && $form->isValid()) {
-       $criteria = $form->getData();
-      
-       $partenaireRepo->recherche($criteria);
-       //$structureRepo->recherche($criteria);
-      
-       
-    }
-
-
-
-    return $this->renderForm('recherche.html.twig', [
-    'form' => $form,
-    'partenaire' => $partenaire,
-    'structure'  => $structure
+$search = $request->query->get('search');
+$structure = $structuresRepository -> search($search);
+$partenaire = $partenairesRepository -> search($search);
+$this -> addFlash(type:'success', message:'Voici le résultat de votre recherche');
+    return $this->render('resultats.html.twig', [
+        'structures' => $structure,
+        'partenaires'=>$partenaire,
+        'categorie'=>$categorie
     ]);
 }
 
+#[Route('/admin/resultats', name:'admin_resultats')]
+public function searchAdmin(CategorieRepository $categorieRepo,Request $request, PartenairesRepository $partenairesRepository, StructuresRepository $structuresRepository)
+{
+$categorie = $categorieRepo->findAll();
 
-//#[Route('resultats/{id}', name:'resultats')]
-//public function resultatSearch($id, PartenairesRepository $partenairesRepository,StructuresRepository $structuresRepository ){
-//$partenaire = $partenairesRepository->findBy($id);
-//$structure = $structuresRepository->findBy($id);
-//return $this->render('resultats.html.twig', [
-//    'partenaire' => $partenaire,
-//    'structure' => $structure,
-//]);
-//}
+$search = $request->query->get('search');
+$structure = $structuresRepository -> search($search);
+$partenaire = $partenairesRepository -> search($search);
+$this -> addFlash(type:'success', message:'Résultat de recherche');
+    return $this->render('admin/resultats.html.twig', [
+        'structures' => $structure,
+        'partenaires'=>$partenaire,
+        'categorie'=>$categorie
+    ]);
 }
+
+}
+
+
+
+
+
 
 
        

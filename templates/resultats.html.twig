@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
   {% block title %}<title>Resultat recherche</title>{% endblock title %}
-  		{% block select2 %}{% endblock select2 %}	
+  			
 
- {% block css %}{% endblock css %}
+ 
  
  {% block header %}
  <header id="header">
         
-                <h1 id="titre_admin_partenaires">Résultat recherche</h1>
+                <h1 class="mt-4"id="titre_admin_partenaires">Résultat recherche</h1>
            
     </header>     
 {% endblock header %}
@@ -16,58 +16,72 @@
       
  {% block body %} 
 
- {% if categorie == 1 %}
- {% for partenaire in partenaire %}
-
-			<h2>
-				Nom:
-				{{ partenaire.name }}
-			</h2>
-			<h3>
-				Id:
-				{{ partenaire.id }}
-			</h3>
-
-
-			<button class="btn btn-dark mt-4" type="submit" name"modifier_partenaire">
-			<a href="{{ path ('admin_partenaire_update', {'id': partenaire.id}) }}">	Modifier partenaire</a>
-			</button>
-			<button class="btn btn-dark mt-4" type="submit" name"activer_partenaire">
-				Activier partenaire
-			</button>
-			<button class="btn btn-dark mt-4" type="submit" name"voir_partenaire">
-				<a href="{{ path ('partenaire', {'id': partenaire.id}) }}">
-					Voir sur le site
-				</a>
-			</button>
-
-		{% endfor  %}
-        {% for structure in structure %}
-
-			<h2>
-				Nom:
-				{{ structure.name }}
-			</h2>
-			<h3>
-				Id:
-				{{ structure.id }}
-			</h3>
-
-
-			<button class="btn btn-dark mt-4" type="submit" name"modifier_partenaire">
-				Modifier structure
-			</button>
-			<button class="btn btn-dark mt-4" type="submit" name"activer_partenaire">
-				Activier structure
-			</button>
-			<button class="btn btn-dark mt-4" type="submit" name"voir_partenaire">
-				<a href="{{ path ('structure', {'id': structure.id}) }}">
-					Voir sur le site
-				</a>
-			</button>
-
-		{% endfor %}
+ {% for structures in structures %}
  
- {% endif %}
+ <div class="card mt-5 d-inline-flex p-2" style="width: 18rem">
+  {#js pour switch case#}
+  {% if structures.id == 1 %}
+    <img src="https://cdn.pixabay.com/photo/2017/04/22/10/15/woman-2250970__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if structures.id == 2 %}
+    <img src="https://cdn.pixabay.com/photo/2015/07/02/10/22/training-828726__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if structures.id == 3 %}
+    <img class="h-25" src="https://cdn.pixabay.com/photo/2017/04/27/08/29/man-2264825__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if structures.id == 4 %}
+    <img src="https://cdn.pixabay.com/photo/2016/02/04/21/55/gym-room-1180016__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if structures.id == 5 %}
+    <img src="https://cdn.pixabay.com/photo/2018/03/03/22/19/sumoringer-3196753__480.jpg" class="card-img-top" alt="...">
+
+    {% endif %}
+	
+
+  
+ 
+  
+  <div class="card-body">
+    
+  
+    <h5 class="card-title text-capitalize">{{ structures.name }}</h5>
+    <p class="card-text text-capitalize">{{ structures.description }}</p>
+    <button class="btn btn-dark" type="submit" name"voir_structure"><a href="{{ path ('structure', {'id': structures.id}) }}">Détails</a> </button>  
+  </div>
+</div> 
+{% endfor %}
+
+
+
+ {% for partenaires in partenaires %}
+ <div class="card mt-4 d-inline-flex p-2" style="width: 18rem;">
+ 
+   
+   {% if partenaires.id == 1 %}
+    <img src="https://cdn.pixabay.com/photo/2017/04/22/10/15/woman-2250970__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if partenaires.id == 2 %}
+    <img src="https://cdn.pixabay.com/photo/2015/07/02/10/22/training-828726__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if partenaires.id == 3 %}
+    <img class="img3"src="https://cdn.pixabay.com/photo/2017/04/27/08/29/man-2264825__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if partenaires.id == 4 %}
+    <img src="https://cdn.pixabay.com/photo/2016/02/04/21/55/gym-room-1180016__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if partenaires.id == 5 %}
+    <img src="https://cdn.pixabay.com/photo/2018/03/03/22/19/sumoringer-3196753__480.jpg" class="card-img-top" alt="...">
+
+    {% endif %}
+
+   <div class="card-body">
+     <h5 class="card-title text-capitalize">{{ partenaires.name }}</h5>
+     <p class="card-text text-capitalize">{{ partenaires.adresse}}</p>
+     <button  class="btn btn-dark mt-4"type="submit" name"voir_partenaire"><a href="{{ path ('partenaires', {'id': partenaires.id}) }}" > Détails </a> </button>
+   </div>
+ </div> 
+  
+         
+    {% endfor %}
  
  {% endblock body %} 

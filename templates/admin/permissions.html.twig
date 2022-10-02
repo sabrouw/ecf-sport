@@ -11,27 +11,13 @@
 {% block header %}
 	<header id="header">
 
-		<h1 id="titre_admin_permissions">
+		<h1 class="mt-4"id="titre_admin_permissions">
 			Administrer les permissions
 		</h1>
 
 	</header>
 {% endblock header %}
-{% block buttonpartenaires %}
-	<button class="btn btn-dark" type="btn">
-		<a href="{{ path ('admin_partenaires') }}">
-			Partenaires
-		</a>
-	</button>
-{% endblock buttonpartenaires %}
 
-{% block buttonstructures %}
-	<button class="btn btn-dark" type="btn">
-		<a href="{{ path ('admin_structures') }}">
-			Structures
-		</a>
-	</button>
-{% endblock buttonstructures %}
 
 
 {% block flash %}
@@ -44,25 +30,26 @@
 {% block body %}   
  
     
-    
+   
    {% for permissions in permissions %}
-    
-    <form action" {{ path ("admin_permission_edit", {'id': permissions.id}) }} " method="get"  >
+   <div class="card">
+    <form class="permissions"action" {{ path ("admin_permission_edit", {'id': permissions.id}) }} " method="get"  >
     
 
-        <h2 class="mt-3 ">{{permissions.name}}</h2>
+        <h2 class="mt-3 ">Nom : {{permissions.name}}</h2>
   
   
-        <H4 class=""id="description_permissions"> Decritption: {{ permissions.description }}</h4>
-		<a class="btn btn-primary mt-3" href=" {{ path ('admin_permission_edit',{'id': permissions.id}) }} ">Editer</a> 
-</form>		
+        <H4 class="mt-2"id="description_permissions"> Decritption: {{ permissions.description }}</h4>
+		<a class="btn btn-success mt-3" href=" {{ path ('admin_permission_edit',{'id': permissions.id}) }} ">Editer</a> 
+	</div>
+	</form>		
 
 
  {% endfor %} 
  
  
- 
- 
+
+
 
 {% endblock body %}
 
