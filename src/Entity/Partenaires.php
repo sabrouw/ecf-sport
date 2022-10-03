@@ -190,7 +190,7 @@ class Partenaires
     
     public function __toString()
     {
-        return $this->getName;
+        return $this->name;
     }
     public function isStatut(): ?bool
     {

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Partenaires;
 use App\Entity\Structures;
+use App\Form\SearchType;
 use App\Repository\CategorieRepository;
 use App\Repository\PartenairesRepository;
 use App\Repository\StructuresRepository;
@@ -42,7 +43,6 @@ $this -> addFlash(type:'success', message:'Voici le résultat de votre recherche
 public function searchAdmin(CategorieRepository $categorieRepo,Request $request, PartenairesRepository $partenairesRepository, StructuresRepository $structuresRepository)
 {
 $categorie = $categorieRepo->findAll();
-
 $search = $request->query->get('search');
 $structure = $structuresRepository -> search($search);
 $partenaire = $partenairesRepository -> search($search);

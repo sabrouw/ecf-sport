@@ -38,8 +38,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
    
-    #[ORM\Column(type:'string', length:100)]
-    private $resetToken;
+    #[ORM\Column(type:'string', length:100, nullable: true)]
+    private $resetToken = null;
 
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
@@ -63,18 +63,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?bool $isActive = null;
 
    
-
-    
-
     public function __construct()
     {
         $this->partenaires = new ArrayCollection();
     }
 
     
-
-    
-
     public function getId(): ?int
     {
         return $this->id;

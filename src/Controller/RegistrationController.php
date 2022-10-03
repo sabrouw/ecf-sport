@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Security\EmailVerifier;
 use App\Form\RegistrationFormType;
+use App\Repository\UserRepository;
 use Symfony\Component\Mime\Address;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
@@ -27,19 +28,25 @@ class RegistrationController extends AbstractController
     }
 /*formulaire d'enregistrement ou de création d'user*/
     
-    #[Route('/admin/register', name: 'admin_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
-    {
+    #[Route('/admin/register/{id?0}', name: 'admin_register')]
+    public function register($id,User $user =null,Request $request, UserRepository $userRepository, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
+    {   $user = $userRepository->find($id);
+        
+        
+        if (!$user){
         $user = new User();
+    }   
+      
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
+        
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encoder mot de passe entré
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
-                    $form->get('plainPassword')->getData()
+                    $form->getData()
                 )
             );
 
@@ -58,6 +65,7 @@ class RegistrationController extends AbstractController
 // do anything else you need here, like send an email
 
             return $this->redirectToRoute('home');
+            $this->addFlash('success', 'L\'utilisateur a bien été ajouté un email de confirmation lui a été envoyé pour valider son email.');
         }
 
         return $this->render('admin/registration.html.twig', [

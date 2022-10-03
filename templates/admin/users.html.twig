@@ -1,0 +1,99 @@
+{% extends 'admin/base.html.twig' %}
+{% block css %}
+	<link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>
+{% endblock  %}
+{% block title %}
+	<title>
+		Admin Tableau de bord
+	</title>
+{% endblock %}
+
+{% block header %}
+	<header class="header">
+		<h1 class="mt-4">
+			Administrer les utilisateurs
+		</h1>
+	</header>
+{% endblock header %}
+
+{% block flash %}
+{% for message in app.flashes('success') %}
+{{message}}
+{% endfor %}
+{% endblock flash %}
+
+
+
+
+{% block body %}
+	<button class="btn btn-dark mt-4" type="button" id="creation_user">
+		<i class="fa fa-plus" aria-hidden="true"></i>
+		<a href="{{ path ("admin_register") }}">
+			Creer un utilisateurs
+		</a>
+	</button>
+	
+	
+	
+	<div class="containter-card">
+	{% for user in user %}
+	<div class="card ">
+		<div class="card-header">
+		<h2 class="mt-3 text-capitalize">
+			{{ user.username }}
+		</h2>
+		
+		</div>
+		<div class="card-body">	
+			<h3 class="text-capitalize">
+				Id: (
+				{{ user.id }}
+				)
+				
+			</h3>
+			
+            
+            {#{% if user.categorie == 1 %}
+            Catégorie: {{ user.categorie }}
+            Partenaire: {{ user.partenaire}}
+            {% else %}
+            Structure: {{ user.structure }}
+            {% endif %}#}
+
+		<div class="form-check form-switch">
+			<input class="form-check-input mt-4" type="checkbox" id="flexSwitchCheckDefault">
+			<label class="form-check-label mt-4" for="flexSwitchCheckDefault">
+				Activer
+			</label>
+		</div>
+	</div>
+	<div class="card-footer">
+		<button class="btn btn-dark mt-3" type="submit" name"modifier_structures" id="modifier_structure">
+			<i class="fa fa-pencil" aria-hidden="true"></i>
+			<a href="{{ path ("admin_register", {'id': user.id})}}">
+				Modifier l'utilisateur
+			</a>
+		</button>
+
+		<button class="btn btn-dark mt-3" type="submit" name"voir_structure">
+			<i class="fa fa-eye" aria-hidden="true"></i>
+			<a href="{{ path ('admin_register', {'id': user.id}) }}">
+				Voir l'utilisateur
+			</a>
+		</button>
+		<button class="btn btn-danger mt-3" type="submit" name"supprimer_structure">
+			<a href="{{ path ('admin_register', {'id': user.id} ) }} ">
+				Supprimer l'utilisateur
+			</a>
+		</button>
+
+
+	</div>
+</div>
+
+{% endfor %}
+
+</div>
+</div>
+	
+{% endblock body %}
