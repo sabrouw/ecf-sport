@@ -1,0 +1,104 @@
+/*!****************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[1].use[1]!./assets/styles/autre.css ***!
+  \****************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap);
+/*!********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[1].use[1]!./assets/styles/autre.css (1) ***!
+  \********************************************************************************************************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	
+    
+}
+
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+h1{
+	text-align: center;
+	font-weight: bold;
+	font-size: 2rem;
+	padding-bottom: 5%;
+	
+	
+}
+
+:visited,
+:active{
+	color: grey;
+}
+:link{
+text-decoration:   none;
+color: white;
+}
+/*style form contact*/
+textarea{
+	resize: none;
+}
+#formContact{
+	padding-left: 25%;
+	padding-right: 25%;
+}
+.formContactDetail{
+	background: linear-gradient(45deg, yellow, darkblue);
+	border-radius: 5%;
+	color: aliceblue;
+	
+}
+
+button{
+	border-radius: 50%;
+}
+#formLogin{
+	padding-left: 10%;
+	padding-right: 10%;
+	background: linear-gradient(45deg, yellow, darkblue);
+	border-radius: 5%;
+	color: aliceblue;
+}
+.containLogForm{
+	padding-left: 25%;
+	padding-right: 25%;
+	
+}
+
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLjU2YjM5Y2MxLmNzcyIsIm1hcHBpbmdzIjoiOzs7Ozs7O0FBRUE7Ozs7Ozs7Ozs7Ozs7Q0FhQyxTQUFTO0NBQ1QsVUFBVTtDQUNWLFNBQVM7Q0FDVCxlQUFlO0NBQ2YsYUFBYTtDQUNiLHdCQUF3Qjs7O0FBR3pCOzs7QUFHQTs7Q0FFQyxjQUFjO0FBQ2Y7QUFDQTtDQUNDLGNBQWM7QUFDZjtBQUNBO0NBQ0MsZ0JBQWdCO0FBQ2pCO0FBQ0E7Q0FDQyxZQUFZO0FBQ2I7QUFDQTs7Q0FFQyxXQUFXO0NBQ1gsYUFBYTtBQUNkO0FBQ0E7Q0FDQyx5QkFBeUI7Q0FDekIsaUJBQWlCO0FBQ2xCOztBQUVBO0NBQ0Msa0JBQWtCO0NBQ2xCLGlCQUFpQjtDQUNqQixlQUFlO0NBQ2Ysa0JBQWtCOzs7QUFHbkI7O0FBRUE7O0NBRUMsV0FBVztBQUNaO0FBQ0E7QUFDQSx1QkFBdUI7QUFDdkIsWUFBWTtBQUNaO0FBQ0EscUJBQXFCO0FBQ3JCO0NBQ0MsWUFBWTtBQUNiO0FBQ0E7Q0FDQyxpQkFBaUI7Q0FDakIsa0JBQWtCO0FBQ25CO0FBQ0E7Q0FDQyxvREFBb0Q7Q0FDcEQsaUJBQWlCO0NBQ2pCLGdCQUFnQjs7QUFFakI7O0FBRUE7Q0FDQyxrQkFBa0I7QUFDbkI7QUFDQTtDQUNDLGlCQUFpQjtDQUNqQixrQkFBa0I7Q0FDbEIsb0RBQW9EO0NBQ3BELGlCQUFpQjtDQUNqQixnQkFBZ0I7QUFDakI7QUFDQTtDQUNDLGlCQUFpQjtDQUNqQixrQkFBa0I7O0FBRW5CIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vYXNzZXRzL3N0eWxlcy9hdXRyZS5jc3MiXSwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCAndG9tLXNlbGVjdC9kaXN0L2Nzcy90b20tc2VsZWN0LmJvb3RzdHJhcDUuY3NzJztcclxuQGltcG9ydCB1cmwoXCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2NzczI/ZmFtaWx5PUxhdG86d2dodEAzMDA7NDAwOzcwMCZkaXNwbGF5PXN3YXBcIik7XHJcbmh0bWwsIGJvZHksIGRpdiwgc3BhbiwgYXBwbGV0LCBvYmplY3QsIGlmcmFtZSxcclxuaDEsIGgyLCBoMywgaDQsIGg1LCBoNiwgcCwgYmxvY2txdW90ZSwgcHJlLFxyXG5hLCBhYmJyLCBhY3JvbnltLCBhZGRyZXNzLCBiaWcsIGNpdGUsIGNvZGUsXHJcbmRlbCwgZGZuLCBlbSwgaW1nLCBpbnMsIGtiZCwgcSwgcywgc2FtcCxcclxuc21hbGwsIHN0cmlrZSwgc3Ryb25nLCBzdWIsIHN1cCwgdHQsIHZhcixcclxuYiwgdSwgaSwgY2VudGVyLFxyXG5kbCwgZHQsIGRkLCBvbCwgdWwsIGxpLFxyXG5maWVsZHNldCwgZm9ybSwgbGFiZWwsIGxlZ2VuZCxcclxudGFibGUsIGNhcHRpb24sIHRib2R5LCB0Zm9vdCwgdGhlYWQsIHRyLCB0aCwgdGQsXHJcbmFydGljbGUsIGFzaWRlLCBjYW52YXMsIGRldGFpbHMsIGVtYmVkLCBcclxuZmlndXJlLCBmaWdjYXB0aW9uLCBmb290ZXIsIGhlYWRlciwgaGdyb3VwLCBcclxubWVudSwgbmF2LCBvdXRwdXQsIHJ1YnksIHNlY3Rpb24sIHN1bW1hcnksXHJcbnRpbWUsIG1hcmssIGF1ZGlvLCB2aWRlbyB7XHJcblx0bWFyZ2luOiAwO1xyXG5cdHBhZGRpbmc6IDA7XHJcblx0Ym9yZGVyOiAwO1xyXG5cdGZvbnQtc2l6ZTogMTAwJTtcclxuXHRmb250OiBpbmhlcml0O1xyXG5cdHZlcnRpY2FsLWFsaWduOiBiYXNlbGluZTtcclxuXHRcclxuICAgIFxyXG59XHJcblxyXG5cclxuYXJ0aWNsZSwgYXNpZGUsIGRldGFpbHMsIGZpZ2NhcHRpb24sIGZpZ3VyZSwgXHJcbmZvb3RlciwgaGVhZGVyLCBoZ3JvdXAsIG1lbnUsIG5hdiwgc2VjdGlvbiB7XHJcblx0ZGlzcGxheTogYmxvY2s7XHJcbn1cclxuYm9keSB7XHJcblx0bGluZS1oZWlnaHQ6IDE7XHJcbn1cclxub2wsIHVsIHtcclxuXHRsaXN0LXN0eWxlOiBub25lO1xyXG59XHJcbmJsb2NrcXVvdGUsIHEge1xyXG5cdHF1b3Rlczogbm9uZTtcclxufVxyXG5ibG9ja3F1b3RlOmJlZm9yZSwgYmxvY2txdW90ZTphZnRlcixcclxucTpiZWZvcmUsIHE6YWZ0ZXIge1xyXG5cdGNvbnRlbnQ6ICcnO1xyXG5cdGNvbnRlbnQ6IG5vbmU7XHJcbn1cclxudGFibGUge1xyXG5cdGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XHJcblx0Ym9yZGVyLXNwYWNpbmc6IDA7XHJcbn1cclxuXHJcbmgxe1xyXG5cdHRleHQtYWxpZ246IGNlbnRlcjtcclxuXHRmb250LXdlaWdodDogYm9sZDtcclxuXHRmb250LXNpemU6IDJyZW07XHJcblx0cGFkZGluZy1ib3R0b206IDUlO1xyXG5cdFxyXG5cdFxyXG59XHJcblxyXG46dmlzaXRlZCxcclxuOmFjdGl2ZXtcclxuXHRjb2xvcjogZ3JleTtcclxufVxyXG46bGlua3tcclxudGV4dC1kZWNvcmF0aW9uOiAgIG5vbmU7XHJcbmNvbG9yOiB3aGl0ZTtcclxufVxyXG4vKnN0eWxlIGZvcm0gY29udGFjdCovXHJcbnRleHRhcmVhe1xyXG5cdHJlc2l6ZTogbm9uZTtcclxufVxyXG4jZm9ybUNvbnRhY3R7XHJcblx0cGFkZGluZy1sZWZ0OiAyNSU7XHJcblx0cGFkZGluZy1yaWdodDogMjUlO1xyXG59XHJcbi5mb3JtQ29udGFjdERldGFpbHtcclxuXHRiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoNDVkZWcsIHllbGxvdywgZGFya2JsdWUpO1xyXG5cdGJvcmRlci1yYWRpdXM6IDUlO1xyXG5cdGNvbG9yOiBhbGljZWJsdWU7XHJcblx0XHJcbn1cclxuXHJcbmJ1dHRvbntcclxuXHRib3JkZXItcmFkaXVzOiA1MCU7XHJcbn1cclxuI2Zvcm1Mb2dpbntcclxuXHRwYWRkaW5nLWxlZnQ6IDEwJTtcclxuXHRwYWRkaW5nLXJpZ2h0OiAxMCU7XHJcblx0YmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDQ1ZGVnLCB5ZWxsb3csIGRhcmtibHVlKTtcclxuXHRib3JkZXItcmFkaXVzOiA1JTtcclxuXHRjb2xvcjogYWxpY2VibHVlO1xyXG59XHJcbi5jb250YWluTG9nRm9ybXtcclxuXHRwYWRkaW5nLWxlZnQ6IDI1JTtcclxuXHRwYWRkaW5nLXJpZ2h0OiAyNSU7XHJcblx0XHJcbn1cclxuIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9*/

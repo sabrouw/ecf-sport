@@ -1,0 +1,20 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/build/runtime.d2d0bb6e.js",
+        "/build/vendors-node_modules_hotwired_stimulus_dist_stimulus_js-node_modules_jquery_dist_jquery_js-no-2ae741.ceba4079.js",
+        "/build/app.84155d20.js"
+      ],
+      "css": [
+        "/build/vendors-node_modules_hotwired_stimulus_dist_stimulus_js-node_modules_jquery_dist_jquery_js-no-2ae741.4383a59b.css",
+        "/build/app.6ad37f47.css"
+      ]
+    },
+    "some_page": {
+      "js": [
+        "/build/runtime.d2d0bb6e.js"
+      ]
+    }
+  }
+}
