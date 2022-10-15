@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-  {% block title %}<title>Interface de gestion des permissions par défaut</title>{% endblock title %}
+  {% block title %}<title>Recherche</title>{% endblock title %}
   		{% block select2 %}{% endblock select2 %}	
 
  
@@ -24,12 +24,10 @@
 {% endblock recherche %}
       
  {% block body %} 
-
+ {{ form(form) }}
 
 {% endblock body %}
 
 {% block javascript %}
-<script>$(document).ready(function() {
-    $('.select2').select2();
-});</script>
+<script></script>
 {% endblock javascript %}

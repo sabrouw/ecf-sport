@@ -62,8 +62,8 @@ var options = {
   },
 };
 
-var chart = new ApexCharts(document.querySelector("#apex1"), options);
-chart.render();
+//var chart = new ApexCharts(document.querySelector("#apex1"), options);
+//chart.render();
 
 // Sidebar Toggle Codes;
 
@@ -94,15 +94,20 @@ function closeSidebar() {
 
 //console.log$('event');
 
-$(document).ready(function(){
-  console.log("jquery ok ?")
-  
-});
 
 console.log('ca marche js ?');
 
 //decalaration de variable pour l'activité des permissions et des boutons pour event
 
+				//$(document).ready(function(){
+				//	$('#search-user').keyup(function(){
+				//		console.log('jquery marche ?')
+				//		var user = $(this).val();
+				//		console.log(user);
+				//	})
+					
+				//});
+			
 
 //selection de l'activite dans la base de données de l'activité des permissions
 //si la valeur de l'activité des permissions est 0 (bool) et si on clique sur valider le formulaire

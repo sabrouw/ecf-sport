@@ -2,22 +2,17 @@
 
 namespace App\Controller;
 
-use App\Entity\Partenaires;
-use App\Entity\Structures;
-use App\Form\SearchType;
+
+use App\Form\SearchFormType;
+
 use App\Repository\CategorieRepository;
 use App\Repository\PartenairesRepository;
 use App\Repository\StructuresRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Form\Test\FormInterface;
+
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+
 use Symfony\Component\Routing\Annotation\Route;
 
 class SearchController extends AbstractController
@@ -53,7 +48,24 @@ $this -> addFlash(type:'success', message:'Résultat de recherche');
         'categorie'=>$categorie
     ]);
 }
+#[Route('/recherche', name:'recherche')]
+public function searchTout(CategorieRepository $categorieRepo,Request $request, PartenairesRepository $partenairesRepository, StructuresRepository $structuresRepository)
+{
 
+$form = $this->createForm(SearchFormType::class);
+$categorie = $categorieRepo->findAll();
+
+$search = $request->query->get('search');
+$structure = $structuresRepository -> search($search);
+$partenaire = $partenairesRepository -> search($search);
+$this -> addFlash(type:'success', message:'Voici le résultat de votre recherche');
+    return $this->render('recherche.html.twig', [
+        'structures' => $structure,
+        'partenaires'=>$partenaire,
+        'categorie'=>$categorie,
+        'form'=> $form->createView()
+    ]);
+}
 }
 
 

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity;
+use Doctrine\ORM\Mapping\Index;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\PartenairesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -11,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ApiResource (collectionOperations: ['get'], itemOperations: ['get'])]
 #[ORM\Entity(repositoryClass: PartenairesRepository::class)]
+#[ORM\Index(name:'partenaires_idx', columns: ['name'], flags: ['fulltext'])]
 
 
 class Partenaires
