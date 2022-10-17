@@ -15,7 +15,13 @@
 {#formulaire avec builder#}
 
 
-{{ form(form) }}
+{% for partenaires in partenaires %}
+{{ partenaires.name }}
+{% endfor %}
+{% for structures in structures %}
 
+
+   {{ structures.name }}
+   {% endfor %}
 {% endblock body %}
 {% block javascript %}{% endblock javascript %}

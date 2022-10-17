@@ -99,12 +99,36 @@ console.log('ca marche js ?');
 
 //decalaration de variable pour l'activité des permissions et des boutons pour event
 
-				//$(document).ready(function(){
-				//	$('#search-user').keyup(function(){
-				//		console.log('jquery marche ?')
-				//		var user = $(this).val();
-				//		console.log(user);
-				//	})
+$(document).ready(function(){
+  $('#search-resultat').keyup(function () {
+    $('#result-search').html('');
+    console.log('jquery marche ?')
+    var search = $(this).val();
+    
+    if(search != ""){
+      $.ajax({
+        type:"GET",
+        url: 'recherche',
+        
+        data: 'resultats=' + encodeURIComponent(search.name),
+        dataType: "text",
+        success: function(data){
+          if( data != ""){
+            $('#result').append(data)
+          }
+          else{
+            document.getElementById('search-resultat').innerHTML = 
+            /*a stylyser pour bien voir*/
+            "aucun résultat a afficher "
+          }
+        }
+      })
+    }
+  })
+  
+});
+
+
 					
 				//});
 			

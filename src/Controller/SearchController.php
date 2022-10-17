@@ -48,24 +48,7 @@ $this -> addFlash(type:'success', message:'Résultat de recherche');
         'categorie'=>$categorie
     ]);
 }
-#[Route('/recherche', name:'recherche')]
-public function searchTout(CategorieRepository $categorieRepo,Request $request, PartenairesRepository $partenairesRepository, StructuresRepository $structuresRepository)
-{
 
-$form = $this->createForm(SearchFormType::class);
-$categorie = $categorieRepo->findAll();
-
-$search = $request->query->get('search');
-$structure = $structuresRepository -> search($search);
-$partenaire = $partenairesRepository -> search($search);
-$this -> addFlash(type:'success', message:'Voici le résultat de votre recherche');
-    return $this->render('recherche.html.twig', [
-        'structures' => $structure,
-        'partenaires'=>$partenaire,
-        'categorie'=>$categorie,
-        'form'=> $form->createView()
-    ]);
-}
 }
 
 
