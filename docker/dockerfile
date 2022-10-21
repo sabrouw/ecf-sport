@@ -11,3 +11,14 @@ RUN curl -sS https://getcomposer.org/installer | php \
 RUN apt update && apt install -yqq nodejs npm
 
 COPY . /var/www/
+
+COPY ./docker/apache.conf /etc/apache2/sites-available/000-default.conf
+
+RUN cd /var/www &&\
+  composer install && \
+  npm install --force
+
+WORKDIR /var/www
+
+EXPOSE 80
+  
