@@ -1,25 +1,28 @@
-version: "3"
+version: "4.1"
 
 services:
-  web:
-    image: "apache:${PHP_8.1.6}"
-    restart: 'always'
-    depends_on:
-      - mariadb
-    flyctl auth signuprestart: 'always'
-    ports:
-      - '8080:80'
-    links:
-      - mariadb
-  mariadb:
-    image: "mariadb:${MARIADB_10.8.3}"
-    restart: 'always'
-    volumes: 
-      - "/var/lib/mysql/data:${MARIADB_DATA_DIR}"
-      - "/var/lib/mysql/logs:${MARIADB_LOG_DIR}"
-      - /var/docker/mariadb/conf:/etc/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
-      MYSQL_DATABASE: "${MYSQL_DATABASE}"
-      MYSQL_USER: "${MYSQL_USER}"
-      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+    mariadb:
+      image: mariadb
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: changeme
+        MYSQL_DATABASE: mybb
+        MYSQL_USER: mybb
+        
+      
+      ports:
+        - 3306:3306
+
+    app:
+      image: sha256:9258a5ff9bd9fbae88dc42913e3a35ddc1f9e6e634cdb0b00f51477f0dd08bc1
+      ports:
+        - "8080:80"
+      environment:
+        DATABASE_URL: "mysql://app:!ChangeMe!@127.0.0.1:3306/app?serverVersion=8&charset=utf8mb4"
+
+volumes:
+  db-data:
+        
+
+  
+  
