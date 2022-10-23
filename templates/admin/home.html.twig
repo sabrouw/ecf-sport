@@ -1,15 +1,11 @@
 {% extends 'admin/base.html.twig' %}
 
 
-   {% block css %}<link rel="stylesheet" href="{{ asset ('assets/css/style.css') }}"/>{% endblock css %}
+   {% block css %}<link rel="stylesheet" href="{{ asset ("assets/css/style.css") }}"/>{% endblock css %}
     {% block title %}<title>Admin Tableau de bord</title>{% endblock %}
   
  
 {#message d'acceuil quand connecté#}
-{% block acceuil %}
-<div class="admin-menu"><h1  id="bonjour"> Bonjour et bienvenue {{app.user.username}} </h1></div>
-{% endblock acceuil %}
-
 
 {% block flash %}
 {% for message in app.flashes('success') %}
@@ -25,12 +21,12 @@
 
 {% block body %}
 
-
+<div class="admin-menu mt-5"><h1  id="bonjour"> Bonjour et bienvenue {{app.user.username}} </h1></div>
 
 <div class="mt-4">
-<p class="text-dark">Bonjour et bienvenue dans votre espace d'administration, Vous pourrez gerer vos partenaires ainsi que leur structures.<br>
-Si le moindre problème survient au sein de l'application vous pourrez nous contacter et obtenir de l'aide dans les meilleurs délais soit par téléphone, soit par le biais du formulaire de contact mis à votre disposition.
-Vous trouverez le détail de toutes les possibilités qui s'offrent à vous dans le fichier "help" téléchargeable ou consultable à partir de votre espace administration</p>
+<p class="homeadmin">Ceci est votre espace d'administration, Vous pourrez gerer vos partenaires ainsi que leurs structures.<br>
+Si le moindre problème survient au sein de l'application vous pourrez nous contacter et obtenir de l'aide dans les meilleurs délais  par téléphone au 0820820820.
+Vous trouverez le détail de toutes les possibilités qui s'offrent à vous dans le fichier "help" téléchargeable ou consultable à partir de votre espace administration, en bas a gauche</p>
 </div>
 {% endblock body %}
 

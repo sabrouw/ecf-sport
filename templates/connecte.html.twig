@@ -21,7 +21,13 @@ permButton = document.getElementsByClassName("checkbox");
 </script>
 
 <form method="post" action="">
-<h1 class="mt-4">Bonjour {{ app.user.username}}</h1>
+  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+  <h1 class="mt-4">Bonjour {{ app.user.username}}</h1>
+{% endif %}
+
+
+
+  {{ dump(user) }}
 
 
 {% if app.user.categorie == 2 %}

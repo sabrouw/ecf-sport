@@ -80,7 +80,7 @@ if ($form->isSubmitted() && $form->isValid()) {
     $permissions = $form->getData();
     
 }*/
-        return $this->renderForm('connecte.html.twig', [
+        return $this->render('connecte.html.twig', [
             'user' => $user,
             'partenaire'=> $partenaire,
             'structure' => $structure,

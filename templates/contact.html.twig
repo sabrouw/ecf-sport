@@ -5,16 +5,17 @@
 <div id="formContact"class="container mt-5 mb-3">
 
     <form class="form-control mt-4 formContactDetail" action="{{ path('contact') }}" method="post">
-        <h1 class="mt-4"> Contactez l'adiministrateur</h1>
-        <label class="form-label"for="firstName">Prénom</label>
+        <h1 class="titrecontact"> Contactez l'adiministrateur</h1>
+        
+        <label class="form-label mt-3"for="firstName">Prénom</label>
         <input class="form-control" type="text" name="firstName">
-        <label class="form-label" for="lastName">Nom</label>
+        <label class="form-label mt-3" for="lastName">Nom</label>
         <input class="form-control" type="text" name="lastName">
-        <label class="form-label" for="email">Email</label>
+        <label class="form-label mt-3" for="email">Email</label>
         <input class="form-control" type="text" name="email">
-        <label class="form-label" for="message">Message</label>
-        <textarea class="form-control" name="message"></textarea>
-        <input class="btn btn-dark mt-2"type="submit">
+        <label class="form-label mt-3" for="message">Message</label>
+        <textarea class="form-control" name="message" rows="5" cols="33"></textarea>
+        <input class="btn btn-dark mt-4"type="submit">
     </form>
 </div>
 {% endblock contact %}
