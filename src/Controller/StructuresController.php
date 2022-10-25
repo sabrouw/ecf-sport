@@ -3,9 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\StructuresRepository;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class StructuresController extends AbstractController
@@ -18,9 +16,6 @@ class StructuresController extends AbstractController
      
             return $this->render("structures/structures.html.twig", [
              'structures' => $structures]);
-         }
-        
-        
-       
+         }      
     }
 

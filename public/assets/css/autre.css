@@ -29,6 +29,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-color: black;
 }
 ol, ul {
 	list-style: none;
@@ -51,6 +52,7 @@ h1{
 	font-weight: bold;
 	font-size: 2rem;
 	padding-bottom: 5%;
+	color: #ECA72C;
 	
 	
 }
@@ -175,20 +177,14 @@ footer{
 	height: 10%;
 }
 
-.carrousel1{
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	
-}
-
-.imgpartenaires{
-
-}
-
 .cardstructure{
 	margin-right: 5%;
 	margin-left: 5%;
+	background-color: #ECA72C;
+	box-shadow: 5px 5px 5px #ECA72C;
+	border: solid 2px, #221E22;
+	height: 100%;
+
 	
 }
 
@@ -196,4 +192,18 @@ footer{
 	font-size:larger ;
 	font-weight: bold;
 	text-align: center;
+}
+
+.navbar{
+	background-color: #221E22;
+}
+
+.card{
+	margin-right: 5%;
+	margin-left: 5%;
+	background-color: #ECA72C;
+	box-shadow: 5px 5px 5px #ECA72C;
+	border: solid 2px, #221E22;
+	height: 100%;
+
 }

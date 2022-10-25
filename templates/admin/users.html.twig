@@ -26,7 +26,7 @@
 
 
 {% block body %}
-	<button class="btn btn-dark mt-4" type="button" id="creation_user">
+	<button class="btn btn-dark mt-4" type="button" id="buttoncreate">
 		<i class="fa fa-plus" aria-hidden="true"></i>
 		<a href="{{ path ("admin_register") }}">
 			Creer un utilisateurs
@@ -70,10 +70,12 @@
 	<div class="card-footer">
 		<button class="btn btn-dark mt-3" type="submit" name"modifier_structures" id="modifier_structure">
 			<i class="fa fa-pencil" aria-hidden="true"></i>
-			<a href="{{ path ("admin_register", {'id': user.id})}}">
+			<a href="{{ path ("admin_users_edit", {'id': user.id} ) }}">
 				Modifier l'utilisateur
 			</a>
 		</button>
+
+	
 
 		<button class="btn btn-dark mt-3" type="submit" name"voir_structure">
 			<i class="fa fa-eye" aria-hidden="true"></i>

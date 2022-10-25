@@ -27,7 +27,7 @@
 {% block body %}
 
 <div>
-	<button class="mt-4 btn btn-dark" id="creer_partenaire">
+	<button class="mt-4 btn btn-dark " id="buttoncreate">
 		<i class="fa fa-plus" aria-hidden="true"></i>
 		<a href="{{ path ("admin_insert_partenaire") }}">
 			Creer un partenaire
@@ -39,7 +39,7 @@
 <div class="containter-card">
 		{% for partenaires in partenaires %}
 		
-		<div class="card ">
+		<div class="card">
 			<div class="card-header">
 			<h2 class=" text-capitalize" id="titre_partenaire">
 				{{ partenaires.name }}

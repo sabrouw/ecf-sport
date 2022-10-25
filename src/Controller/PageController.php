@@ -4,22 +4,24 @@ namespace App\Controller;
 
 
 use App\Repository\PartenairesRepository;
+use App\Repository\PermissionsRepository;
 use App\Repository\StructuresRepository;
 use App\Repository\UserRepository;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 
 
 class PageController extends AbstractController
 {
     /*page d'acceuil public*/
-    #[Route('/', name: 'home')]
+    #[Route('/home', name: 'home')]
     public function home(): Response
     {
         return $this->render('home.html.twig', [
@@ -44,6 +46,7 @@ class PageController extends AbstractController
         ]);
     }
 /*page d'acceuil admin*/
+#[IsGranted("ROLE_ADMIN")]
     #[Route('/admin/home', name: 'admin_home')]
     public function adminHome(): Response
     {
@@ -54,10 +57,11 @@ class PageController extends AbstractController
 /*page d'acceuil si connecté*/
     #[IsGranted("ROLE_USER")]
     #[Route('/connecte', name: 'home_connecte')]
-    public function homeConnecte(UserRepository $userRepository, PartenairesRepository $partenairesRepository, StructuresRepository $structuresRepository): Response
+    public function homeConnecte(PermissionsRepository $permissionsRepository, UserRepository $userRepository, PartenairesRepository $partenairesRepository, StructuresRepository $structuresRepository)
     {   $user = $userRepository->findAll();
         $partenaire = $partenairesRepository->findAll();
         $structure = $structuresRepository->findAll();
+        $permissions = $permissionsRepository->findAll();
        /* $form = $this->createFormBuilder()
         
         ->add('statut', CheckboxType::class,[
@@ -84,6 +88,7 @@ if ($form->isSubmitted() && $form->isValid()) {
             'user' => $user,
             'partenaire'=> $partenaire,
             'structure' => $structure,
+            'permissions'=> $permissions,
             /*'form' => $form*/
         ]);
 

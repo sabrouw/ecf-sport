@@ -5,32 +5,17 @@
  {% block header %}
  <header id="header">
         
-                <h1 id="titre_admin_partenaires">Administrer les partenaires</h1>
+                <h1 id="titre_admin_partenaires">Administrer les permissions</h1>
            
     </header>     
 {% endblock header %}
     
 
       
- {% block body %}   
- <form>
-    <input type="checkbox" name="permissions[]" value="{{ permissions.name }}"></input>
- </form>
-
-
-    <div id="zone_permissions">
-    {% for permissions in permissions %}
-    
-    <h1 id="titre_permissions">Nom: {{ permissions.name }}</h1>  
-    
-        <H2 id="activite_permissions"> Activité: {{ permissions.activite }}</h2>
-       
-        {#<button type="submit" name"modifier_partenaires" id="modifier_partenaires"><a href="{{ path ("admin_partenaire_update")}}"> Modifier partenaire</a></button>#}
-        
-        
-        {% endfor %}
-
-</div>
+ {% block body %}  
+ 
+ {{ form_widget (formPermissions.activite) }}
+ 
 {% endblock body %}
 
 {% block javascript %}{% endblock javascript %}

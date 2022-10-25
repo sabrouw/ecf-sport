@@ -30,6 +30,7 @@
 		<div class="navbar__left"> 
 		{% block acceuil %}{% endblock acceuil %}
 			</div>
+			
 	<!--Moteur de recherche de structure et de partenaires-->
 			<div class="navbar__right">
 				
@@ -47,11 +48,13 @@
 				</form>
 	   
 			</div>
+			
 		</nav>
 		<!--contenu-->
 		<main>
-			<div
-				class="main__container">
+			<div class="flash">{% block flash %}
+				{% endblock flash %}</div>
+			
 
 				<!-- Message de bienvenue personnalisé -->
 				<div class="main__title">
@@ -65,8 +68,7 @@
 
 					</div>
 				</div>
-<div class="flash">{% block flash %}
-	{% endblock flash %}</div>
+
 
 				
 			
@@ -79,9 +81,9 @@
 				{% endblock body %}
 					
 				</main>
-
+<aside id="sidebar">
 				<!--début sidebar -->
-				<div id="sidebar">
+				
 					<div class="sidebar__title">
 						<div class="sidebar__img">
 							
@@ -133,12 +135,13 @@
 						<div class="sidebar__logout">
 							<i class="fa fa-power-off"></i>
 							<a href="{{ path ('logout')}}">
-								Log out
+								Déconnection
 							</a>
 						</div>
 					</div>
 				</div>
-			</div>
+			
+		</aside>
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 			<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 			<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>

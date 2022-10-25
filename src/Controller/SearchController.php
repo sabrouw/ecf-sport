@@ -8,11 +8,8 @@ use App\Form\SearchFormType;
 use App\Repository\CategorieRepository;
 use App\Repository\PartenairesRepository;
 use App\Repository\StructuresRepository;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
 use Symfony\Component\HttpFoundation\Request;
-
 use Symfony\Component\Routing\Annotation\Route;
 
 class SearchController extends AbstractController

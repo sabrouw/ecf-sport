@@ -13,11 +13,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
+
+#[IsGranted("ROLE_ADMIN")]
 class RegistrationController extends AbstractController
 {
     private EmailVerifier $emailVerifier;
@@ -33,10 +35,10 @@ class RegistrationController extends AbstractController
     {   $user = $userRepository->find($id);
         
         
-        if (!$user){
-        $user = new User();
+        /*if (!$user){
+        $user = new User();*
     }   
-      
+      */
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
         
@@ -53,7 +55,6 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-// generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
                     ->from(new Address('sabrinadzzz@gmail.com', 'sabrina'))
@@ -62,7 +63,7 @@ class RegistrationController extends AbstractController
                     ->htmlTemplate('registration/confirmation_email.html.twig')
                    
             );
-// do anything else you need here, like send an email
+
 
             return $this->redirectToRoute('home');
             $this->addFlash('success', 'L\'utilisateur a bien été ajouté un email de confirmation lui a été envoyé pour valider son email.');
@@ -72,6 +73,7 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
+
 /*vérification d'email*/
     #[Route('/verify/email', name: 'app_verify_email')]
     public function verifyUserEmail(Request $request, TranslatorInterface $translator): Response

@@ -1,7 +1,5 @@
 security:
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
-    
-
     password_hashers:
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
@@ -15,6 +13,8 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            lazy: true
+            provider: app_user_provider
             form_login:
             #route login
                 login_path: login
@@ -49,9 +49,9 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
          # - { path: ^/profile, roles: ROLE_USER } 
-         - { path: ^/admin, roles: ROLE_ADMIN }
-         #- { path: ^/partenaires, roles: ROLE_PARTENAIRE }
-         #- { path: ^/structures, roles: ROLE_STRUCTURES }
+         #- { path: ^/admin, roles: ROLE_ADMIN }
+         #- { path: ^/connecte, roles: ROLE_USER }
+         #- { path: ^/connecte, roles: ROLE_STRUCTURES }
          
          
         # the 'path' value can be any valid regular expression

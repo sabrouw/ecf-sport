@@ -29,8 +29,15 @@
 
 {% block body %}   
  
-    
-   
+<div>
+	<button class="mt-4 btn btn-dark" id="buttoncreate">
+		<i class="fa fa-plus" aria-hidden="true"></i>
+		<a href="{{ path ("admin_insert_permission") }}">
+			Creer une permission
+		</a>
+	</button>
+</div >
+   <div class="containter-card">
    {% for permissions in permissions %}
    <div class="card">
     <form class="permissions"action" {{ path ("admin_permission_edit", {'id': permissions.id}) }} " method="get"  >
@@ -44,10 +51,10 @@
 	</div>
 	</form>		
 
-
+	
  {% endfor %} 
  
- 
+</div>
 
 
 

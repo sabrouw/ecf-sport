@@ -55,6 +55,9 @@ class Permissions
     #[ORM\ManyToOne(inversedBy: 'perms')]
     private ?Structures $struct = null;
 
+    #[ORM\ManyToMany(targetEntity: Partenaires::class, inversedBy: 'permissions')]
+    private Collection $partner;
+
     public function __construct()
     {
         $this->structures = new ArrayCollection();
@@ -63,6 +66,7 @@ class Permissions
         $this->partenaires3 = new ArrayCollection();
         $this->partenaires4 = new ArrayCollection();
         $this->partenaires5 = new ArrayCollection();
+        $this->partner = new ArrayCollection();
     }
 
     
@@ -305,7 +309,7 @@ class Permissions
 
     public function __toString():string
     {
-        return $this->activite;
+        return $this->name;
     }
 
     public function getStruct(): ?Structures
@@ -316,6 +320,30 @@ class Permissions
     public function setStruct(?Structures $struct): self
     {
         $this->struct = $struct;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Partenaires>
+     */
+    public function getPartner(): Collection
+    {
+        return $this->partner;
+    }
+
+    public function addPartner(Partenaires $partner): self
+    {
+        if (!$this->partner->contains($partner)) {
+            $this->partner->add($partner);
+        }
+
+        return $this;
+    }
+
+    public function removePartner(Partenaires $partner): self
+    {
+        $this->partner->removeElement($partner);
 
         return $this;
     }

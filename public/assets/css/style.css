@@ -56,6 +56,7 @@ h1{
   color:#000000;
   font-weight: bold;
   padding-top: 5%;
+  text-transform: uppercase;
 }
 h2{
   font-size: 1rem;
@@ -68,10 +69,12 @@ h3{
 
 body {
   box-sizing: border-box;
-  font-family: "Lato", sans-serif;
+ 
   
 }
-
+main{
+  font-size:large;
+}
 .text-primary-p {
   color: #a5aaad;
   font-size: 14px;
@@ -176,11 +179,15 @@ body {
   padding: 20px;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  height: 90%;
+  height: 100%;
+  float: left;
+  overflow: auto;
+ 
   
 }
 
 .sidebar__title {
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -292,7 +299,9 @@ body {
     display: inline;
   }
 }
-
+.main__container{
+  size: 100%;
+}
 @media only screen and (max-width: 855px) {
   .main__cards {
     grid-template-columns: 1fr;
@@ -412,9 +421,26 @@ footer, ul{
   padding: 3%;
   margin-bottom: 5%;
     }
-.flash{
+/*.flash{
   background-color: #3ea175;
   padding: 1%;
   text-align: center;
   margin-left: 10%;
-  color: #d9d9d9;}
+  color: #d9d9d9;}*/
+
+
+  #partner-update-form{
+    margin-left: 8%;
+    box-shadow: 5px 5px 5px #d9d9d9, -2px -2px 5px #ffffff;
+    margin-top: 3%;
+    padding: 3%;
+    margin-bottom: 5%;
+  }
+
+  #buttoncreate{
+    margin-left: 45%;
+  }
+
+  .containter-card{
+    margin-left: 10%;
+  }

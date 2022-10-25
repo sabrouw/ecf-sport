@@ -53,8 +53,7 @@ class Structures
     #[ORM\ManyToOne]
     private ?Permissions $permission5 = null;
 
-    #[ORM\OneToMany(mappedBy: 'structure', targetEntity: Permissions::class)]
-    private Collection $permissions;
+    
 
     #[ORM\Column]
     private ?bool $statut = null;

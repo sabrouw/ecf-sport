@@ -12,7 +12,7 @@
 	<header id="header">
 
 		<h1 id="titre_admin_permissions">
-			Administrer les permissions
+			Mettre à jour un utilisateur
 		</h1>
 
 	</header>
@@ -27,12 +27,8 @@
 
 
 {% block body %}   
-{% for permissions in permissions %}
-	
-{% endfor %}
-		<input id="modif_permissions" type="checkbox">{{ form(form.activite) }}</div>
-		
 
-        {% endblock body %}
 
-		{% block javascript %}{% endblock javascript %}
+<div class="form-control">{{ form (userForm) }}</div>
+
+{% endblock body %} 

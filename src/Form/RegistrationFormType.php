@@ -35,7 +35,7 @@ class RegistrationFormType extends AbstractType
                     'label'=>'Mot de passe',
                     'mapped' => false,
                     'attr' => [
-                    'autocomplete' => 'new-password',
+                    
                     ],
 
                     'constraints' => [
@@ -52,16 +52,17 @@ class RegistrationFormType extends AbstractType
                     ]])
                 
             
-            ->add('categorie', EntityType::class, [
+            /*->add('categorie', EntityType::class, [
                 'class'=>Categorie::class,
-                'placeholder' => false,
+                
                 'label'=>'Choix de catégorie',
-                'choice_label'=> 'name'
-                ])
+                'choice_label'=> 'name',
+                'expanded'=> true
+                ])*/
             
 
             ->add('partenaires', TextType::class,[
-                'label'=>'Nom du partenaire',
+                'label'=>'Nom de la catégorie',
                 'mapped'=>false,
                 
                 
@@ -92,7 +93,7 @@ class RegistrationFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+           
 
         ]);
     }

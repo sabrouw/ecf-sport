@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Structures;
 use App\Form\StructuresType;
-use App\Repository\PartenairesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\StructuresRepository;
@@ -13,8 +12,9 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
-
+#[IsGranted("ROLE_ADMIN")]
 class AdminStructuresController extends AbstractController
 {
     #[Route('/admin/structures', name: 'admin_structures')]
@@ -50,11 +50,8 @@ class AdminStructuresController extends AbstractController
     }
     //formulaire de creation d'entité permet  de creer une entité
     #[Route('/admin/structures/insert', name: 'admin_insert_structure')]
-    public function insertStructure( PartenairesRepository $partenaireRepo,StructuresRepository $structureRepo,Request $request, EntityManagerInterface $entityManagerInterface, MailerInterface $mailer)
-    {
-        
-        
-        
+    public function insertStructure(Request $request, EntityManagerInterface $entityManagerInterface, MailerInterface $mailer)
+    {  
         $structure = new Structures();
 
         $structureForm = $this->createForm(StructuresType::class, $structure);

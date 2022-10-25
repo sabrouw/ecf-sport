@@ -8,85 +8,52 @@ use App\Entity\Permissions;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class StructuresType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('description')
-            ->add('statut')
-            /*->add('perms',EntityType::class,[
+            ->add('name', TextType::class,[
+                'label'=> 'Nom de la structure'
+            ])
+            ->add('description', TextareaType::class,
+            )
+            ->add('statut', CheckboxType::class,[
+                'label'=> 'Activer cette structure',
+
+            ])
+            ->add('perms',EntityType::class,[
                 'class'=> Permissions::class,
                 
                  'expanded'=> true,
                  'choice_label'=> 'name',
-                 'required' => false,
-                 'compound' => true,
-             ])    */
-            /*->add('permission1',ChoiceType::class,[
-                'choices'=> [
-                    'activite'=> true,
-                    'desactiver'=> false],
-                    'expanded'=> true,
-                    'label'=>'Connection et lecture seule',
-
-                    ])    
-            ->add('permission2',ChoiceType::class,[
-                'choices'=> [
-                    'activer'=> true,
-                    'desactiver'=> false],
-                    'expanded'=> true,
-                    'label'=>'Consulter prélèvements '
-                    ])    
-            ->add('permission3', ChoiceType::class,[
-                'choices'=> [
-                    'activer'=> true,
-                    'desactiver'=> false],
-                    'expanded'=> true,
-                    'label'=>'Modification option par défaut'
-                    ])    
-            ->add('permission4',ChoiceType::class,[
-                'choices'=> [
-                    'activer'=> true,
-                    'desactiver'=> false],
-                    'expanded'=> true,
-                    'label'=>'Voir les paiements programmés'
-                    ])    
-            ->add('statut')
-            /*->add('permission5', ChoiceType::class,[
-                'choices'=> [
-                    'activer'=> true,
-                    'desactiver'=> false],
-                    'expanded'=> true,
-                    'label'=>'d'
-                    
-                    ])    
-                
-                
+                 'multiple'=> true,
+                 'label'=> 'Activer/désactiver des permissions',
+                                
+                 
+             ])    
             
-                /*'expanded'=> true,
-                'multiple'=> false,
-                'required'=> true,
-                )*/
-                
-               
            ->add('partenaires', EntityType::class,[
                 'class' => Partenaires::class,
                 'expanded'=> true,
                  'choice_label'=> 'name',
-                 'required' => false,
+                 'label'=>'Partenaire associé à cette structure',
                  'compound' => true
             ])
             
             
                                
    
-            ->add('submit', SubmitType::class)
+            ->add('Modifier', SubmitType::class,[
+                
+            ])
         ;
                 /*'expanded'=> true,
                 'multiple'=> false,*/
