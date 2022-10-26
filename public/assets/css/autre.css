@@ -168,6 +168,12 @@ textarea{
 	justify-content: center;
 
 }
+@media screen and (max-width: 991px) { 
+	.formContactDetail{
+		margin:0;
+		max-width: 100%;
+		
+	 } }
 
 .titrecontact{
 	padding-bottom: 35%;

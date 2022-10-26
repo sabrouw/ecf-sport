@@ -180,10 +180,7 @@ main{
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   height: 100%;
-  float: left;
-  overflow: auto;
- 
-  
+
 }
 
 .sidebar__title {
