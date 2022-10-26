@@ -47,7 +47,9 @@ class PartenairesType extends AbstractType
             
                                
    
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class,[
+                'attr'=>['class'=>'btn-submit']
+            ])
         ;
             
     }

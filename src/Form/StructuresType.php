@@ -27,6 +27,7 @@ class StructuresType extends AbstractType
             )
             ->add('statut', CheckboxType::class,[
                 'label'=> 'Activer cette structure',
+                'attr'=>['class'=>'checkbox']
 
             ])
             ->add('perms',EntityType::class,[
@@ -52,6 +53,7 @@ class StructuresType extends AbstractType
                                
    
             ->add('Modifier', SubmitType::class,[
+                'attr'=>['class'=>'btn-submit']
                 
             ])
         ;

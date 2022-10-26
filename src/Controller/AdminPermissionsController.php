@@ -53,7 +53,8 @@ class AdminPermissionsController extends AbstractController
         } 
         
         return $this->render("admin/permission_edit.html.twig", [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'permissions'=>$permissions
         ]);
     }
 /*creer une permission*/

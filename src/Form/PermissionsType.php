@@ -20,7 +20,9 @@ class PermissionsType extends AbstractType
         ])
         ->add('activite')
         ->add('description')     
-        ->add('valider', SubmitType::class)  
+        ->add('valider', SubmitType::class,[
+            'attr'=>['class'=>'btn-submit']
+        ])  
             
         ;
 
