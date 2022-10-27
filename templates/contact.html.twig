@@ -5,7 +5,8 @@
 <div id="formContact"class="container mt-5 mb-3">
 
     <form class="form-control mt-4 formContactDetail" action="{{ path('contact') }}" method="post">
-        <h1 class="titrecontact"> Contactez l'adiministrateur</h1>
+        <i class="bi bi-envelope-check-fill"></i>
+        <h1 class="titrecontact"> Contacter l'adiministrateur</h1>
         
         <label class="form-label mt-3"for="firstName">Prénom</label>
         <input class="form-control" type="text" name="firstName">
@@ -15,7 +16,7 @@
         <input class="form-control" type="text" name="email">
         <label class="form-label mt-3" for="message">Message</label>
         <textarea class="form-control" name="message" rows="5" cols="33"></textarea>
-        <input class="btn btn-dark mt-4"type="submit">
+        <input id="btn-form-contact"class="btn btn-dark mt-4"type="submit">
     </form>
 </div>
 {% endblock contact %}

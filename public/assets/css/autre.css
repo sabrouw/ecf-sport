@@ -89,10 +89,11 @@ textarea{
 	justify-content: center;
   	min-height: 100vh;
 	max-width: 50%;
- 	background: black;
+	background: rgb(1,22,39);
+	background: linear-gradient(13deg, rgba(1,22,39,1) 0%, rgba(255,159,28,1) 55%);
 	border-radius: 2%;
 	color: white;
-	box-shadow: 10px 5px 5px grey;
+	border:solid 2px #FDFFFC;
 	margin-bottom: 20%;
 	
 	
@@ -111,13 +112,12 @@ textarea{
 
 	background-color: black;
 	position: relative;
-  	
   	letter-spacing: 2px; 
 	text-align: center;
   	text-transform: uppercase;
   	color: white;
   	transition-duration: inherit;
-  	border-image: linear-gradient(#f6b73c, #4d9f0c) 30;
+  	border-image: linear-gradient(#FF9F1C, #011627) 30;
 	border-width: 4px;
 	border-style: solid;
 	
@@ -128,25 +128,21 @@ textarea{
 {
 	background-color: black;
 	position: relative;
-	height: 50%;
-	width:100%;
   	letter-spacing: 2px; 
 	text-align: center;
   	text-transform: uppercase;
   	color: white;
   	transition-duration: inherit;
-  	border-image: linear-gradient(#f6b73c, #4d9f0c) 30;
+  	border-image: linear-gradient(#FF9F1C, #011627) 30;
 	border-width: 4px;
 	border-style: solid;
 }
 
 
-.containLogForm{
-	
-	
-}
+
 .login-h1{
 	margin-bottom: 10%;
+	color: black;
 }
 
 
@@ -160,10 +156,11 @@ textarea{
   	flex-direction: column;
   	min-height: 100vh;
 	max-width: 50%;
- 	background: black;
+	background: rgb(1,22,39);
+	background: linear-gradient(13deg, rgba(1,22,39,1) 0%, rgba(255,159,28,1) 55%);
 	border-radius: 2%;
 	color: white;
-	box-shadow: 10px 5px 5px grey;
+	border:solid 2px #FDFFFC;
 	margin-bottom: 20%;
 	justify-content: center;
 
@@ -176,7 +173,12 @@ textarea{
 	 } }
 
 .titrecontact{
-	padding-bottom: 35%;
+	padding-bottom: 15%;
+	color: black;
+}
+#btn-form-contact{
+	border-image: linear-gradient(#FF9F1C, #011627) 30;
+	margin-bottom:10%;
 }
 footer{
 	background-color: black;
@@ -187,7 +189,6 @@ footer{
 	margin-right: 5%;
 	margin-left: 5%;
 	background-color: #ECA72C;
-	box-shadow: 5px 5px 5px #ECA72C;
 	border: solid 2px, #221E22;
 	height: 100%;
 
@@ -198,6 +199,7 @@ footer{
 	font-size:larger ;
 	font-weight: bold;
 	text-align: center;
+	color: #011627;
 }
 
 .navbar{
@@ -208,8 +210,48 @@ footer{
 	margin-right: 5%;
 	margin-left: 5%;
 	background-color: #ECA72C;
-	box-shadow: 5px 5px 5px #ECA72C;
+	
 	border: solid 2px, #221E22;
 	height: 100%;
 
 }
+#card-text-partenaire{
+	color: #011627;
+}
+#card-text-structure{
+	color: #011627;
+}
+
+#img-card-connecte{
+	border-radius: 8%;
+	margin-left: 25%;
+	border: solid 2px yellow;
+	height: 150PX;
+	
+}
+@media screen and (max-width: 991px) { 
+	#img-card-connecte{
+		margin:0;
+		padding: 0;
+		
+	 } }
+
+	footer{
+		background-color: black;
+		margin-top: 10%;
+	 }
+	 .navbar-toggler-icon{
+	border:#FF9F1C;
+	 }
+
+	.navbar{
+		-webkit-box-shadow: 0px 9px 17px -7px rgba(255,159,28,0.59); 
+box-shadow: 0px 9px 17px -7px rgba(255,159,28,0.59);
+	 }
+
+	 #btn-search{
+		background-color: #011627;
+	 }
+	 #icon-search{
+		color: #ECA72C;
+	 }	 

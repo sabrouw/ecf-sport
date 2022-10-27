@@ -453,7 +453,12 @@ footer, ul{
   .containter-card{
     margin-left: 10%;
   }
-
+  @media screen and (min-width: 575px) { 
+    .containter-card{
+      margin:0;
+      
+      
+    }}
 .btn-success{
   
   background: rgb(1,22,39);

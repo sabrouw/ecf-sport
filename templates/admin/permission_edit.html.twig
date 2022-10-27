@@ -27,12 +27,15 @@
 
 
 {% block body %}   
-{% for permissions in permissions %}
-{{ form (permissionForm)}}
-{% endfor %}
+<main id="form_update_permissions">
+	<div id="modif_permissions" class="form-control">{{ form(form) }}</div>
+	</main>
+
+	{% endblock body %}
+
 		
 		
 
-        {% endblock body %}
+        
 
 		{% block javascript %}{% endblock javascript %}
