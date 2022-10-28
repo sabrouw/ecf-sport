@@ -5,7 +5,7 @@
 Ce manuel vous guidera dans la navigation au sein de votre nouvelle application. 
 - Merci de cliquer sur le lien ci-dessous pour vous authentifier sur votre interface administrateur: (Le compte administrateur a été créé au préalable et les identifiants vous a été transmis par courrier. )
 
-            https://ecf-sport.herokuapp.com/login
+            <a href="https://ecf-sport.herokuapp.com/login">Clique ici pour l'interface administrateur</a>
       
 
 Si vous ne les avez pas reçu ou que vous ne parvenez pas à vous connecter je vous laisse contacter le numéro ci dessous, il vous seront renvoyés.
