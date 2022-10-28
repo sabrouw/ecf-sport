@@ -11,8 +11,10 @@ Ce manuel vous guidera dans la navigation au sein de votre nouvelle application.
 Si vous ne les avez pas reçu ou que vous ne parvenez pas à vous connecter je vous laisse contacter le numéro ci dessous, il vous seront renvoyés.
         0820820820
         
-1. Pour modifier un utilisateur 
- ![modifier un utilisateur](https://user-images.githubusercontent.com/91209960/198675284-dd796e1e-b1c4-4d34-8652-91837f6c912b.jpg)
+. Pour modifier un utilisateur :
+
+ ![image](https://user-images.githubusercontent.com/91209960/198676677-6b076277-b88b-47fc-bfe1-d58868bb8dd0.png)
+ 
 
 
   
