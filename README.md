@@ -12,7 +12,7 @@ Si vous ne les avez pas reçu ou que vous ne parvenez pas à vous connecter je v
         0820820820
         
 1. Pour modifier un utilisateur 
- ![image](https://user-images.githubusercontent.com/91209960/198674252-ed45dd9e-55d8-4f46-81d4-e8363c50b496.png)
+ ![modifier un utilisateur](https://user-images.githubusercontent.com/91209960/198675284-dd796e1e-b1c4-4d34-8652-91837f6c912b.jpg)
 
 
   
