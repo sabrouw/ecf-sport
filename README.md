@@ -12,8 +12,10 @@ Si vous ne les avez pas reçu ou que vous ne parvenez pas à vous connecter je v
         0820820820
         
 1. Pour modifier un utilisateur 
+ ![image](https://user-images.githubusercontent.com/91209960/198674023-f6635e9a-b11b-4e0e-8cb8-f4b28958f1df.png)
 
-  <img src="https://1drv.ms/u/s!Aq12nZmKv51OmWcLVOUKTuWRtnxO?e=UfZBds">
+
+  
       voici quelques exemples de modification que vous pouvez effectuer.
 
 Cette application a été déployé sur heroku à l'aide d'un bundle créé par une aprenante. Pour cela j'ai suivi ces quelques étapes.
