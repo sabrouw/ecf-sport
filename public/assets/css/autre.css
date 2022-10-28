@@ -19,19 +19,29 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 	color: white;
+	font-weight: 18px;
 	
-    
+	
 }
-
+html{
+	height: 100%;
+}
+body{
+	height: 100vh;
+	background-color: black;
+	
+ }
+ @media screen and (max-width: 575px) { 
+	body{
+		scroll-behavior: auto;
+	} }
 
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-body {
-	line-height: 1;
-	background-color: black;
-}
+
+
 ol, ul {
 	list-style: none;
 }
@@ -47,14 +57,43 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/*backroud image*/
+  .demo-wrap:before {
+	content: ' ';
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 90vh;
+	opacity: 1;
+	background-image: url('https://cdn.pixabay.com/photo/2017/01/16/15/28/boxer-1984344_1280.jpg');
+	background-repeat: no-repeat;
+	-webkit-box-shadow: inset -3px -6px 32px 41px #000000; 
+	box-shadow: inset -3px -6px 32px 41px #000000;
+	background-position: 80%;
+	background-size: cover;
+  }
+  
+  .demo-content {
+	position: relative;
+		
+  }
+  
+  footer {
+	
+	bottom:0;  /* on le colle en bas */
+	width:100%;
+	height:100px;   /* Hauteur du pied de page */
+ }
+
+
 
 h1{
 	text-align: center;
 	font-weight: bold;
 	font-size: 2rem;
 	padding-bottom: 5%;
-	color: #ECA72C;
-	
 	
 }
 
@@ -63,7 +102,7 @@ h1{
 	color: grey;
 }
 :link{
-text-decoration:   none;
+text-decoration: none;
 color: white;
 }
 /*style form contact*/
@@ -95,9 +134,33 @@ textarea{
 	color: white;
 	border:solid 2px #FDFFFC;
 	margin-bottom: 20%;
-	
-	
+
 }
+
+#crosfit-titre{
+	z-index: 1;
+	opacity: 1;
+	color: #FF9F1C;
+	font-family: 'Alfa Slab One';
+	font-size: 5rem;
+	font-style: italic;
+	letter-spacing: 2px;
+	text-shadow: 5px 5px #011627, 0 0 1em #FDFFFC, 0 0 0.2em #FDFFFC;;
+	margin-top: 5%;
+}
+@media screen and (max-width: 991px) { 
+	#crosfit-titre{
+		font-size: 3rem;
+		
+		
+	 } }
+@media screen and (max-width: 991px) { 
+	#formLogin{
+		margin:0;
+		max-width: 100%;
+		
+	 } }
+ 
 /* responsive form login*/
 
  @media screen and (max-width: 991px) { 
@@ -180,20 +243,9 @@ textarea{
 	border-image: linear-gradient(#FF9F1C, #011627) 30;
 	margin-bottom:10%;
 }
-footer{
-	background-color: black;
-	height: 10%;
-}
 
-.cardstructure{
-	margin-right: 5%;
-	margin-left: 5%;
-	background-color: #ECA72C;
-	border: solid 2px, #221E22;
-	height: 100%;
 
-	
-}
+
 
 .card-title{
 	font-size:larger ;
@@ -204,17 +256,27 @@ footer{
 
 .navbar{
 	background-color: #221E22;
+	z-index: 1;
+	-webkit-box-shadow: 5px 29px 31px -18px rgba(231,29,54,0.6); 
+box-shadow: 5px 29px 31px -18px rgba(231,29,54,0.6);
 }
 
 .card{
-	margin-right: 5%;
-	margin-left: 5%;
-	background-color: #ECA72C;
 	
+	margin-left: 2%;
+	margin-right: 4%;
+	background-color: #ECA72C;
 	border: solid 2px, #221E22;
 	height: 100%;
 
 }
+
+@media screen and (max-width: 991px) { 
+	.card{
+		left: 10%;
+		width: 100%;
+		
+	 } }
 #card-text-partenaire{
 	color: #011627;
 }
@@ -223,35 +285,44 @@ footer{
 }
 
 #img-card-connecte{
-	border-radius: 8%;
-	margin-left: 25%;
-	border: solid 2px yellow;
-	height: 150PX;
+	border-radius: 50%;
+	margin-left: 42%;
+	border: solid 8px white;
+	height: 220PX;
+	width: 230px;
 	
 }
-@media screen and (max-width: 991px) { 
+@media screen and (max-width: 575px) { 
 	#img-card-connecte{
 		margin:0;
 		padding: 0;
+		margin-left: 25%;
 		
 	 } }
+#detail-connecte{
+	margin-top: 5%;
+	text-align: center;
+}
 
+#table-connecte{
+	display: flex;
+	justify-content: center;
+}
 	footer{
 		background-color: black;
 		margin-top: 10%;
+		
 	 }
-	 .navbar-toggler-icon{
-	border:#FF9F1C;
-	 }
-
-	.navbar{
-		-webkit-box-shadow: 0px 9px 17px -7px rgba(255,159,28,0.59); 
-box-shadow: 0px 9px 17px -7px rgba(255,159,28,0.59);
+	 {
+	background-color: #FF9F1C;
 	 }
 
+	
 	 #btn-search{
 		background-color: #011627;
 	 }
 	 #icon-search{
 		color: #ECA72C;
 	 }	 
+
+	

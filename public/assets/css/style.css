@@ -60,6 +60,11 @@ h1{
   text-transform: uppercase;
   padding-left: 10%;
 }
+@media only screen and (max-width: 480px) {
+  h1 {
+    padding-left: 5%;
+  }
+}
 h2{
   font-size: 1rem;
   font-weight: bold;
@@ -346,6 +351,7 @@ main{
   margin-left: 5%;
   
 }
+
 #creer_partenaire{
   margin-left:8%;
   margin-top: 5%;
@@ -367,33 +373,7 @@ main{
   margin: 15%;
 }
 
-footer{
-  margin: 0;
-  background-color: black;
-  color: white;
-  display: flex;
-  padding: 2%;
-  
-  
-}
-footer, ul{
-  display: flex;
-  flex-direction: row;
-}
-.twittericon{
-   width: 2%;
-  background-color: white;
 
-}
-
-.fbicon{
-  width: 2%;
-  background-color: white;
-}
-.instaicon{
-  width: 2%;
-  background-color: white;
-}
 
 #modif_permissions{
   margin-left: 15%;
@@ -420,12 +400,27 @@ footer, ul{
     }}
 
     #modif_structures{
-      margin-left: 8%;
+  margin-left: 15%;
   box-shadow: 5px 5px 5px #d9d9d9, -2px -2px 5px #ffffff;
   margin-top: 3%;
   padding: 3%;
   margin-bottom: 5%;
     }
+
+    @media screen and (max-width: 575px) { 
+      #modif_structures{
+       width: 100%;
+       margin: 0;
+    
+      }}
+
+      input:checked{
+        background-color: #011627;
+      }
+      textarea{
+        resize: none;
+      }
+     
 /*.flash{
   background-color: #3ea175;
   padding: 1%;
@@ -441,7 +436,20 @@ footer, ul{
     padding: 3%;
     margin-bottom: 5%;
   }
-
+  @media screen and (max-width: 575px) { 
+    #partner-update-form{
+      margin: 0%;
+      width: 100%;
+      
+    }
+  
+      
+    }
+  
+.form-label{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
   #buttoncreate{
     margin-left: 45%;
     background: rgb(1,22,39);
@@ -453,12 +461,20 @@ footer, ul{
   .containter-card{
     margin-left: 10%;
   }
-  @media screen and (min-width: 575px) { 
+  @media screen and (max-width: 575px) { 
     .containter-card{
       margin:0;
+      width: 100%;
       
       
-    }}
+    }
+    #buttoncreate{
+      margin-left: 28%;
+    }
+    h1{
+      margin-right: 3%;
+    }
+  }
 .btn-success{
   
   background: rgb(1,22,39);
@@ -477,26 +493,27 @@ footer, ul{
   color: #FDFFFC;
 }
 
-#form_user_edit{
-  margin-left: 8%;
-    box-shadow: 5px 5px 5px #d9d9d9, -2px -2px 5px #ffffff;
-    margin-top: 3%;
-    padding: 3%;
-    margin-bottom: 10%;
-    
-}
+
+
 .btn-submit {
   background: rgb(1,22,39);
   background: linear-gradient(13deg, rgba(1,22,39,1) 0%, rgba(46,196,182,1) 81%);
   color: #FDFFFC;
 }
 #registration_form{
-  margin-left: 8%;
+  margin-left: 15%;
   box-shadow: 5px 5px 5px #d9d9d9, -2px -2px 5px #ffffff;
   margin-top: 3%;
   padding: 3%;
   margin-bottom: 10%;
+  border: solid 1px #01162718;
 }
+@media screen and (max-width: 575px) { 
+  #registration_form{
+   width: 100%;
+   margin: 0;
+
+  }}
 
 input[type="radio"]:checked{
   background-color: #011627;

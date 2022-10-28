@@ -4,11 +4,17 @@
     {% block css %}<link rel="stylesheet" href="{{ asset ("assets/css/autre.css") }}"/>{% endblock css %}
  
 {% block header %}
-<h1 class="mt-4">Bienvenue sur CrossfitSAB</h1>
+
+
 {% endblock header %}
 {% block body %}
-
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+<div class="card-container">
+<div class="demo-wrap">
+  <div class="demo-content">
+    <h1 id="crosfit-titre">CROSFITSAB</h1>
+  </div>
+</div>
+<!--<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img   src="https://cdn.pixabay.com/photo/2017/01/09/11/30/dumbbell-1966247__480.jpg" class="d-block w-100" alt="altère de sport">
@@ -28,10 +34,85 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-</div>
+</div>-->
 
+{% if categorie == 1 %}
+  <P>Partenaire de la marque</P>
+{% endif %}
+{% if categorie == 2 %}
+  <P>Salle de sport</P>
+{% endif %}
 
+ {% for structures in structures %}
+ <div class="card cardstructure mt-3 d-inline-flex p-2" style="width: 18rem">
+  {#js pour switch case#}
+  {% if structures.id == 1 %}
+    <img src="https://cdn.pixabay.com/photo/2017/04/22/10/15/woman-2250970__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if structures.id == 2 %}
+    <img src="https://cdn.pixabay.com/photo/2015/07/02/10/22/training-828726__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if structures.id == 3 %}
+    <img class="h-25" src="https://cdn.pixabay.com/photo/2017/04/27/08/29/man-2264825__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if structures.id == 4 %}
+    <img src="https://cdn.pixabay.com/photo/2016/02/04/21/55/gym-room-1180016__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if structures.id == 5 %}
+    <img src="https://cdn.pixabay.com/photo/2018/03/03/22/19/sumoringer-3196753__480.jpg" class="card-img-top" alt="...">
 
+    {% endif %}
+
+  
+ 
+  
+  <div class="card-body">
+    
+  
+    <h5 class="card-title text-capitalize">{{ structures.name }}</h5>
+    <p id="card-text-structure"class="card-text text-capitalize mt-3">{{ structures.description }}</p>
+    <button id="buttondetail"class="btn btn-dark mt-4" type="submit" name"voir_structure"><a href="{{ path ('structure', {'id': structures.id}) }}">Détails</a> </button>  
+  </div>
+</div> 
+    
+
+{% endfor %}
+
+ {% for partenaires in partenaires %}
+ <div class="card mt-4 d-inline-flex p-2" style="width: 18rem;">
+ 
+   
+   {% if partenaires.id == 1 %}
+    <img class="imgpartenaires"src="https://cdn.pixabay.com/photo/2017/04/22/10/15/woman-2250970__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if partenaires.id == 2 %}
+    <img class="imgpartenaires"src="https://cdn.pixabay.com/photo/2015/07/02/10/22/training-828726__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if partenaires.id == 3 %}
+    <img class="imgpartenaires"class="img3"src="https://cdn.pixabay.com/photo/2017/04/27/08/29/man-2264825__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if partenaires.id == 4 %}
+    <img class="imgpartenaires"src="https://cdn.pixabay.com/photo/2016/02/04/21/55/gym-room-1180016__480.jpg" class="card-img-top" alt="...">
+    {% endif %}
+    {% if partenaires.id == 5 %}
+    <img class="imgpartenaires" src="https://cdn.pixabay.com/photo/2018/03/03/22/19/sumoringer-3196753__480.jpg" class="card-img-top" alt="...">
+
+    {% endif %}
+
+   <div class="card-body">
+     <h5 class="card-title text-capitalize">{{ partenaires.name }}</h5>
+     <p id="card-text-partenaire"class="card-text text-capitalize">{{ partenaires.adresse}}</p>
+     <button  class="btn btn-dark mt-4"type="submit" name"voir_partenaire"><a href="{{ path ('partenaires', {'id': partenaires.id}) }}" > Détails </a> </button>
+ 
+  
+        
+       
+        
+    </div>
+  </div>       
+         
+    {% endfor %}
+  </div>
 
 
 {% endblock body %}

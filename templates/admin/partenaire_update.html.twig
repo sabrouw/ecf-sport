@@ -11,7 +11,9 @@
 {% endblock flash %}
  
 {% block body %} 
-
+<button id="button-return">
+	<a href="{{ path ('admin_partenaires') }}"> Retour liste</a>
+</button>
  <form id="partner-update-form"class="form-control">{{ form(partenaireForm) }}</form>
  
  

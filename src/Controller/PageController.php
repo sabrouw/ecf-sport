@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-
+use App\Repository\CategorieRepository;
 use App\Repository\PartenairesRepository;
 use App\Repository\PermissionsRepository;
 use App\Repository\StructuresRepository;
@@ -22,10 +22,14 @@ class PageController extends AbstractController
 {
     /*page d'acceuil public*/
     #[Route('/', name: 'home')]
-    public function home(): Response
-    {
+    public function home(CategorieRepository $categorieRepository, PartenairesRepository $partenairesRepository, StructuresRepository $structuresRepository)
+    {   $categorie = $categorieRepository->findAll();
+        $partenaire = $partenairesRepository->findAll();
+        $structure = $structuresRepository->findAll();
         return $this->render('home.html.twig', [
-            'controller_name' => 'PageController',
+            'partenaires'=> $partenaire,
+            'structures' => $structure,
+            'categorie'=>$categorie
         ]);
     }
 /*page d'acceuil partenaires*/
