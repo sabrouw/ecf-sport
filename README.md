@@ -8,8 +8,8 @@ Ce manuel vous guidera dans la navigation au sein de votre nouvelle application.
             https://ecf-sport.herokuapp.com/login
       
 
-Si vous ne les avez pas reçu ou que vous ne parvenez pas à vous connecter je vous laisse contacter le numéro ci dessous, il vous seront renvoyés.
-        0820820820
+<STRONG>Si vous ne les avez pas reçu ou que vous ne parvenez pas à vous connecter je vous laisse contacter le numéro ci dessous, il vous seront renvoyés.
+        0820820820<STRONG>
         
 . Pour modifier un utilisateur :
 
