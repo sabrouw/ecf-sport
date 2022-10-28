@@ -26,7 +26,7 @@ Si vous ne les avez pas reçu ou que vous ne parvenez pas à vous connecter je v
       
 
   
-      voici quelques exemples de modification que vous pouvez effectuer.
+Ces exemple sont aussi applicable sur l'ensemble des fonctions de modification, d'ajout ou des suppression d'utilisateurs, de partenaires ou de structures.
 
 Cette application a été déployé sur heroku à l'aide d'un bundle créé par une aprenante. Pour cela j'ai suivi ces quelques étapes.
 
