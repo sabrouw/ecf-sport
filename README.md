@@ -3,7 +3,7 @@
 ## Manuel d'utilisation de l'application déployée
       
 Ce manuel vous guidera dans la navigation au sein de votre nouvelle application. 
-- Cliquer sur le lienci-dessous pour vous authentifier sur votre interface administrateur: (Le compte administrateur a été créé au préalable et les identifiants vous a été transmis par courrier. )
+- Merci de cliquer sur le lien ci-dessous pour vous authentifier sur votre interface administrateur: (Le compte administrateur a été créé au préalable et les identifiants vous a été transmis par courrier. )
 
             https://ecf-sport.herokuapp.com/login
       
@@ -12,7 +12,9 @@ Si vous ne les avez pas reçu ou que vous ne parvenez pas à vous connecter je v
         0820820820
         
 1. Pour modifier un utilisateur 
-      2/voici quelques exemples de modification que vous pouvez effectuer.
+
+  <img src="https://1drv.ms/u/s!Aq12nZmKv51OmWcLVOUKTuWRtnxO?e=UfZBds">
+      voici quelques exemples de modification que vous pouvez effectuer.
 
 Cette application a été déployé sur heroku à l'aide d'un bundle créé par une aprenante. Pour cela j'ai suivi ces quelques étapes.
 
