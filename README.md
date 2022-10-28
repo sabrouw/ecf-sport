@@ -8,14 +8,21 @@ Ce manuel vous guidera dans la navigation au sein de votre nouvelle application.
             https://ecf-sport.herokuapp.com/login
       
 
-<STRONG>Si vous ne les avez pas reçu ou que vous ne parvenez pas à vous connecter je vous laisse contacter le numéro ci dessous, il vous seront renvoyés.
-        0820820820<STRONG>
+Si vous ne les avez pas reçu ou que vous ne parvenez pas à vous connecter je vous laisse contacter le numéro ci dessous, il vous seront renvoyés.
+        0820820820
         
-. Pour modifier un utilisateur :
++ Pour modifier un utilisateur, il faut vous rendre dans le panneau à gauche dans "gestion des utilisateurs" puis cliquer sur le bouton modifier utilisateur comme sur l'image ci-dessous:
 
  ![image](https://user-images.githubusercontent.com/91209960/198676677-6b076277-b88b-47fc-bfe1-d58868bb8dd0.png)
  
++ Pour modifier un partenaire et ses informations il faut vous rendre dans le panneau de gauche dans "gestion des partenaires" puis clique sur modifier partenaire.
++ ![image](https://user-images.githubusercontent.com/91209960/198678798-665a0ea5-9ba1-4332-b130-147319908a62.png)
 
+ 
+ il vous ai aussi possible de supprimer un utilisateur en cliquant sur le bouton rouge "supprimer" de l'image, 
+ 
+ <strong>Attention cette action est irreversible et l'utilisateur sera perdu dans le néant intersidéral des moutons.<strong>
+      
 
   
       voici quelques exemples de modification que vous pouvez effectuer.
