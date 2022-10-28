@@ -12,12 +12,12 @@
       
 <div class="container mt-5 containLogForm">
     
-   <form class="form-control mt-4 " id="formLogin" action="{{ path ('login') }}" method="post">
+   <form class="form-control" id="formLogin" action="{{ path ('login') }}" method="post">
     
-    <h1 class="login-h1 mt-4 "> Merci de vous authentifier </h1>
+    <h1 class="login-h1 "> Merci de vous authentifier </h1>
     
-        <label class="text-bold form-label " for="username"id="label_username">Email</label>
-        <input class="form-control mt-4" type="text" id="username" name="_username" value="{{ last_username }}"/>
+        <label class="form-label " for="username"id="label_username">Email</label>
+        <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}"/>
     
         <label class="text-bold form-label mt-4" for="password" id="label_password" >Mot de passe</label>
         <input class="form-control"type="password" id="password" name="_password"/>

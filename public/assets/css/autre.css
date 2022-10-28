@@ -110,13 +110,6 @@ textarea{
 	resize: none;
 }
 
-.formContactDetail{
-	background: linear-gradient(45deg, yellow, darkblue);
-	border-radius: 5%;
-	color: aliceblue;
-	
-}
-
 
 #formLogin{
 	padding-left: 5%;
@@ -135,6 +128,20 @@ textarea{
 	border:solid 2px #FDFFFC;
 	margin-bottom: 20%;
 
+}
+#buttauth{
+
+	background-color: black;
+	position: relative;
+  	letter-spacing: 2px; 
+	text-align: center;
+  	text-transform: uppercase;
+  	color: white;
+  	transition-duration: inherit;
+  	border-image: linear-gradient(#FF9F1C, #011627) 30;
+	border-width: 4px;
+	border-style: solid;
+	
 }
 
 #crosfit-titre{
@@ -160,32 +167,6 @@ textarea{
 		max-width: 100%;
 		
 	 } }
- 
-/* responsive form login*/
-
- @media screen and (max-width: 991px) { 
-	#formLogin{
-		margin:0;
-		max-width: 100%;
-		
-	 } }
- 
-
-#buttauth{
-
-	background-color: black;
-	position: relative;
-  	letter-spacing: 2px; 
-	text-align: center;
-  	text-transform: uppercase;
-  	color: white;
-  	transition-duration: inherit;
-  	border-image: linear-gradient(#FF9F1C, #011627) 30;
-	border-width: 4px;
-	border-style: solid;
-	
-}
-
 
 #buttpass
 {
@@ -201,14 +182,24 @@ textarea{
 	border-style: solid;
 }
 
-
-
 .login-h1{
 	margin-bottom: 10%;
 	color: black;
 }
 
+label{
+	font-weight: bold;
+	color: #000000;
+ }
+/* responsive form login*/
 
+ @media screen and (max-width: 991px) { 
+	#formLogin{
+		margin:0;
+		max-width: 100%;
+		
+	 } }
+ 
 .formContactDetail{
 	padding-left: 5%;
 	padding-right: 5%;
@@ -228,6 +219,8 @@ textarea{
 	justify-content: center;
 
 }
+
+
 @media screen and (max-width: 991px) { 
 	.formContactDetail{
 		margin:0;
@@ -241,9 +234,10 @@ textarea{
 }
 #btn-form-contact{
 	border-image: linear-gradient(#FF9F1C, #011627) 30;
-	margin-bottom:10%;
+	border-width: 4px;
+	border-style: solid;
+	margin-bottom: 15% ;
 }
-
 
 
 
@@ -313,9 +307,8 @@ box-shadow: 5px 29px 31px -18px rgba(231,29,54,0.6);
 		margin-top: 10%;
 		
 	 }
-	 {
-	background-color: #FF9F1C;
-	 }
+	 
+	
 
 	
 	 #btn-search{
