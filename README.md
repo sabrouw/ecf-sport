@@ -15,13 +15,14 @@ Si vous ne les avez pas reçu ou que vous ne parvenez pas à vous connecter je v
 
  ![image](https://user-images.githubusercontent.com/91209960/198676677-6b076277-b88b-47fc-bfe1-d58868bb8dd0.png)
  
-+ Pour modifier un partenaire et ses informations il faut vous rendre dans le panneau de gauche dans "gestion des partenaires" puis clique sur modifier partenaire.
-+ ![image](https://user-images.githubusercontent.com/91209960/198678798-665a0ea5-9ba1-4332-b130-147319908a62.png)
++ Pour modifier créer un utilisateurs et ses informations cliquer sur créer un utilisateur.
+
+![image](https://user-images.githubusercontent.com/91209960/198678798-665a0ea5-9ba1-4332-b130-147319908a62.png)
 
  
  il vous ai aussi possible de supprimer un utilisateur en cliquant sur le bouton rouge "supprimer" de l'image, 
  
- <strong>Attention cette action est irreversible et l'utilisateur sera perdu dans le néant intersidéral des moutons.<strong>
+ `Attention cette action est irreversible et l'utilisateur sera perdu dans le néant intersidéral des moutons.`
       
 
   
