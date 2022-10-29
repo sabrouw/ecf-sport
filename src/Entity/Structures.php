@@ -21,7 +21,7 @@ class Structures
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: 'string', length: 255)]
     private ?string $name = null;
 
          
@@ -70,11 +70,7 @@ class Structures
         $this->perms = new ArrayCollection();
     }
 
-    
-
-
-
-    
+ 
     public function getId(): ?int
     {
         return $this->id;

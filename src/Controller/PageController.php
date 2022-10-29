@@ -61,10 +61,10 @@ class PageController extends AbstractController
 /*page d'acceuil si connecté*/
     #[IsGranted("ROLE_USER")]
     #[Route('/connecte', name: 'home_connecte')]
-    public function homeConnecte(PermissionsRepository $permissionsRepository, UserRepository $userRepository, PartenairesRepository $partenairesRepository, StructuresRepository $structuresRepository)
+    public function homeConnecte($id,PermissionsRepository $permissionsRepository, UserRepository $userRepository, PartenairesRepository $partenairesRepository, StructuresRepository $structuresRepository)
     {   $user = $userRepository->findAll();
         $partenaire = $partenairesRepository->findAll();
-        $structure = $structuresRepository->findAll();
+        $structure = $structuresRepository->findOneBy(['structure' => 'name']);
         $permissions = $permissionsRepository->findAll();
        /* $form = $this->createFormBuilder()
         
