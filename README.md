@@ -12,6 +12,7 @@ https://ecf-sport.herokuapp.com/login
 Si vous ne les avez pas reçu ou que vous ne parvenez pas à vous connecter je vous laisse contacter le numéro ci dessous, il vous seront renvoyés. 0820820820
 
 + Pour modifier un utilisateur, il faut vous rendre dans le panneau à gauche dans "gestion des utilisateurs" puis cliquer sur le bouton modifier utilisateur comme sur l'image ci-dessous:
+![image](https://user-images.githubusercontent.com/91209960/198814899-96436cbd-d6bb-4b4b-940a-1feef0a374cc.png)
 
 
 
