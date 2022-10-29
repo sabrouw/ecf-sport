@@ -56,21 +56,21 @@ composer remove nat/deploy
 ```
 
 
-## Run Locally
+## Installation Locale
 
-Clone the project
+Cloner le projet à partir de github.com
 
 ```bash
   git clone git@github.com:sabrouw/ecf-sport.git
 ```
 
-Go to the project directory
+Aller dans le dossier du projet
 
 ```bash
   cd my-project
 ```
 
-Install dependencies
+Installer les dépendences
 
 ```bash
   npm install
@@ -85,4 +85,8 @@ Start the server
 ```bash
   symfony serve
 ```
+
+Les diagrammes et la charte graphique sont disponibles ici:
+
+https://drive.google.com/drive/folders/1ZUHbDmi4UeVoljQCQQ_qBhKhT1g4Di4_?usp=sharing
 
