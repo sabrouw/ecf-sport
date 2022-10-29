@@ -12,6 +12,9 @@
 {% endblock flash %}
 
 {% block body %} 
+<button id="button-return-permissions">
+	<a href="{{ path ('admin_permissions') }}"> Retour liste</a>
+</button>
 
 <form id="partner-update-form"class="form-control">{{ form(permissionForm) }}</form>
 

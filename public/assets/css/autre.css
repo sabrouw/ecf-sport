@@ -127,8 +127,16 @@ textarea{
 	color: white;
 	border:solid 2px #FDFFFC;
 	margin-bottom: 20%;
+	padding-top: -15%;
 
 }
+@media screen and (max-width: 991px) { 
+	#formLogin{
+		margin:0;
+		max-width: 100%;
+		
+	 } }
+
 #buttauth{
 
 	background-color: black;
@@ -144,6 +152,23 @@ textarea{
 	
 }
 
+#buttpass
+{
+	background-color: black;
+	position: relative;
+  	letter-spacing: 2px; 
+	text-align: center;
+  	text-transform: uppercase;
+  	color: white;
+  	transition-duration: inherit;
+  	border-image: linear-gradient(#FF9F1C, #011627) 30;
+	border-width: 4px;
+	border-style: solid;
+}
+
+.login-h1{
+	color: black;
+}
 #crosfit-titre{
 	z-index: 1;
 	opacity: 1;
@@ -161,31 +186,7 @@ textarea{
 		
 		
 	 } }
-@media screen and (max-width: 991px) { 
-	#formLogin{
-		margin:0;
-		max-width: 100%;
-		
-	 } }
 
-#buttpass
-{
-	background-color: black;
-	position: relative;
-  	letter-spacing: 2px; 
-	text-align: center;
-  	text-transform: uppercase;
-  	color: white;
-  	transition-duration: inherit;
-  	border-image: linear-gradient(#FF9F1C, #011627) 30;
-	border-width: 4px;
-	border-style: solid;
-}
-
-.login-h1{
-	margin-bottom: 10%;
-	color: black;
-}
 
 label{
 	font-weight: bold;
@@ -193,7 +194,7 @@ label{
  }
 /* responsive form login*/
 
- @media screen and (max-width: 991px) { 
+ @media screen and (max-width: 575px) { 
 	#formLogin{
 		margin:0;
 		max-width: 100%;

@@ -10,6 +10,8 @@
 
 
 {% block header %}
+
+
 	<h1 id="titre_form_update_structure">
 		Formulaire de modification de structure
 	</h1>
@@ -25,6 +27,10 @@
 
 
 {% block body %}
+
+<button id="button-return-permissions">
+	<a href="{{ path ('admin_permissions') }}"> Retour liste</a>
+</button>
 	
 		<div id="modif_structures" class="form-control">{{ form (structureForm) }}</div>
 		

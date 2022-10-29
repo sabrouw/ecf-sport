@@ -18,6 +18,9 @@
 
 
 {% block body %} 
+<button id="button-return-permissions">
+	<a href="{{ path ('admin_users') }}"> Retour liste</a>
+</button>
 <div class=" form-control-lg mx-auto row g-3">
   <h1> Ajouter un utilisateur</h1>
 {{ form(registrationForm) }}

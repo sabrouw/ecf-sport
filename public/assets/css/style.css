@@ -445,6 +445,23 @@ main{
   
       
     }
+#form_insert_partenaire{
+  margin-left: 15%;
+  box-shadow: 5px 5px 5px #d9d9d9, -2px -2px 5px #ffffff;
+  margin-top: 3%;
+  padding: 3%;
+  margin-bottom: 10%;
+  border: solid 1px #01162718;
+}
+    
+#form_insert_structure{
+	margin-left: 15%;
+  box-shadow: 5px 5px 5px #d9d9d9, -2px -2px 5px #ffffff;
+  margin-top: 3%;
+  padding: 3%;
+  margin-bottom: 10%;
+  border: solid 1px #01162718;
+}
   
 .form-label{
   font-size: 1.5rem;

@@ -27,15 +27,15 @@ class AdminPartenairesController extends AbstractController
         ]);
     }
 
-    //partie recherche d'un partenaire par id
-    #[Route("admin/partenaire/{id}", name: "admin_partenaire")]
-    public function adminPartenaire($id, PartenairesRepository $partenairesRepository)
-    { //recupere le partenaire par l'id dans l'url
-        $partenaire = $partenairesRepository->find($id);
-        return $this->render('admin/partenaire.html.twig', [
-            'partenaire' => $partenaire
-        ]);
-    }
+    ////partie recherche d'un partenaire par id
+    //#[Route("admin/partenaire/{id}", name: "admin_partenaire")]
+    //public function adminPartenaire($id, PartenairesRepository $partenairesRepository)
+    //{ //recupere le partenaire par l'id dans l'url
+    //    $partenaire = $partenairesRepository->find($id);
+    //    return $this->render('admin/partenaire.html.twig', [
+    //        'partenaire' => $partenaire
+    //    ]);
+    //}
     //permet à l'administrateur de supprimer un partenaire dans la bdd
     #[Route('/admin/partenaires/{id}/delete', name: 'admin_partenaires_delete')]
     public function deletePartenaire($id, PartenairesRepository $partenairesRepository, EntityManagerInterface $entityManagerInterface)

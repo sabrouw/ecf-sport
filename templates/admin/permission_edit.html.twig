@@ -27,6 +27,10 @@
 
 
 {% block body %}   
+
+<button id="button-return-permissions">
+	<a href="{{ path ('admin_permissions') }}"> Retour liste</a>
+</button>
 <main id="form_update_permissions">
 	<div id="modif_permissions" class="form-control">{{ form(form) }}</div>
 	</main>
