@@ -33,12 +33,6 @@ class RegistrationController extends AbstractController
     #[Route('/admin/register/{id?0}', name: 'admin_register')]
     public function register($id,User $user =null,Request $request, UserRepository $userRepository, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {   $user = $userRepository->find($id);
-        
-        
-        /*if (!$user){
-        $user = new User();*
-    }   
-      */
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
         

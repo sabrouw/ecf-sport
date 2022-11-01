@@ -66,28 +66,6 @@ class PageController extends AbstractController
         $partenaire = $partenairesRepository->findAll();
         $structure = $structuresRepository->findAll();
         $permissions = $permissionsRepository->findAll();
-       /* $form = $this->createFormBuilder()
-        
-        ->add('statut', CheckboxType::class,[
-            'label' => 'actif',
-            'required=> false,
-            
-            
-            'class' => Partenaire::class,
-                 ]) 
-            
-        
-        
-        ->add('valider', SubmitType::class)
-        
-        ->getForm()
-    ;
-if ($form->isSubmitted() && $form->isValid()) {
-    // encoder mot de passe entré
-
-    $permissions = $form->getData();
-    
-}*/
         return $this->render('connecte.html.twig', [
             'user' => $user,
             'partenaire'=> $partenaire,

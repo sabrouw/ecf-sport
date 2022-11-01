@@ -10,9 +10,9 @@
     {% endif %}
 
       
-<div class="container mt-5 containLogForm">
+
     
-   <form class="form-control" id="formLogin" action="{{ path ('login') }}" method="post">
+   <form  id="formLogin" action="{{ path ('login') }}" method="post">
     
     <h1 class="login-h1 "> Merci de vous authentifier </h1>
     
@@ -29,7 +29,7 @@
         <a id="buttpass" class="btn btn-dark mt-4"href="{{ path ('passe_oublie') }}"> Mot de passe oublié </a>
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
     </form>
-</div>
+
 
 
 {% endblock %}
