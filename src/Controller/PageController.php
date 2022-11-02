@@ -64,30 +64,8 @@ class PageController extends AbstractController
     public function homeConnecte(PermissionsRepository $permissionsRepository, UserRepository $userRepository, PartenairesRepository $partenairesRepository, StructuresRepository $structuresRepository)
     {   $user = $userRepository->findAll();
         $partenaire = $partenairesRepository->findAll();
-        $structure = $structuresRepository->findOneBy(['structure' => 'name']);
+        $structure = $structuresRepository->findAll();
         $permissions = $permissionsRepository->findAll();
-       /* $form = $this->createFormBuilder()
-        
-        ->add('statut', CheckboxType::class,[
-            'label' => 'actif',
-            'required=> false,
-            
-            
-            'class' => Partenaire::class,
-                 ]) 
-            
-        
-        
-        ->add('valider', SubmitType::class)
-        
-        ->getForm()
-    ;
-if ($form->isSubmitted() && $form->isValid()) {
-    // encoder mot de passe entré
-
-    $permissions = $form->getData();
-    
-}*/
         return $this->render('connecte.html.twig', [
             'user' => $user,
             'partenaire'=> $partenaire,
