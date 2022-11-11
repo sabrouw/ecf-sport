@@ -12,17 +12,8 @@ class PartenaireActiveType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('adresse')
-            ->add('statut')
-            ->add('img')
-            ->add('user')
-            ->add('permission1')
-            ->add('permission2')
-            ->add('permission3')
-            ->add('permission4')
-            ->add('permission5')
-        ;
+            
+            ->add('statut');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -69,9 +69,9 @@ class AdminPermissionsController extends AbstractController
         if ($permissionForm->isSubmitted() && $permissionForm->isValid()) {
             $entityManagerInterface->persist($permission);
             $entityManagerInterface->flush();
-            
+            $this->addFlash(type: 'success', message: 'Le partenaire a bien été ajouté');
         } 
-        $this->addFlash(type: 'success', message: 'Le partenaire a bien été ajouté');
+       
         return $this->render('admin/permission_insert.html.twig', [
             'permissionForm' => $permissionForm->createView()
         ]);

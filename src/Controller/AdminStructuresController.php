@@ -60,6 +60,7 @@ class AdminStructuresController extends AbstractController
         if ($structureForm->isSubmitted() && $structureForm->isValid()) {
             $entityManagerInterface->persist($structure);
             $entityManagerInterface->flush();
+            $this->addFlash(type: 'success', message: 'La structure a bien été ajouté');
         //et envoie email au partenaire correspondant à la structure    
             //$emailToUser = (new TemplatedEmail())
             //->from('sabrow@hotmail.fr') 
@@ -83,7 +84,7 @@ class AdminStructuresController extends AbstractController
     //
 ;
         }
-        $this->addFlash(type: 'success', message: 'La structure a bien été ajouté');
+        
         return $this->render('admin/structure_insert.html.twig', [
             'structureForm' => $structureForm->createView()
         ]);
@@ -98,8 +99,9 @@ class AdminStructuresController extends AbstractController
         if ($structureForm->isSubmitted() && $structureForm->isValid()) {
             $entityManagerInterface->persist($structure);
             $entityManagerInterface->flush();
+            $this->addFlash(type: 'success', message: 'La structure a bien été mis à jour');
         }
-        $this->addFlash(type: 'success', message: 'La structure a bien été mis à jour');
+        
         return $this->render('admin/structure_update.html.twig', [
             'structureForm' => $structureForm->createView()
         ]);

@@ -109,33 +109,49 @@ color: white;
 textarea{
 	resize: none;
 }
-
+.login-h1{
+	color: black;
+}
 
 #formLogin{
-	padding-left: 5%;
-	padding-right: 5%;
-	margin-left: 25%;
-	margin-right: 25%;
+	margin:10%;
 	display: flex;
-  	flex-direction: column;
+	flex-direction: column;
 	justify-content: center;
-  	min-height: 100vh;
-	max-width: 50%;
 	background: rgb(1,22,39);
 	background: linear-gradient(13deg, rgba(1,22,39,1) 0%, rgba(255,159,28,1) 55%);
 	border-radius: 2%;
 	color: white;
 	border:solid 2px #FDFFFC;
-	margin-bottom: 20%;
-	padding-top: -15%;
+	padding: 5%;
+	max-width: 80%;
+	
+ }
+ .formContactDetail{
+	margin:2%;
+	margin-top: 5%;
+	padding-top: 5%;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 0% ;
+	max-width: 100%;
+	max-height: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background: rgb(1,22,39);
+	background: linear-gradient(13deg, rgba(1,22,39,1) 0%, rgba(255,159,28,1) 55%);
+	border-radius: 2%;
+	color: white;
+	border:solid 2px #FDFFFC;
 
-}
-@media screen and (max-width: 991px) { 
-	#formLogin{
-		margin:0;
-		max-width: 100%;
-		
-	 } }
+	
+	
+ }
+
+
+
+	 
 
 #buttauth{
 
@@ -164,11 +180,10 @@ textarea{
   	border-image: linear-gradient(#FF9F1C, #011627) 30;
 	border-width: 4px;
 	border-style: solid;
+	margin-bottom: 3%;
 }
 
-.login-h1{
-	color: black;
-}
+
 #crosfit-titre{
 	z-index: 1;
 	opacity: 1;
@@ -192,54 +207,6 @@ label{
 	font-weight: bold;
 	color: #000000;
  }
-/* responsive form login*/
-
- @media screen and (max-width: 575px) { 
-	#formLogin{
-		margin:0;
-		max-width: 100%;
-		
-	 } }
- 
-.formContactDetail{
-	padding-left: 5%;
-	padding-right: 5%;
-	margin-left: 25%;
-	margin-right: 25%;
-	padding-top: 10%;
-	display: flex;
-  	flex-direction: column;
-  	min-height: 100vh;
-	max-width: 50%;
-	background: rgb(1,22,39);
-	background: linear-gradient(13deg, rgba(1,22,39,1) 0%, rgba(255,159,28,1) 55%);
-	border-radius: 2%;
-	color: white;
-	border:solid 2px #FDFFFC;
-	margin-bottom: 20%;
-	justify-content: center;
-
-}
-
-
-@media screen and (max-width: 991px) { 
-	.formContactDetail{
-		margin:0;
-		max-width: 100%;
-		
-	 } }
-
-.titrecontact{
-	padding-bottom: 15%;
-	color: black;
-}
-#btn-form-contact{
-	border-image: linear-gradient(#FF9F1C, #011627) 30;
-	border-width: 4px;
-	border-style: solid;
-	margin-bottom: 15% ;
-}
-
 
 
 .card-title{
@@ -308,11 +275,8 @@ box-shadow: 5px 29px 31px -18px rgba(231,29,54,0.6);
 		margin-top: 10%;
 		
 	 }
-	 
 	
-	 .navbar-toggler{
-		background-color: #ECA72C;
-	 }
+
 	
 	 #btn-search{
 		background-color: #011627;
@@ -322,4 +286,3 @@ box-shadow: 5px 29px 31px -18px rgba(231,29,54,0.6);
 	 }	 
 
 	
-	 

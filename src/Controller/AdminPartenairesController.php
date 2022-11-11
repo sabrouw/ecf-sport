@@ -58,9 +58,9 @@ class AdminPartenairesController extends AbstractController
         if ($partenaireForm->isSubmitted() && $partenaireForm->isValid()) {
             $entityManagerInterface->persist($partenaire);
             $entityManagerInterface->flush();
-            
+            $this->addFlash(type: 'success', message: 'Le partenaire a bien été ajouté');
         } 
-        $this->addFlash(type: 'success', message: 'Le partenaire a bien été ajouté');
+       
         return $this->render('admin/partenaire_insert.html.twig', [
             'partenaireForm' => $partenaireForm->createView()
         ]);
