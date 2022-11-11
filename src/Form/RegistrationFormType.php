@@ -88,7 +88,9 @@ class RegistrationFormType extends AbstractType
                 'attr'=>['class'=> 'checkbox']
             ])
             ->add('submit', SubmitType::class,[
-                'attr'=>['class'=>'btn-submit']]);
+                'attr'=>['class'=>'btn-submit'],
+                'label'=> 'Valider',
+            ]);
             
     }
 

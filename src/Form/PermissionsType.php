@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Permissions;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -21,7 +20,8 @@ class PermissionsType extends AbstractType
         ->add('activite')
         ->add('description')     
         ->add('valider', SubmitType::class,[
-            'attr'=>['class'=>'btn-submit']
+            'attr'=>['class'=>'btn-submit'],
+            'label'=> 'Valider',
         ])  
             
         ;

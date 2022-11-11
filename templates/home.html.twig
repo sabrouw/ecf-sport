@@ -14,27 +14,6 @@
     <h1 id="crosfit-titre">CROSFITSAB</h1>
   </div>
 </div>
-<!--<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img   src="https://cdn.pixabay.com/photo/2017/01/09/11/30/dumbbell-1966247__480.jpg" class="d-block w-100" alt="altère de sport">
-    </div>
-    <div class="carousel-item">
-      <img  src="https://cdn.pixabay.com/photo/2018/04/04/16/44/kettlebell-3290296__480.jpg" class="d-block w-100" alt="homme qui fait du sport">
-    </div>
-    <div class="carousel-item">
-      <img  src="https://cdn.pixabay.com/photo/2018/07/17/21/36/fitness-3545063_1280.jpg" class="d-block w-100" alt="homme dans une salle de sport">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>-->
 
 {% if categorie == 1 %}
   <P>Partenaire de la marque</P>
@@ -63,13 +42,10 @@
 
     {% endif %}
 
-  
- 
-  
+   
   <div class="card-body">
     
-  
-    <h5 class="card-title text-capitalize">{{ structures.name }}</h5>
+      <h5 class="card-title text-capitalize">{{ structures.name }}</h5>
     <p id="card-text-structure"class="card-text text-capitalize mt-3">{{ structures.description }}</p>
     <button id="buttondetail"class="btn btn-dark mt-4" type="submit" name"voir_structure"><a href="{{ path ('structure', {'id': structures.id}) }}">Détails</a> </button>  
   </div>

@@ -53,12 +53,12 @@ class StructuresType extends AbstractType
                                
    
             ->add('Modifier', SubmitType::class,[
-                'attr'=>['class'=>'btn-submit']
+                'attr'=>['class'=>'btn-submit'],
+                'label'=> 'Valider',
                 
             ])
         ;
-                /*'expanded'=> true,
-                'multiple'=> false,*/
+              
                     
     }
                     
